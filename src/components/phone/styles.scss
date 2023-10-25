@@ -1,0 +1,95 @@
+.phone {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      width: 30%;
+      height: 640px;
+      z-index: 10;
+      user-select: none;
+      & figure{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 320px;
+            height: 640px;
+            margin: 30px;
+            pointer-events: none;
+            & img {
+                  width: 100%;
+            }
+      }
+      & .questions {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 300px;
+            height: 620px;
+            margin: 30px;
+            padding: 10px 10px 10px 10px;
+            &__inner {
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: center;
+                  align-items: center;
+                  background: #8ecae6;
+                  text-align: center;
+                  height: 100%;
+                  border-radius: 26px;
+                  -webkit-border-radius: 26px;
+                  -moz-border-radius: 26px;
+                  -ms-border-radius: 26px;
+                  -o-border-radius: 26px;
+                  & h1 {
+                        font-size: 2rem;
+                        padding: 30px 14px 10px 14px
+                  }
+                  & .pregunta {
+                        font-size: 1.6rem;
+                        margin: 20px auto;
+                  }
+                  & .respuestas{
+                        display: flex;
+                        flex-direction: column;
+                        width: 100%;
+                        gap: 12px;
+                        & button {
+                              width: 100%;
+                              background-color: #219ebc;
+                              color: white;
+                              cursor: pointer;
+                              &:hover {
+                                    background-color: #023047;
+                              }
+                        }
+                  }
+                  & .send {
+                        position: relative;
+                        padding: 10px 40px;
+                        margin: 20px auto;
+                        float: left;
+                        border-radius: 3px;
+                        font-size: 20px;
+                        color: #FFF;
+                        text-decoration: none;
+                        background-color: #023047;
+                        border: none;
+                        border-bottom: 5px solid #073e5a;
+                        text-shadow: 0px -2px #07415e;
+                        -webkit-transition: all 0.1s;
+                        transition: all 0.1s;
+                        -moz-transition: all 0.1s;
+                        -ms-transition: all 0.1s;
+                        -o-transition: all 0.1s;
+}
+                       
+                       .send:hover, .send:active {
+                        -webkit-transform: translate(0px,5px);
+                        -ms-transform: translate(0px,5px);
+                        transform: translate(0px,5px);
+                        border-bottom: 1px solid #023047;
+                       }
+            }
+      }
+}

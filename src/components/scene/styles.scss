@@ -1,0 +1,38 @@
+.box-scene {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      height: 100vh;
+}
+.panorama {
+      height: 100%;
+      width: 100%;
+}
+.pnlm-hotspot-base {
+      &.spot {
+            width: 30px;
+            height: 63px;
+            background-image: url('../../assets/iconScenes/produClick.png');
+            background-size: contain;
+            &:hover {
+                  width: 34px;
+                  height: 73px;
+            }
+            &:active {
+                  width: 28px;
+                  height: 58px;
+            }
+      }
+      &.m-spot {
+            height: 26px;
+            width: 26px;
+            border-radius: 13px;
+            background-color: orangered;
+            &:hover {
+                  background: green;
+            }
+      }
+
+}
