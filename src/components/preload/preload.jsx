@@ -11,11 +11,14 @@ export default function Preload() {
       },[])
       return (
             <>
-                  <section className="preload animate__animated" ref={refExit}>
+                  {/* <section className="preload animate__animated" ref={refExit}>
                         <div className="loader">
                               <div className="eye"></div>
                         </div>
                         <h1>Store Viwer</h1>
+                  </section> */}
+                  <section className="preload animate__animated" ref={refExit}>
+                        
                   </section>
             </>
       )

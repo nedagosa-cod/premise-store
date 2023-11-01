@@ -44,21 +44,14 @@ export default function Scene() {
       sceneFadeDuration: 10,
       hotSpots: [
         {
-          text: "Yogurt",
+          text: "Canastas",
           type: "custom",
-          pitch: -13.62,
-          yaw: -107.69,
+          pitch: -43,
+          yaw: -135,
           cssClass: "spot",
           clickHandlerFunc: () => {
-            resABCD("Geografía");
+            resABCD("Grupo Z");
           },
-        },
-        {
-          type: "custom",
-          text: "Chaqeuta",
-          pitch: -16.28,
-          yaw: -1.66,
-          cssClass: "spot",
         },
         {
           text: "Pasillo 1",
@@ -100,16 +93,14 @@ export default function Scene() {
       hfov: 120,
       hotSpots: [
         {
+          text: "Canastas",
           type: "custom",
-          pitch: -16.15,
-          yaw: -157.18,
+          pitch: -21,
+          yaw: -13,
           cssClass: "spot",
-        },
-        {
-          type: "custom",
-          pitch: -16.28,
-          yaw: -1.66,
-          cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("Grupo A");
+          },
         },
         {
           text: "adelante",

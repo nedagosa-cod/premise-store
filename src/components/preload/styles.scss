@@ -8,7 +8,9 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      background: #1f1f1f;
+      // background: #1f1f1f;
+      background-image: url('../../assets/img/porton.jpg');
+      background-size: cover;
       z-index: 1000;
       h1 {
             font-size: 4rem;

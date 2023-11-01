@@ -12,26 +12,33 @@
 }
 .pnlm-hotspot-base {
       &.spot {
-            width: 30px;
-            height: 63px;
+            width: 60px;
+            height: 60px;
             background-image: url('../../assets/iconScenes/produClick.png');
-            background-size: contain;
+            background-size: cover;
+            cursor: pointer;
             &:hover {
-                  width: 34px;
-                  height: 73px;
+                  width: 70px;
+                  height: 70px;
             }
             &:active {
-                  width: 28px;
-                  height: 58px;
+                  width: 55px;
+                  height: 55px;
             }
       }
       &.m-spot {
-            height: 26px;
-            width: 26px;
-            border-radius: 13px;
-            background-color: orangered;
+            width: 60px;
+            height: 60px;
+            background-image: url('../../assets/iconScenes/nextScene.png');
+            background-size: cover;
+            cursor: pointer;
             &:hover {
-                  background: green;
+                  width: 70px;
+                  height: 70px;
+            }
+            &:active {
+                  width: 55px;
+                  height: 55px;
             }
       }
 
