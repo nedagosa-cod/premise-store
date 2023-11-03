@@ -577,6 +577,7 @@ export default function Scene() {
       hotSpots: nameScene.hotSpots.map((element) => element),
     });
   };
+  let alertPreload = true
   useEffect(() => {
     createPannellum(scene);
   }, [scene]);
@@ -584,7 +585,7 @@ export default function Scene() {
     <div className="box-scene">
       <Phone ask={ask} answers={answers} numAsk={numAsk} type={typee}/>
       <div id="panorama" className="panorama"></div>
-      <Preload />
+      <Preload funct={alertPreload} />
     </div>
   );
 }

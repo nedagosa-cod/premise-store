@@ -7,18 +7,15 @@ import { useEffect, useRef } from 'react';
 
 import Swal from 'sweetalert2';
 
-export default function Preload() {
+export default function Preload(props) {
       const refExit = useRef()
-
-
-
 
       useEffect(()=>{
             setTimeout(()=>{
                   refExit.current.classList.add('animate__slideOutUp')
             },2500)
             setTimeout(()=>{
-                  if (window.location.href.includes('store')) {
+                  if (props.funct) {
                         Swal.fire({
                               icon: 'question',
                               title: 'Información de uso',
