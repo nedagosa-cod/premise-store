@@ -17,6 +17,7 @@
             background-image: url('../../assets/iconScenes/produClick.png');
             background-size: cover;
             cursor: pointer;
+            font-size: 1.4rem;
             &:hover {
                   width: 70px;
                   height: 70px;
@@ -32,6 +33,7 @@
             background-image: url('../../assets/iconScenes/nextScene.png');
             background-size: cover;
             cursor: pointer;
+            font-size: 1.4rem;
             &:hover {
                   width: 70px;
                   height: 70px;
@@ -40,6 +42,26 @@
                   width: 55px;
                   height: 55px;
             }
+      }
+      &.foto {
+            width: 60px;
+            height: 60px;
+            background-image: url('../../assets/iconScenes/captureScreen.png');
+            background-size: cover;
+            cursor: pointer;
+            & span {
+                  font-size: 1.4rem;
+                  width: auto;
+                  max-width: 200px;
+            }
+            &:hover {
+                  width: 70px;
+                  height: 70px;
+            }
+            &:active {
+                  width: 55px;
+                  height: 55px;
+            } 
       }
 
 }

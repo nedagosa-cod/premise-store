@@ -21,6 +21,7 @@ export default function Scene() {
   const [ask, setAks] = useState("");
   const [answers, setAnswers] = useState([]);
   const [numAsk, setNumAsk] = useState(0);
+  const [typee, setTypee] = useState('');
 
   const changeScene = (nameScene) => {
     setScene(dataScene[nameScene]);
@@ -32,6 +33,7 @@ export default function Scene() {
     setAks(res[numRandom].titulo);
     setAnswers(res[numRandom].arrayRespuestas);
     setNumAsk(res[numRandom].id);
+    setTypee(res[numRandom].tipo)
   };
 
   const dataScene = {
@@ -44,6 +46,56 @@ export default function Scene() {
       sceneFadeDuration: 10,
       hotSpots: [
         {
+          text: "Foto",
+          type: "custom",
+          pitch: -8,
+          yaw: -76,
+          cssClass: "foto",
+          clickHandlerFunc: () => {
+            resABCD("Img_Coca_Cola");
+          },
+        },
+        {
+          text: "Canastas",
+          type: "custom",
+          pitch: -21,
+          yaw: 31,
+          cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("Grupo A");
+          },
+        },
+        {
+          text: "Canastas",
+          type: "custom",
+          pitch: 37,
+          yaw: 53,
+          cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("Grupo A");
+          },
+        },
+        {
+          text: "Canastas",
+          type: "custom",
+          pitch: -26,
+          yaw: 71,
+          cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("Grupo A");
+          },
+        },
+        {
+          text: "Canastas",
+          type: "custom",
+          pitch: -17,
+          yaw: 122,
+          cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("Grupo A");
+          },
+        },
+        {
           text: "Canastas",
           type: "custom",
           pitch: -43,
@@ -51,6 +103,16 @@ export default function Scene() {
           cssClass: "spot",
           clickHandlerFunc: () => {
             resABCD("Grupo Z");
+          },
+        },
+        {
+          text: "Neveras",
+          type: "custom",
+          pitch: -0.63,
+          yaw: -65,
+          cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("Neveras");
           },
         },
         {
@@ -95,11 +157,21 @@ export default function Scene() {
         {
           text: "Canastas",
           type: "custom",
-          pitch: -21,
-          yaw: -13,
+          pitch: -2,
+          yaw: 26,
           cssClass: "spot",
           clickHandlerFunc: () => {
             resABCD("Grupo A");
+          },
+        },
+        {
+          text: "Marca de Presencia",
+          type: "custom",
+          pitch: 14,
+          yaw: -158,
+          cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("mp");
           },
         },
         {
@@ -214,16 +286,14 @@ export default function Scene() {
       hfov: 120,
       hotSpots: [
         {
+          text: "Canastas",
           type: "custom",
-          pitch: -16.15,
-          yaw: -157.18,
+          pitch: 3,
+          yaw: -25,
           cssClass: "spot",
-        },
-        {
-          type: "custom",
-          pitch: -16.28,
-          yaw: -1.66,
-          cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("Grupo A");
+          },
         },
         {
           text: "adelante",
@@ -255,18 +325,6 @@ export default function Scene() {
       hfov: 120,
       hotSpots: [
         {
-          type: "custom",
-          pitch: -16.15,
-          yaw: -157.18,
-          cssClass: "spot",
-        },
-        {
-          type: "custom",
-          pitch: -16.28,
-          yaw: -1.66,
-          cssClass: "spot",
-        },
-        {
           text: "adelante",
           type: "custom",
           pitch: -42,
@@ -296,10 +354,14 @@ export default function Scene() {
       hfov: 120,
       hotSpots: [
         {
+          text: "Canastas",
           type: "custom",
-          pitch: -16.15,
-          yaw: -157.18,
+          pitch: -2,
+          yaw: 26,
           cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("Grupo A");
+          },
         },
         {
           type: "custom",
@@ -429,16 +491,14 @@ export default function Scene() {
       hfov: 120,
       hotSpots: [
         {
+          text: "Canastas",
           type: "custom",
-          pitch: -16.15,
-          yaw: -157.18,
+          pitch: 8,
+          yaw: 116,
           cssClass: "spot",
-        },
-        {
-          type: "custom",
-          pitch: -16.28,
-          yaw: -1.66,
-          cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("Grupo A");
+          },
         },
         {
           text: "adelante",
@@ -470,10 +530,14 @@ export default function Scene() {
       hfov: 120,
       hotSpots: [
         {
+          text: "Canastas",
           type: "custom",
-          pitch: -16.15,
-          yaw: -157.18,
+          pitch: 5,
+          yaw: -66,
           cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("Grupo A");
+          },
         },
         {
           type: "custom",
@@ -518,7 +582,7 @@ export default function Scene() {
   }, [scene]);
   return (
     <div className="box-scene">
-      <Phone ask={ask} answers={answers} numAsk={numAsk} />
+      <Phone ask={ask} answers={answers} numAsk={numAsk} type={typee}/>
       <div id="panorama" className="panorama"></div>
       <Preload />
     </div>

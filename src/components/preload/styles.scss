@@ -124,3 +124,33 @@
         transform: scale(0.3);
       }
     }
+
+
+    .swal2-popup {
+      & .myswal-title {
+        color: #ff5b4a;
+        font-size: 3rem;
+      }
+      & .informacion {
+        & div {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 12px auto;
+          gap: 12px;
+          & span {
+            font-size: 1.8rem;
+          }
+        }
+        & figure {
+          width: 66px;
+        }
+      }
+      & .myswal-button-confirm {
+        font-size: 1.6rem;
+      }
+      & .myswal-icon{
+          width: 6rem;
+          height: 6rem;
+      }
+    }

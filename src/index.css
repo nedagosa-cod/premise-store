@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;600;800&display=swap');
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -16,14 +17,31 @@
 * {
   margin: 0;
   padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: 'Geologica', sans-serif;
+}
+img,
+picture,
+video,
+iframe,
+figure {
+    width: 100%;
+    display: block;
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: center center;
+    object-position: center center;
 }
 a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
-}
-img {
-  width: 100%;
 }
 a:hover {
   color: #535bf2;
@@ -53,6 +71,26 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+
+form,
+input,
+textarea,
+select,
+button,
+label {
+        hyphens: none;
+        font-family: inherit;
+        font-size: inherit;
+        background-color: transparent;
+        color: inherit;
+        border: none;
+        display: block;
+        
+        -webkit-hyphens: none;
+        -moz-hyphens: none;
+        -ms-hyphens: none;
 }
 
 @media (prefers-color-scheme: light) {

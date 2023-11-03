@@ -4,7 +4,7 @@
       left: 0;
       display: flex;
       align-items: center;
-      width: 30%;
+      // width: 30%;
       height: 640px;
       z-index: 10;
       user-select: none;
@@ -24,14 +24,14 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 300px;
-            height: 620px;
-            margin: 30px;
+            width: 320px;
+            height: 640px;
+            margin: 0 0 30px 30px;
             padding: 10px 10px 10px 10px;
             &__inner {
                   display: flex;
                   flex-direction: column;
-                  justify-content: center;
+                  justify-content: space-between;
                   align-items: center;
                   background: #fff;
                   text-align: center;
@@ -47,13 +47,15 @@
                         & h1 {
                               text-align: end;
                               color: #fff;
-                              font-size: 1rem;
+                              font-size: 1.4rem;
                               padding: 30px 14px 10px 14px
                         }
                   }
-
+                  & .mid {
+                        min-height: 450px;
+                  }
                   & .pregunta {
-                        font-size: 1rem;
+                        font-size: 1.6rem;
                         margin: 20px auto;
                         padding: 0 16px;
                         color: #219ebc;
@@ -64,23 +66,53 @@
                         flex-direction: column;
                         width: 90%;
                         gap: 12px;
-                        max-height: 500px;
+                        max-height: 300px;
                         overflow-y: auto;
+                        margin: auto;
+                        font-size: 1.6rem;
+                        &::-webkit-scrollbar {
+                              display: none;
+                        }
                         & button {
                               width: 100%;
-                              background-color: #219ebc;
-                              color: white;
+                              height: 100%;
+                              background-color: #f0f0f0;
+                              color: #afafaf;
                               font-size: 1rem;
                               cursor: pointer;
+                              & svg {
+                                    width: 50%;
+                              }
+                              & .cls-1 {
+                                    fill: #afafaf;
+                                    stroke-width: 0px;
+                              }
                               &:hover {
                                     background-color: #023047;
                               }
                         }
                         & .multisel{
                               display: flex;
-                              & input {
+                              align-items: center;
+                              text-align: start;
+                              background: #f0f0f0;
+                              border-radius: 12px;
+                              -webkit-border-radius: 12px;
+                              -moz-border-radius: 12px;
+                              -ms-border-radius: 12px;
+                              -o-border-radius: 12px;
+                              & input{
+                                    width: 20px;
+                                    min-width: 20px;
+                                    height: 20px;
+                                    min-height: 20px;
                                     margin-right: 20px;
                                     border: 1px solid #219ebc;
+                                    border-radius: 4px;
+                                    -webkit-border-radius: 4px;
+                                    -moz-border-radius: 4px;
+                                    -ms-border-radius: 4px;
+                                    -o-border-radius: 4px;
                               }
                         }
                   }
@@ -102,14 +134,14 @@
                         -moz-transition: all 0.1s;
                         -ms-transition: all 0.1s;
                         -o-transition: all 0.1s;
-}
+                  }
                        
-                       .send:hover, .send:active {
-                        -webkit-transform: translate(0px,5px);
-                        -ms-transform: translate(0px,5px);
-                        transform: translate(0px,5px);
-                        border-bottom: 1px solid #023047;
-                       }
+                  .send:hover, .send:active {
+                  -webkit-transform: translate(0px,5px);
+                  -ms-transform: translate(0px,5px);
+                  transform: translate(0px,5px);
+                  border-bottom: 1px solid #023047;
+                  }
             }
       }
 }
