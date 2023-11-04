@@ -132,9 +132,10 @@
         font-size: 3rem;
       }
       & .informacion {
+        width: 50%;
+        margin: auto;
         & div {
           display: flex;
-          justify-content: center;
           align-items: center;
           margin: 12px auto;
           gap: 12px;

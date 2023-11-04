@@ -8,6 +8,7 @@ import imgPostobon from '../../assets/iconScenes/postobon.jpeg'
 import imgPapel from '../../assets/iconScenes/papel.jpeg'
 import imgMedicamento from '../../assets/iconScenes/medicamento.jpeg'
 import imgCigarrillos from '../../assets/iconScenes/cigarrillos.jpeg'
+import imgMeiko from '../../assets/iconScenes/meiko.jpg' 
 
 export default function Phone(props) {
 
@@ -33,7 +34,19 @@ export default function Phone(props) {
         <div className="questions">
           <div className="questions__inner">
             <div className='header'>
+              <div>
+                <span>←</span>
+                <figure>
+                  <img src={imgMeiko} alt="Logo Meiko" />
+                </figure>
+              </div>
               <h1>NUEVO - Premise</h1>
+            </div>
+            <div className='topButtons'>
+              <button>╠</button>
+              <button>🔍︎</button>
+              <button>←</button>
+              <button>→</button>
             </div>
             <div className='mid'>
               <p id='elPregunta' className='pregunta'>{props.ask}</p>
@@ -69,7 +82,7 @@ export default function Phone(props) {
             <button className='send'>Enviar</button>
           </div>
         </div>
-        <figure>
+        <figure className='imgPhone'>
           <img src={imgPhone} alt="phone" />
         </figure>
       </article>

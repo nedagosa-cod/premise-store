@@ -583,9 +583,9 @@ export default function Scene() {
   }, [scene]);
   return (
     <div className="box-scene">
+      <Preload funct={alertPreload} />
       <Phone ask={ask} answers={answers} numAsk={numAsk} type={typee}/>
       <div id="panorama" className="panorama"></div>
-      <Preload funct={alertPreload} />
     </div>
   );
 }

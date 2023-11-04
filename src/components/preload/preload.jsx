@@ -20,7 +20,7 @@ export default function Preload(props) {
                               icon: 'question',
                               title: 'Información de uso',
                               width: 600,
-                              html: `<div><figure><img src=${iconPointer} alt="Puntero Selector"></figure><span>Puntero Productos</span></div><div><figure><img src=${iconNext} alt="Puntero Para ir a Siguiente Escena"></figure><span>Puntero Productos</span></div><div><figure><img src=${iconCapture} alt="Puntero Para Tomar Foto"></figure><span>Puntero Productos</span></div>`,
+                              html: `<div><figure><img src=${iconPointer} alt="Mostrar Preguntas"></figure><span>Mostrar Preguntas</span></div><div><figure><img src=${iconNext} alt="Puntero Para ir a Siguiente Escena"></figure><span>Avanzar Posición</span></div><div><figure><img src=${iconCapture} alt="Puntero Para Tomar Foto"></figure><span>Realizar Foto Evidencia</span></div>`,
                               confirmButtonColor: '#ff5b4a',
                               confirmButtonText: 'Entendido',
                               customClass: {
@@ -35,12 +35,6 @@ export default function Preload(props) {
       },[])
       return (
             <>
-                  {/* <section className="preload animate__animated" ref={refExit}>
-                        <div className="loader">
-                              <div className="eye"></div>
-                        </div>
-                        <h1>Store Viwer</h1>
-                  </section> */}
                   <section className="preload animate__animated" ref={refExit}>
                         
                   </section>

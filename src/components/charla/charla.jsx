@@ -1,5 +1,6 @@
 import "./styles.scss";
 import 'animate.css';
+import Swal from "sweetalert2";
 
 import npcStandar from "../../assets/img/npcStandar.png";
 import npcMad from "../../assets/img/npcMad.png";
@@ -7,6 +8,9 @@ import npcSurprised from "../../assets/img/npcSurprised.png";
 import npcSurprisedB from "../../assets/img/npcStandar_2.png";
 import letrero from "../../assets/img/letrero.png";
 import logo360 from '../../assets/img/360g.png'
+
+import flatColombia from '../../assets/iconScenes/flatColombia.jpg'
+import flatMexico from '../../assets/iconScenes/flatMexico.jpg'
 
 import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
@@ -70,10 +74,37 @@ export default function Charla() {
                       }, 1000)
                       break;
                 case 'nextScene':
-                      console.log('corro')
-                      navigate('/store');
-                      break;
-          }
+                  Swal.fire({
+                    icon: 'question',
+                    title: 'Seleccione donde quiere hacer el estudio de mercado.',
+                    showConfirmButton: false,
+                    width: 800,
+                    html: `<section class="show-tienda">
+                    <div class="show-tienda__top">
+                      <div>
+                        <figure><img src=${flatColombia} alt="Bandera Colombia" /></figure>
+                      </div>
+                      <div>
+                        <figure><img src=${flatMexico} alt="Bandera Mexico" /></figure>
+                      </div>
+                    </div>
+                    <form class="show-tienda__bot">
+                      <div class="show-tienda__left">
+                        <a href="/store">Tienda</a>
+                        <a href="/store">Auto Servicio</a>
+                      </div>
+                      <div class="show-tienda__right">
+                        <a href="/store">Tienda</a>
+                      </div>
+                    </form>
+                  </section>`,
+                  customClass: {
+                    htmlContainer: 'myswalhtml'
+                  }
+                  })
+                  // navigate('/store');
+                  break;
+              }
             }
 
       }
@@ -92,6 +123,8 @@ useEffect(()=>{
 
   return (
     <section className="charla">
+
+      <Preload />
       <svg
         className="clip"
         data-name="Capa 1"
@@ -151,7 +184,7 @@ useEffect(()=>{
         </div>
       </article>
       <TenderoImg npcImage={imageNpc}/>
-      <Preload />
+
     </section>
   );
 }

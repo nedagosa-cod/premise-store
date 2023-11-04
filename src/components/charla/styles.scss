@@ -162,12 +162,12 @@
                               -moz-border-radius: 50%;
                               -ms-border-radius: 50%;
                               -o-border-radius: 50%;
-                              width: 32px;
-                              height: 32px;
+                              min-width: 32px;
+                              min-height: 32px;
                               border: 1px solid #4fc500;
                         }
                         & p{
-                              font-size: 1.2rem;
+                              font-size: 1.4rem;
                         }
                   }
             }
@@ -242,3 +242,60 @@
 
 
 // LOGO CARD
+
+
+.swal2-popup {
+      & .myswalhtml {
+             & .show-tienda {
+                  &__top {
+                        display: flex;
+                        width: 100%;
+                        text-align: center;
+                        justify-content: space-around;
+                        & div {
+                              display: flex;
+                              justify-content: center;
+                              width: 50%;
+                        }
+                        & figure {
+                              width: 80px;
+                        }
+                  }
+                  &__bot {
+                        display: flex;
+                        justify-content: space-around;
+                        text-align: center;
+                  }
+                  &__left {
+                        display: flex;
+                        justify-content: center;
+                        text-align: center;
+                        flex-direction: column;
+                        width: 50%;
+                        & a {
+                              width: 90%;
+                              margin: 12px auto;
+                              font-size: 2rem;
+                              background: #ff5b4a;
+                              color: white;
+                        }
+                  }
+                  &__right {
+                        display: flex;
+                        justify-content: center;
+                        flex-direction: column;
+                        text-align: center;
+                        width: 50%;
+                        & a {
+                              width: 90%;
+                              margin: 12px auto;
+                              font-size: 2rem;
+                              background: #ff5b4a;
+                              color: white;
+                        }
+                  }
+            }
+      }
+}
+
+
