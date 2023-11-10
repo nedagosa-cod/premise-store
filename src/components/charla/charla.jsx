@@ -69,9 +69,17 @@ export default function Charla() {
             if (event) {
               switch (event) {
                 case 'reset':
-                      setTimeout(()=>{
-                            window.location.reload();
-                      }, 1000)
+                      Swal.fire({
+                        icon: "error",
+                        title: "Respuesta Incorrecta",
+                        text: "La tendera no ha permitido tu ingreso",
+                        showConfirmButton: true,
+                        confirmButtonText: "Reiniciar"
+                      }).then((res)=>{
+                        if (res.isConfirmed) {
+                          window.location.reload()
+                        }
+                      });
                       break;
                 case 'nextScene':
                   Swal.fire({
@@ -90,16 +98,32 @@ export default function Charla() {
                     </div>
                     <form class="show-tienda__bot">
                       <div class="show-tienda__left">
-                        <a href="/store">Tienda</a>
-                        <a href="/store">Auto Servicio</a>
+                        <button type="button" name="colAutoServ" class="buttonStorage">Auto Servicio</button>
                       </div>
                       <div class="show-tienda__right">
-                        <a href="/store">Tienda</a>
+                        <button type="button" name="mexTienda" class="buttonStorage">Tienda</button>
                       </div>
                     </form>
                   </section>`,
                   customClass: {
                     htmlContainer: 'myswalhtml'
+                  },
+                  didOpen : ()=>{
+                    const tiendas = document.querySelectorAll('.buttonStorage')
+                    tiendas.forEach(tienda => {
+                      tienda.addEventListener('click', ()=>{
+                        switch (tienda.name) {
+                          case 'colAutoServ':
+                            navigate('/store');
+                            break;
+                          case 'mexTienda':
+                            navigate('/store');
+                            break;
+                        }
+                        Swal.close()
+                      })
+                    });
+
                   }
                   })
                   // navigate('/store');

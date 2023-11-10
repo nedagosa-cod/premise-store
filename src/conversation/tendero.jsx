@@ -36,15 +36,15 @@ const conversation = {
         },
         seguro: {
           text: "¿Esta seguro de esta información y aumentaré mis ventas? No estoy del todo segura.",
-          pointers: ["TERMINAR"]
+          pointers: ["despedirse"]
         },
         de_acuerdo: {
           text: "De acuerdo, puede continuar solo si no me realiza ninguna pregunta.",
-          pointers: ["TERMINAR"]
+          pointers: ["despedirse"]
         },
         no_preguntas: {
           text: "Desde que no me pregunté nada puede continuar",
-          pointers: ["TERMINAR"]
+          pointers: ["despedirse"]
         },
         no_fotos: {
           text: "Lo puedo permitir, pero no tome fotografías",
@@ -56,15 +56,15 @@ const conversation = {
         },
         bueno_continue: {
           text: "Bueno continue, no demoré",
-          pointers: ["TERMINAR"]
+          pointers: ["despedirse"]
         },
         no_quiero: {
           text: "No quiero que una empresa le venda información de mi tienda a otra. Muchas gracias, retírese",
-          pointers: ["TERMINAR"]
+          pointers: ["despedirse"]
         },
         no_creo: {
           text: "No creó que con esto obtenga mejores ventas, ya han vendió con esta información y continuó igual. Retírese o llamo a la Policía.",
-          pointers: ["TERMINAR"]
+          pointers: ["despedirse"]
         },
         de_acuerdoF: {
           text: "De acuerdo siga, pero no me pregunté o tome fotos, no me gustan.",
@@ -84,7 +84,7 @@ const conversation = {
         },
         adios: {
             text: 'Adios!',
-            pointer: ['TERMINAR']
+            pointer: ['despedirse']
         }
       },
       user_options: {
@@ -177,7 +177,7 @@ const conversation = {
             event: 'nextScene'
         },
         despedirse: {
-          text: "Muchas gracias, adios!",
+          text: "Vale muchas gracias.",
           event: 'reset'
         },
         TERMINAR: {

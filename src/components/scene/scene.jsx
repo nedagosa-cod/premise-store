@@ -27,9 +27,17 @@ export default function Scene() {
     setScene(dataScene[nameScene]);
   };
 
+  const resetPhone = () =>{
+    setAks("");
+    setAnswers([]);
+    setNumAsk(0);
+    setTypee('')
+  }
+
   const resABCD = (segmento) => {
     let res = formData.filter((el) => el.segmento == segmento);
     let numRandom = Math.floor(Math.random() * (res.length - 1 + 1));
+
     setAks(res[numRandom].titulo);
     setAnswers(res[numRandom].arrayRespuestas);
     setNumAsk(res[numRandom].id);
@@ -46,73 +54,144 @@ export default function Scene() {
       sceneFadeDuration: 10,
       hotSpots: [
         {
-          text: "Foto",
+          text: "Neveras",
           type: "custom",
-          pitch: -8,
-          yaw: -76,
-          cssClass: "foto",
-          clickHandlerFunc: () => {
-            resABCD("Img_Coca_Cola");
-          },
-        },
-        {
-          text: "Canastas",
-          type: "custom",
-          pitch: -21,
-          yaw: 31,
+          pitch: 5,
+          yaw: -68,
           cssClass: "spot",
           clickHandlerFunc: () => {
-            resABCD("Grupo A");
-          },
-        },
-        {
-          text: "Canastas",
-          type: "custom",
-          pitch: 37,
-          yaw: 53,
-          cssClass: "spot",
-          clickHandlerFunc: () => {
-            resABCD("Grupo A");
-          },
-        },
-        {
-          text: "Canastas",
-          type: "custom",
-          pitch: -26,
-          yaw: 71,
-          cssClass: "spot",
-          clickHandlerFunc: () => {
-            resABCD("Grupo A");
+            resABCD("cocacola");
           },
         },
         {
           text: "Canastas",
           type: "custom",
           pitch: -17,
-          yaw: 122,
+          yaw: 120,
           cssClass: "spot",
           clickHandlerFunc: () => {
-            resABCD("Grupo A");
+            resABCD("miscelaneos");
           },
         },
         {
           text: "Canastas",
           type: "custom",
-          pitch: -43,
-          yaw: -135,
+          pitch: 6,
+          yaw: 177,
           cssClass: "spot",
           clickHandlerFunc: () => {
-            resABCD("Grupo Z");
+            resABCD("mascotas");
           },
         },
         {
-          text: "Neveras",
+          text: "Canastas",
           type: "custom",
-          pitch: -0.63,
-          yaw: -65,
+          pitch: -24,
+          yaw: 30,
           cssClass: "spot",
           clickHandlerFunc: () => {
-            resABCD("Neveras");
+            resABCD("medicinal");
+          },
+        },
+        {
+          text: "Canastas",
+          type: "custom",
+          pitch: 37,
+          yaw: 54,
+          cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("alcohol");
+          },
+        },
+        {
+          text: "Canastas",
+          type: "custom",
+          pitch: -32,
+          yaw: 65,
+          cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("alcohol");
+          },
+        },
+        {
+          text: "Canastas",
+          type: "custom",
+          pitch: 8,
+          yaw: 128,
+          cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("cofiteria");
+          },
+        },
+        {
+          text: "Canastas",
+          type: "custom",
+          pitch: 7,
+          yaw: -151,
+          cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("cofiteria");
+          },
+        },
+        {
+          text: "Canastas",
+          type: "custom",
+          pitch: -5,
+          yaw: -45,
+          cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("no alcohol");
+          },
+        },
+        {
+          text: "Canastas",
+          type: "custom",
+          pitch: 9,
+          yaw: 103,
+          cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("personal");
+          },
+        },
+        {
+          text: "Canastas",
+          type: "custom",
+          pitch: -15,
+          yaw: 132,
+          cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("personal");
+          },
+        },
+        {
+          text: "Foto",
+          type: "custom",
+          pitch: -8,
+          yaw: -76,
+          cssClass: "foto",
+          clickHandlerFunc: () => {
+            console.log('hola')
+            resABCD("Img_Coca_Cola");
+          },
+        },
+        {
+          text: "Canastas",
+          type: "custom",
+          pitch: -28,
+          yaw: 111,
+          cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("alimentos");
+          },
+        },
+        {
+          text: "Canastas",
+          type: "custom",
+          pitch: -13,
+          yaw: 85,
+          cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("alimentos");
           },
         },
         {
@@ -157,11 +236,41 @@ export default function Scene() {
         {
           text: "Canastas",
           type: "custom",
+          pitch: 14,
+          yaw: 168,
+          cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("postobon");
+          },
+        },
+        {
+          text: "Canastas",
+          type: "custom",
+          pitch: 10,
+          yaw: -109,
+          cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("cocacola");
+          },
+        },
+        {
+          text: "Canastas",
+          type: "custom",
+          pitch: 47,
+          yaw: 160,
+          cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("no alcohol");
+          },
+        },
+        {
+          text: "Canastas",
+          type: "custom",
           pitch: -2,
           yaw: 26,
           cssClass: "spot",
           clickHandlerFunc: () => {
-            resABCD("Grupo A");
+            resABCD("alimentos");
           },
         },
         {
@@ -204,16 +313,24 @@ export default function Scene() {
       hfov: 120,
       hotSpots: [
         {
+          text: "Canastas",
           type: "custom",
-          pitch: -16.15,
-          yaw: -157.18,
+          pitch: -6,
+          yaw: 50,
           cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("hogar");
+          },
         },
         {
+          text: "Canastas",
           type: "custom",
-          pitch: -16.28,
-          yaw: -1.66,
+          pitch: 8,
+          yaw: -7,
           cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("alimentos");
+          },
         },
         {
           text: "adelante",
@@ -245,16 +362,24 @@ export default function Scene() {
       hfov: 120,
       hotSpots: [
         {
+          text: "Canastas",
           type: "custom",
-          pitch: -16.15,
-          yaw: -157.18,
+          pitch: -2,
+          yaw: 169,
           cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("hogar");
+          },
         },
         {
+          text: "Canastas",
           type: "custom",
-          pitch: -16.28,
-          yaw: -1.66,
+          pitch: -24,
+          yaw: 97,
           cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("hogar");
+          },
         },
         {
           text: "volver",
@@ -292,7 +417,7 @@ export default function Scene() {
           yaw: -25,
           cssClass: "spot",
           clickHandlerFunc: () => {
-            resABCD("Grupo A");
+            resABCD("cofiteria");
           },
         },
         {
@@ -325,6 +450,26 @@ export default function Scene() {
       hfov: 120,
       hotSpots: [
         {
+          text: "Canastas",
+          type: "custom",
+          pitch: 18,
+          yaw: -167,
+          cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("alimentos");
+          },
+        },
+        {
+          text: "Canastas",
+          type: "custom",
+          pitch: 2,
+          yaw: 15,
+          cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("alimentos");
+          },
+        },
+        {
           text: "adelante",
           type: "custom",
           pitch: -42,
@@ -356,18 +501,52 @@ export default function Scene() {
         {
           text: "Canastas",
           type: "custom",
-          pitch: -2,
-          yaw: 26,
+          pitch: -4,
+          yaw: -76,
           cssClass: "spot",
           clickHandlerFunc: () => {
-            resABCD("Grupo A");
+            resABCD("hogar");
           },
         },
         {
+          text: "Canastas",
           type: "custom",
-          pitch: -16.28,
-          yaw: -1.66,
+          pitch: -10,
+          yaw: 8,
           cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("alimentos");
+          },
+        },
+        {
+          text: "Canastas",
+          type: "custom",
+          pitch: 49,
+          yaw: 21,
+          cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("alimentos");
+          },
+        },
+        {
+          text: "Canastas",
+          type: "custom",
+          pitch: 13,
+          yaw: -168,
+          cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("alimentos");
+          },
+        },
+        {
+          text: "Canastas",
+          type: "custom",
+          pitch: -33,
+          yaw: 57,
+          cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("alimentos");
+          },
         },
         {
           text: "Final Pasillo 1",
@@ -409,16 +588,14 @@ export default function Scene() {
       hfov: 120,
       hotSpots: [
         {
+          text: "Canastas",
           type: "custom",
-          pitch: -16.15,
-          yaw: -157.18,
+          pitch: -5,
+          yaw: 138,
           cssClass: "spot",
-        },
-        {
-          type: "custom",
-          pitch: -16.28,
-          yaw: -1.66,
-          cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("alimentos");
+          },
         },
         {
           text: "adelante",
@@ -450,16 +627,24 @@ export default function Scene() {
       hfov: 120,
       hotSpots: [
         {
+          text: "Canastas",
           type: "custom",
-          pitch: -16.15,
-          yaw: -157.18,
+          pitch: 47,
+          yaw: 175,
           cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("cofiteria");
+          },
         },
         {
+          text: "Canastas",
           type: "custom",
-          pitch: -16.28,
-          yaw: -1.66,
+          pitch: -7,
+          yaw: -162,
           cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("alimentos");
+          },
         },
         {
           text: "adelante",
@@ -497,7 +682,7 @@ export default function Scene() {
           yaw: 116,
           cssClass: "spot",
           clickHandlerFunc: () => {
-            resABCD("Grupo A");
+            resABCD("personal");
           },
         },
         {
@@ -532,18 +717,22 @@ export default function Scene() {
         {
           text: "Canastas",
           type: "custom",
-          pitch: 5,
-          yaw: -66,
+          pitch: -9,
+          yaw: 20,
           cssClass: "spot",
           clickHandlerFunc: () => {
-            resABCD("Grupo A");
+            resABCD("hogar");
           },
         },
         {
+          text: "Canastas",
           type: "custom",
-          pitch: -16.28,
-          yaw: -1.66,
+          pitch: -6,
+          yaw: -76,
           cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("personal");
+          },
         },
         {
           text: "Pasillo 2",
@@ -555,6 +744,16 @@ export default function Scene() {
             changeScene("pasillo_2_c");
           },
         },
+        {
+          text: "Pasillo 3",
+          type: "custom",
+          pitch: -33,
+          yaw: -163,
+          cssClass: "m-spot",
+          clickHandlerFunc: () => {
+            changeScene("pasillo_3_c");
+          },
+        },
       ],
     },
   };
@@ -563,7 +762,6 @@ export default function Scene() {
 
   const createPannellum = (nameScene) => {
     document.querySelector("#panorama").innerHTML = "";
-
     pannellum.viewer("panorama", {
       type: "equirectangular",
       panorama: nameScene.image,
@@ -584,7 +782,7 @@ export default function Scene() {
   return (
     <div className="box-scene">
       <Preload funct={alertPreload} />
-      <Phone ask={ask} answers={answers} numAsk={numAsk} type={typee}/>
+      <Phone ask={ask} answers={answers} numAsk={numAsk} type={typee} resetPhone={resetPhone}/>
       <div id="panorama" className="panorama"></div>
     </div>
   );

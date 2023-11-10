@@ -1,5 +1,17 @@
+$b-color: #292c35;
+$g-color: #74767b;
+$g2-color: #B0B0B4;
+$w-color: #fff;
+
+$p-color: #FF5B4A;
+$p2-color: #FFA200;
+
+$s-color: #1669FF;
+$s2-color: #7E38FF;
+
+
 .clip-cls {
-      fill: #c8ff00;
+      fill: $w-color;
       stroke-width: 0px;
 }
 
@@ -11,7 +23,6 @@
       background-size: cover;
       overflow: hidden;
       display: flex;
-
       &__chat {
             display: flex;
             flex-direction: column;
@@ -37,10 +48,14 @@
                         width: 90%;
                         margin: 16px auto;
                         font-size: 1.6rem;
-                        background: #acacac;
+                        background: $g2-color;
                         border-radius: 25px;
                         padding: 10px 18px;
-                        color: #1b233d;
+                        color: $b-color;
+                        -webkit-border-radius: 25px;
+                        -moz-border-radius: 25px;
+                        -ms-border-radius: 25px;
+                        -o-border-radius: 25px;
                         &::before {
                               content: '';
                               position: absolute;
@@ -49,10 +64,14 @@
                               background: transparent;
                               width: 0px;
                               height: 0px;
-                              border-bottom: 50px solid #acacac;
+                              border-bottom: 50px solid $g2-color;
                               border-right: 20px solid transparent;
                               border-left: 20px solid transparent;
-                              transform: translateY(-38%) rotate(90deg);
+                              transform: translateY(-50%) rotate(90deg);
+                              -webkit-transform: translateY(-50%) rotate(90deg);
+                              -moz-transform: translateY(-50%) rotate(90deg);
+                              -ms-transform: translateY(-50%) rotate(90deg);
+                              -o-transform: translateY(-50%) rotate(90deg);
                         }
                   }
 
@@ -61,7 +80,7 @@
                         width: 90%;
                         margin: 16px auto;
                         font-size: 1.6rem;
-                        background: #cbffc4;
+                        background: $p-color;
                         border-radius: 25px;
                         padding: 10px 18px;
 
@@ -73,7 +92,7 @@
                               background: transparent;
                               width: 0px;
                               height: 0px;
-                              border-bottom: 20px solid #cbffc4;
+                              border-bottom: 20px solid $p-color;
                               border-right: 20px solid transparent;
                               border-left: 20px solid transparent;
                               transform: rotate(270deg);
@@ -107,7 +126,7 @@
       height: 90%;
       margin: auto;
       border-radius: 20px;
-      background: #1b233d;
+      background: $s-color;
       padding: 5px;
       overflow: hidden;
       box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 20px 0px;
@@ -124,11 +143,11 @@
                   border-bottom-right-radius: 10px;
                   height: 40px;
                   width: 130px;
-                  background: white;
-                  background: #1b233d;
+                  background: $w-color;
+                  background: $s-color;
                   position: relative;
                   transform: skew(-40deg);
-                  box-shadow: -10px -10px 0 0 #1b233d;
+                  box-shadow: -10px -10px 0 0 $s-color;
             }
             & .options {
                   display: flex;
@@ -143,7 +162,8 @@
                         align-items: center;
                         width: 90%;
                         margin: 4px auto;
-                        background: #cbffc4;
+                        background: $p-color;
+                        color: $b-color;
                         padding: 6px 6px 6px 12px;
                         border-radius: 16px;
                         -webkit-border-radius: 16px;
@@ -156,7 +176,9 @@
                               align-items: center;
                               justify-content: center;
                               margin-right: 16px;
-                              background: #c8ff00;
+                              background: $p2-color;
+                              font-size: 1.4rem;
+                              color: $b-color;
                               border-radius: 50%;
                               -webkit-border-radius: 50%;
                               -moz-border-radius: 50%;
@@ -164,7 +186,7 @@
                               -o-border-radius: 50%;
                               min-width: 32px;
                               min-height: 32px;
-                              border: 1px solid #4fc500;
+                              border: 1px solid $p2-color;
                         }
                         & p{
                               font-size: 1.4rem;
@@ -183,7 +205,7 @@
       right: -15px;
       background: rgba(255, 255, 255, 0);
       border-top-left-radius: 10px;
-      box-shadow: -5px -5px 0 2px #1b233d;
+      box-shadow: -5px -5px 0 2px $s-color;
 }
 
 .card .top-section::before {
@@ -195,7 +217,7 @@
       height: 15px;
       width: 15px;
       border-top-left-radius: 15px;
-      box-shadow: -5px -5px 0 2px #1b233d;
+      box-shadow: -5px -5px 0 2px $s-color;
 }
 
 .card .top-section .icons {
@@ -233,11 +255,11 @@
 
 .card .top-section .icons .social-media .svg {
       height: 100%;
-      fill: #1b233d;
+      fill: $s-color;
 }
 
 .card .top-section .icons .social-media .svg:hover {
-      fill: white;
+      fill: $w-color;
 }
 
 
@@ -277,7 +299,14 @@
                               margin: 12px auto;
                               font-size: 2rem;
                               background: #ff5b4a;
-                              color: white;
+                              color: $w-color;
+                        }
+                        & button {
+                              width: 90%;
+                              margin: 12px auto;
+                              font-size: 2rem;
+                              background: #ff5b4a;
+                              color: $w-color;
                         }
                   }
                   &__right {
@@ -291,7 +320,14 @@
                               margin: 12px auto;
                               font-size: 2rem;
                               background: #ff5b4a;
-                              color: white;
+                              color: $w-color;
+                        }
+                        & button {
+                              width: 90%;
+                              margin: 12px auto;
+                              font-size: 2rem;
+                              background: #ff5b4a;
+                              color: $w-color;
                         }
                   }
             }

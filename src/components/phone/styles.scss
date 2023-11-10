@@ -91,7 +91,51 @@
                         }
                   }
                   & .mid {
-                        min-height: 412px;
+                        min-height: 500px;
+                        & .phone-home {
+                              display: flex;
+                              flex-direction: column;
+                              justify-content: center;
+                              align-items: center;
+                              height: 350px;
+                              & figure {
+                                    width: 200px;
+                                    opacity: .7;
+                              }
+                              & p {
+                                    font-size: 2rem;
+                              }
+                              &.hide {
+                                    display: none;
+                              }
+                        }
+                        & .send {
+                              display: none;
+                              position: relative;
+                              padding: 10px 40px;
+                              margin: 20px auto;
+                              float: left;
+                              border-radius: 3px;
+                              font-size: 20px;
+                              color: #FFF;
+                              text-decoration: none;
+                              background-color: #1784a0;
+                              border: none;
+                              border-bottom: 5px solid #219ebc;
+                              text-shadow: 0px -2px #219ebc;
+                              -webkit-transition: all 0.1s;
+                              transition: all 0.1s;
+                              -moz-transition: all 0.1s;
+                              -ms-transition: all 0.1s;
+                              -o-transition: all 0.1s;
+                              &.hide {
+                                    display: block;
+                              }
+                        }
+                             
+                        .send:hover, .send:active {
+                              border-bottom: 1px solid #023047;
+                        }
                   }
                   & .pregunta {
                         font-size: 1.6rem;
@@ -105,13 +149,39 @@
                         flex-direction: column;
                         width: 90%;
                         gap: 12px;
-                        max-height: 300px;
-                        overflow-y: auto;
                         margin: auto;
-                        height: 260px;
                         font-size: 1.6rem;
-                        &::-webkit-scrollbar {
-                              display: none;
+                        & .rescontainer {
+                              max-height: 225px;
+                              overflow-y: auto;
+                              & .multisel{
+                                    display: flex;
+                                    align-items: center;
+                                    text-align: start;
+                                    background: #f0f0f0;
+                                    margin: 6px 0;
+                                    border-radius: 12px;
+                                    -webkit-border-radius: 12px;
+                                    -moz-border-radius: 12px;
+                                    -ms-border-radius: 12px;
+                                    -o-border-radius: 12px;
+                                    & input{
+                                          width: 20px;
+                                          min-width: 20px;
+                                          height: 20px;
+                                          min-height: 20px;
+                                          margin-right: 20px;
+                                          border: 1px solid #219ebc;
+                                          border-radius: 4px;
+                                          -webkit-border-radius: 4px;
+                                          -moz-border-radius: 4px;
+                                          -ms-border-radius: 4px;
+                                          -o-border-radius: 4px;
+                                    }
+                                    &::-webkit-scrollbar {
+                                          display: none;
+                                    }
+                              }
                         }
                         & button {
                               width: 100%;
@@ -131,57 +201,9 @@
                                     background-color: #023047;
                               }
                         }
-                        & .multisel{
-                              display: flex;
-                              align-items: center;
-                              text-align: start;
-                              background: #f0f0f0;
-                              border-radius: 12px;
-                              -webkit-border-radius: 12px;
-                              -moz-border-radius: 12px;
-                              -ms-border-radius: 12px;
-                              -o-border-radius: 12px;
-                              & input{
-                                    width: 20px;
-                                    min-width: 20px;
-                                    height: 20px;
-                                    min-height: 20px;
-                                    margin-right: 20px;
-                                    border: 1px solid #219ebc;
-                                    border-radius: 4px;
-                                    -webkit-border-radius: 4px;
-                                    -moz-border-radius: 4px;
-                                    -ms-border-radius: 4px;
-                                    -o-border-radius: 4px;
-                              }
-                        }
+
                   }
-                  & .send {
-                        position: relative;
-                        padding: 10px 40px;
-                        margin: 20px auto;
-                        float: left;
-                        border-radius: 3px;
-                        font-size: 20px;
-                        color: #FFF;
-                        text-decoration: none;
-                        background-color: #023047;
-                        border: none;
-                        border-bottom: 5px solid #073e5a;
-                        text-shadow: 0px -2px #07415e;
-                        -webkit-transition: all 0.1s;
-                        transition: all 0.1s;
-                        -moz-transition: all 0.1s;
-                        -ms-transition: all 0.1s;
-                        -o-transition: all 0.1s;
-                  }
-                       
-                  .send:hover, .send:active {
-                  -webkit-transform: translate(0px,5px);
-                  -ms-transform: translate(0px,5px);
-                  transform: translate(0px,5px);
-                  border-bottom: 1px solid #023047;
-                  }
+
             }
       }
 }
