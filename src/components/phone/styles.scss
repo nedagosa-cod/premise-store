@@ -207,3 +207,34 @@
             }
       }
 }
+
+
+@media only screen and (max-width: 600px) {
+      .phone {
+            height: 120px;
+            width: 100%;
+            & .imgPhone{
+                  display: none;
+            }
+            & .questions {
+                 margin: 0;
+                 padding: 0;
+                 height: auto;
+                 width: 100%;
+                 &__inner {
+                  & .header {
+                        display: none;
+                  }
+                  & .mid {
+                        min-height: 100px;
+                        & .phone-home{
+                              height: auto;
+                              & figure {
+                                    display: none;
+                              }
+                        }
+                  }
+                 }
+            }
+      }
+}

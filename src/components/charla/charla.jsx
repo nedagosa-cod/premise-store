@@ -60,6 +60,7 @@ export default function Charla() {
                               ...prevOwnerChat,
                               <div className="globo animate__animated animate__backInRight" key={prevOwnerChat.length}>
                                 <p>{conversation.NPC_options[pointer].text}</p>
+                                <span>Rosita</span>
                               </div>
                         ]);
                         setActiveChat(pointer)
@@ -74,7 +75,11 @@ export default function Charla() {
                         title: "Respuesta Incorrecta",
                         text: "La tendera no ha permitido tu ingreso",
                         showConfirmButton: true,
-                        confirmButtonText: "Reiniciar"
+                        confirmButtonText: "Reiniciar",
+                        customClass: {
+                          title: 'myswal-title',
+                          text: "myswal-text"
+                        }
                       }).then((res)=>{
                         if (res.isConfirmed) {
                           window.location.reload()
@@ -99,6 +104,7 @@ export default function Charla() {
                     <form class="show-tienda__bot">
                       <div class="show-tienda__left">
                         <button type="button" name="colAutoServ" class="buttonStorage">Auto Servicio</button>
+                        <button type="button" name="colTienda" class="buttonStorage">Tienda</button>
                       </div>
                       <div class="show-tienda__right">
                         <button type="button" name="mexTienda" class="buttonStorage">Tienda</button>
@@ -106,7 +112,9 @@ export default function Charla() {
                     </form>
                   </section>`,
                   customClass: {
-                    htmlContainer: 'myswalhtml'
+                    htmlContainer: 'myswalhtml',
+                    title: 'myswal-title',
+                    text: "myswal-text"
                   },
                   didOpen : ()=>{
                     const tiendas = document.querySelectorAll('.buttonStorage')
@@ -117,7 +125,10 @@ export default function Charla() {
                             navigate('/store');
                             break;
                           case 'mexTienda':
-                            navigate('/store');
+                            navigate('/mexstore');
+                            break;
+                          case 'colTienda':
+                            navigate('/coltstore');
                             break;
                         }
                         Swal.close()
@@ -140,6 +151,7 @@ useEffect(()=>{
                   ...prevOwnerChat,
                   <div className="globo animate__animated animate__backInRight" key={prevOwnerChat.length}>
                     <p>{conversation.NPC_options[activeChat].text}</p>
+                    <span>Rosita</span>
                   </div>
                 ]);
       },3000)

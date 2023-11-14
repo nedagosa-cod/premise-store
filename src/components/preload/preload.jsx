@@ -3,6 +3,8 @@ import './styles.scss'
 import iconPointer from '../../assets/iconScenes/produClick.png'
 import iconNext from '../../assets/iconScenes/nextScene.png'
 import iconCapture from '../../assets/iconScenes/captureScreen.png'
+import logoVr from '../../assets/img/360phone.png'
+import logoPremise from '../../assets/img/premise.webp'
 import { useEffect, useRef } from 'react';
 
 import Swal from 'sweetalert2';
@@ -36,7 +38,14 @@ export default function Preload(props) {
       return (
             <>
                   <section className="preload animate__animated" ref={refExit}>
-                        
+                        <div className='elements'>
+                              <figure>
+                                    <img src={logoVr} alt="logo 360°" />
+                              </figure>
+                              <figure>
+                                    <img src={logoPremise} alt="Logo Premise" />
+                              </figure>
+                        </div>
                   </section>
             </>
       )

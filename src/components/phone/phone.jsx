@@ -18,9 +18,18 @@ export default function Phone(props) {
   const [hide, setHide] = useState('')
   const [attrs, setAttrs] = useState(props)
   const [respuestas, setRespuestas] = useState([]);
+  const [contador, setContador] = useState(0);
+  const [segmento, setSegmento] = useState(props.activeSegment);
 
-  const manejarRespuesta = (pregunta, respuestas) => {
-    setRespuestas([...respuestas, { pregunta, respuestas }]);
+
+  const changeAskOn = () => {
+    props.changeAsk(segmento)
+  }
+
+  const manejarRespuesta = (pregunta, resp, id) => {
+    let local = JSON.parse(localStorage.getItem("data"))
+    setRespuestas([...local, { id, pregunta, resp }]);
+    
   };
 
   const takePhoto = (photo) => {
@@ -42,9 +51,7 @@ export default function Phone(props) {
 
   const saveAnswer = (e) => {
     e.preventDefault()
-
-
-
+    setContador(contador + 1)
     let controlers = Array.from(e.target.elements)
     let answers = []
     controlers.forEach(element => {
@@ -53,17 +60,24 @@ export default function Phone(props) {
         answers.push(answer)
       }
     });
-    manejarRespuesta(props.ask, answers)
 
+    manejarRespuesta(props.ask, answers, props.numAsk)
+
+    if (contador > 2) {
+      console.log(JSON.parse(localStorage.getItem('data')))
+    }
     props.resetPhone()
+    localStorage.clear()
     setAttrs([])
     setHide('')
   }
-  console.log(respuestas)
+
   useEffect(()=>{
     setAttrs(props)
+    setSegmento(props.activeSegment)
     props.ask ? setHide('hide') : setHide('')
-  },[props.ask])
+    localStorage.setItem("data", JSON.stringify(respuestas));
+  },[props.ask, respuestas])
 
   return (
     <>
@@ -82,8 +96,8 @@ export default function Phone(props) {
             <div className='topButtons'>
               <button>╠</button>
               <button>🔍︎</button>
-              <button>←</button>
-              <button>→</button>
+              <button onClick={changeAskOn}>←</button>
+              <button onClick={changeAskOn}>→</button>
             </div>
             <div className='mid'>
               <p id='elPregunta' className='pregunta'>{attrs.ask ? attrs.ask : ''}</p>

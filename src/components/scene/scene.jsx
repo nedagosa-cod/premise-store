@@ -22,6 +22,7 @@ export default function Scene() {
   const [answers, setAnswers] = useState([]);
   const [numAsk, setNumAsk] = useState(0);
   const [typee, setTypee] = useState('');
+  const [activeSegment, setActiveSegment] = useState('');
 
   const changeScene = (nameScene) => {
     setScene(dataScene[nameScene]);
@@ -35,13 +36,28 @@ export default function Scene() {
   }
 
   const resABCD = (segmento) => {
-    let res = formData.filter((el) => el.segmento == segmento);
-    let numRandom = Math.floor(Math.random() * (res.length - 1 + 1));
+    if (segmento != '') {
+      let res = formData.filter((el) => el.segmento == segmento);
+      let numRandom = Math.floor(Math.random() * (res.length - 1 + 1));
+      const dataLocal = JSON.parse(localStorage.getItem('data'))
+      const dataExist = dataLocal.some(el=> el.id == res[numRandom].id)
 
-    setAks(res[numRandom].titulo);
-    setAnswers(res[numRandom].arrayRespuestas);
-    setNumAsk(res[numRandom].id);
-    setTypee(res[numRandom].tipo)
+      let resSum = 0
+
+      do {
+        if (resSum >= 10) return
+      
+        numRandom = Math.floor(Math.random() * (res.length - 1 + 1));
+        resSum++
+      } while (dataExist);
+
+        setAks(res[numRandom].titulo);
+        setAnswers(res[numRandom].arrayRespuestas);
+        setNumAsk(res[numRandom].id);
+        setTypee(res[numRandom].tipo)
+        setActiveSegment(segmento)
+
+    }
   };
 
   const dataScene = {
@@ -170,8 +186,27 @@ export default function Scene() {
           yaw: -76,
           cssClass: "foto",
           clickHandlerFunc: () => {
-            console.log('hola')
             resABCD("Img_Coca_Cola");
+          },
+        },
+        {
+          text: "Foto",
+          type: "custom",
+          pitch: -30,
+          yaw: 78,
+          cssClass: "foto",
+          clickHandlerFunc: () => {
+            resABCD("img_cigarrillos");
+          },
+        },
+        {
+          text: "Foto",
+          type: "custom",
+          pitch: -32,
+          yaw: 38,
+          cssClass: "foto",
+          clickHandlerFunc: () => {
+            resABCD("img_medicamentos");
           },
         },
         {
@@ -233,6 +268,16 @@ export default function Scene() {
       yaw: 87.93,
       hfov: 120,
       hotSpots: [
+        {
+          text: "Foto",
+          type: "custom",
+          pitch: -10,
+          yaw: -168,
+          cssClass: "foto",
+          clickHandlerFunc: () => {
+            resABCD("Img_postobon");
+          },
+        },
         {
           text: "Canastas",
           type: "custom",
@@ -715,6 +760,16 @@ export default function Scene() {
       hfov: 120,
       hotSpots: [
         {
+          text: "Foto",
+          type: "custom",
+          pitch: 19,
+          yaw: -87,
+          cssClass: "foto",
+          clickHandlerFunc: () => {
+            resABCD("Img_aseo_personal");
+          },
+        },
+        {
           text: "Canastas",
           type: "custom",
           pitch: -9,
@@ -782,7 +837,7 @@ export default function Scene() {
   return (
     <div className="box-scene">
       <Preload funct={alertPreload} />
-      <Phone ask={ask} answers={answers} numAsk={numAsk} type={typee} resetPhone={resetPhone}/>
+      <Phone ask={ask} answers={answers} numAsk={numAsk} type={typee} resetPhone={resetPhone} changeAsk={resABCD} activeSegment={activeSegment}/>
       <div id="panorama" className="panorama"></div>
     </div>
   );

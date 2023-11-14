@@ -10,12 +10,30 @@
       align-items: center;
       // background: #1f1f1f;
       background-image: url('../../assets/img/porton.jpg');
-      background-size: cover;
+      background-size: 100% 100%;
       z-index: 1000;
       h1 {
             font-size: 4rem;
             color: white;
             margin: 40px auto;
+      }
+      & .elements{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        width: 60%;
+        margin: auto;
+        gap: 1.8rem;
+        & figure {
+          width: 400px;
+          &:nth-child(1) {
+            & img{
+              filter: hue-rotate(50deg);
+              -webkit-filter: hue-rotate(50deg);
+}
+          }
+        }
       }
 }
 .loader {
@@ -153,5 +171,22 @@
       & .myswal-icon{
           width: 6rem;
           height: 6rem;
+      }
+    }
+
+
+    @media only screen and (max-width: 600px) {
+      .preload {
+        & .elements {
+          & figure {
+            width: 90%;
+            &:nth-child(1) {
+              & img{
+                filter: hue-rotate(50deg);
+                -webkit-filter: hue-rotate(50deg);
+  }
+            }
+          }
+        }
       }
     }
