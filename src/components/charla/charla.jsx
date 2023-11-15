@@ -31,7 +31,7 @@ export default function Charla() {
       const chatSelected = ({dataConver}) => {
         const { textOption, pointer, event, emote } = dataConver;
             // show the chat conversation selected
-            setOwnerChat([...ownerChat,<div className="myglobo animate__animated animate__fadeInUp" key={Math.random()}><p>{textOption}</p></div>]);
+            setOwnerChat([...ownerChat,<div className="myglobo animate__animated animate__fadeInUp" key={Math.random()}><p>{textOption}</p><span>Gestor Preimse</span></div>]);
 
             // cambia emocion del tendero "imagen"
             if (emote) {

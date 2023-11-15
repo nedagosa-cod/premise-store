@@ -70,6 +70,16 @@ export default function Scene() {
       sceneFadeDuration: 10,
       hotSpots: [
         {
+          text: "Cervezas",
+          type: "custom",
+          pitch: -4,
+          yaw: -18,
+          cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("cervezas");
+          },
+        },
+        {
           text: "Neveras",
           type: "custom",
           pitch: 5,
