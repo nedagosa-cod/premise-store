@@ -20,6 +20,7 @@ export default function Phone(props) {
   const [respuestas, setRespuestas] = useState([]);
   const [contador, setContador] = useState(0);
   const [segmento, setSegmento] = useState(props.activeSegment);
+  const [opcion, setOpcion] = useState(false);
 
 
   const changeAskOn = () => {
@@ -72,9 +73,17 @@ export default function Phone(props) {
     setHide('')
   }
 
+  const handleChange = (e) => {
+    console.log('cambio')
+    e.target.checked = e.target.checked
+  };
+
   useEffect(()=>{
     setAttrs(props)
     setSegmento(props.activeSegment)
+    document.querySelectorAll('input[type="checkbox"]').forEach(el=>{
+      el.checked = false
+    })
     props.ask ? setHide('hide') : setHide('')
     localStorage.setItem("data", JSON.stringify(respuestas));
   },[props.ask, respuestas])
@@ -101,7 +110,7 @@ export default function Phone(props) {
             </div>
             <div className='mid'>
               <p id='elPregunta' className='pregunta'>{attrs.ask ? attrs.ask : ''}</p>
-              <form className='respuestas' onSubmit={saveAnswer} id={attrs.numAsk}>
+              <form className='respuestas' onSubmit={saveAnswer} id={'form'+attrs.numAsk}>
                     <div className='rescontainer'>
                     {attrs.answers?.map((res, i)=>{
                         let dataId = props.numAsk + '_' + i
@@ -110,7 +119,7 @@ export default function Phone(props) {
                             return (
                               <React.Fragment key={i}>
                               <label htmlFor={dataId} className='multisel'>
-                                <input type="checkbox" name={res} id={dataId}/>
+                                <input type="checkbox" name={res} id={dataId} onChange={handleChange}/>
                                 {res}
                               </label>
                               </React.Fragment>

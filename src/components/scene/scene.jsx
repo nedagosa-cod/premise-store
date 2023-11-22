@@ -38,14 +38,26 @@ export default function Scene() {
   const resABCD = (segmento) => {
     if (segmento != '') {
       let res = formData.filter((el) => el.segmento == segmento);
+
       let numRandom = Math.floor(Math.random() * (res.length - 1 + 1));
+
       const dataLocal = JSON.parse(localStorage.getItem('data'))
       const dataExist = dataLocal.some(el=> el.id == res[numRandom].id)
+
+
+
+      for (let i = 0; i < res.length; i++) {
+        const element = res[i];
+        const dataExistt = dataLocal.some(el=> el.id == element.id)
+        if (!dataExistt) {
+          console.log(i)
+        }
+      }
 
       let resSum = 0
 
       do {
-        if (resSum >= 10) return
+        if (resSum >= 15) return
       
         numRandom = Math.floor(Math.random() * (res.length - 1 + 1));
         resSum++
@@ -166,7 +178,7 @@ export default function Scene() {
           yaw: -45,
           cssClass: "spot",
           clickHandlerFunc: () => {
-            resABCD("no alcohol");
+            resABCD("Neveras");
           },
         },
         {
@@ -326,16 +338,6 @@ export default function Scene() {
           cssClass: "spot",
           clickHandlerFunc: () => {
             resABCD("alimentos");
-          },
-        },
-        {
-          text: "Marca de Presencia",
-          type: "custom",
-          pitch: 14,
-          yaw: -158,
-          cssClass: "spot",
-          clickHandlerFunc: () => {
-            resABCD("mp");
           },
         },
         {
