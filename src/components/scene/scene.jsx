@@ -38,36 +38,19 @@ export default function Scene() {
   const resABCD = (segmento) => {
     if (segmento != '') {
       let res = formData.filter((el) => el.segmento == segmento);
-
-      let numRandom = Math.floor(Math.random() * (res.length - 1 + 1));
-
       const dataLocal = JSON.parse(localStorage.getItem('data'))
-      const dataExist = dataLocal.some(el=> el.id == res[numRandom].id)
-
-
 
       for (let i = 0; i < res.length; i++) {
         const element = res[i];
         const dataExistt = dataLocal.some(el=> el.id == element.id)
         if (!dataExistt) {
-          console.log(i)
+          setAks(res[i].titulo);
+          setAnswers(res[i].arrayRespuestas);
+          setNumAsk(res[i].id);
+          setTypee(res[i].tipo)
+          setActiveSegment(segmento)
         }
       }
-
-      let resSum = 0
-
-      do {
-        if (resSum >= 15) return
-      
-        numRandom = Math.floor(Math.random() * (res.length - 1 + 1));
-        resSum++
-      } while (dataExist);
-
-        setAks(res[numRandom].titulo);
-        setAnswers(res[numRandom].arrayRespuestas);
-        setNumAsk(res[numRandom].id);
-        setTypee(res[numRandom].tipo)
-        setActiveSegment(segmento)
 
     }
   };
