@@ -2,6 +2,7 @@ import Swal from 'sweetalert2'
 import React from 'react'
 
 import imgPhone from '../../assets/img/phone.png'
+import { formData } from "../scene/AppMobile";
 import './styles.scss'
 
 import imgCoca from '../../assets/iconScenes/cocacola.jpeg'
@@ -20,7 +21,6 @@ export default function Phone(props) {
   const [respuestas, setRespuestas] = useState([]);
   const [contador, setContador] = useState(0);
   const [segmento, setSegmento] = useState(props.activeSegment);
-  const [opcion, setOpcion] = useState(false);
 
 
   const changeAskOn = () => {
@@ -50,6 +50,24 @@ export default function Phone(props) {
     
   }
 
+  const popCorrectAnswers = (data) => {
+
+    // let objCorrect = formData.filter(el=>el.id == 4)
+    console.log(data)
+    console.log(formData)
+    // let html = `${
+    //   data
+    // }`
+
+    Swal.fire({
+      title: "The Internet?",
+      html: `<div>
+        <p>Titulo</p>
+      </div>`,
+      icon: "question"
+    });
+  }
+
   const saveAnswer = (e) => {
     e.preventDefault()
     setContador(contador + 1)
@@ -65,18 +83,14 @@ export default function Phone(props) {
     manejarRespuesta(props.ask, answers, props.numAsk)
 
     if (contador > 2) {
-      console.log(JSON.parse(localStorage.getItem('data')))
+      let dataSaved = JSON.parse(localStorage.getItem('data'))
+      popCorrectAnswers(dataSaved)
     }
     props.resetPhone()
     localStorage.clear()
     setAttrs([])
     setHide('')
   }
-
-  const handleChange = (e) => {
-    console.log('cambio')
-    e.target.checked = e.target.checked
-  };
 
   useEffect(()=>{
     setAttrs(props)
@@ -119,7 +133,7 @@ export default function Phone(props) {
                             return (
                               <React.Fragment key={i}>
                               <label htmlFor={dataId} className='multisel'>
-                                <input type="checkbox" name={res} id={dataId} onChange={handleChange}/>
+                                <input type="checkbox" name={res} id={dataId} />
                                 {res}
                               </label>
                               </React.Fragment>
