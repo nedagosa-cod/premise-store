@@ -82,7 +82,7 @@ export default function Phone(props) {
 
     manejarRespuesta(props.ask, answers, props.numAsk)
 
-    if (contador > 2) {
+    if (contador > 60) {
       let dataSaved = JSON.parse(localStorage.getItem('data'))
       popCorrectAnswers(dataSaved)
     }

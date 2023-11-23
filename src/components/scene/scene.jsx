@@ -24,6 +24,8 @@ export default function Scene() {
   const [typee, setTypee] = useState('');
   const [activeSegment, setActiveSegment] = useState('');
 
+  const [startPos, setStartPos] = useState(0);
+
   const changeScene = (nameScene) => {
     setScene(dataScene[nameScene]);
   };
@@ -39,19 +41,18 @@ export default function Scene() {
     if (segmento != '') {
       let res = formData.filter((el) => el.segmento == segmento);
       const dataLocal = JSON.parse(localStorage.getItem('data'))
-
-      for (let i = 0; i < res.length; i++) {
-        const element = res[i];
-        const dataExistt = dataLocal.some(el=> el.id == element.id)
-        if (!dataExistt) {
-          setAks(res[i].titulo);
-          setAnswers(res[i].arrayRespuestas);
-          setNumAsk(res[i].id);
-          setTypee(res[i].tipo)
-          setActiveSegment(segmento)
-        }
-      }
-
+      
+      let resultado = res.filter(objeto1 => !dataLocal.some(objeto2 => objeto2.id === objeto1.id));
+          if (resultado[startPos] !== undefined) {
+            setAks(resultado[startPos].titulo);
+            setAnswers(resultado[startPos].arrayRespuestas);
+            setNumAsk(resultado[startPos].id);
+            setTypee(resultado[startPos].tipo)
+            setActiveSegment(segmento)
+            setStartPos(startPos+1)
+          } else {
+            setStartPos(0)
+          }
     }
   };
 
@@ -830,7 +831,7 @@ export default function Scene() {
     createPannellum(scene);
   }, [scene]);
   return (
-    <div className="box-scene">
+    <div className="box-scene" name={numAsk}>
       <Preload funct={alertPreload} />
       <Phone ask={ask} answers={answers} numAsk={numAsk} type={typee} resetPhone={resetPhone} changeAsk={resABCD} activeSegment={activeSegment}/>
       <div id="panorama" className="panorama"></div>

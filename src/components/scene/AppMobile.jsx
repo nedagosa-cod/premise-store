@@ -112,14 +112,6 @@ export const formData = [
     segmento: "cocacola",
   },
   {
-    id: 15,
-    titulo: "Coca Cola Nevera (*La Nevera Coca Cola)",
-    respuesta_correcta: "Sirve",
-    arrayRespuestas: ["Sirve", "No Sirve"],
-    tipo: "multiseleccion",
-    segmento: "cocacola",
-  },
-  {
     id: 16,
     titulo: "Coca Cola Nevera (*La Nevera Coca Cola)",
     respuesta_correcta: "Sirve",
