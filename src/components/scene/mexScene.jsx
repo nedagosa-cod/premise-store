@@ -1,23 +1,24 @@
 import { useEffect, useState } from "react";
 import "./styles.scss";
-import { formData } from "./AppMobile";
+import { formData } from "./mexDataPhone";
 
 import entrada from "../../assets/img/mexScene1.jpg";
 import salida from "../../assets/img/mexScene2.jpg";
 
 import Preload from "../../components/preload/preload";
-import Phone from "../phone/phone";
+import Phone from "../phone/mexPhone";
 
 export default function MexScene() {
   const [ask, setAks] = useState("");
   const [answers, setAnswers] = useState([]);
   const [numAsk, setNumAsk] = useState(0);
   const [typee, setTypee] = useState('');
+  const [activeSegment, setActiveSegment] = useState('');
+  const [startPos, setStartPos] = useState(0);
 
   const changeScene = (nameScene) => {
     setScene(dataScene[nameScene]);
   };
-
   const resetPhone = () =>{
     setAks("");
     setAnswers([]);
@@ -26,13 +27,22 @@ export default function MexScene() {
   }
 
   const resABCD = (segmento) => {
-    let res = formData.filter((el) => el.segmento == segmento);
-    let numRandom = Math.floor(Math.random() * (res.length - 1 + 1));
-
-    setAks(res[numRandom].titulo);
-    setAnswers(res[numRandom].arrayRespuestas);
-    setNumAsk(res[numRandom].id);
-    setTypee(res[numRandom].tipo)
+    if (segmento != '') {
+      let res = formData.filter((el) => el.segmento == segmento);
+      const dataLocal = JSON.parse(localStorage.getItem('data'))
+      
+      let resultado = res.filter(objeto1 => !dataLocal.some(objeto2 => objeto2.id === objeto1.id));
+          if (resultado[startPos] !== undefined) {
+            setAks(resultado[startPos].titulo);
+            setAnswers(resultado[startPos].arrayRespuestas);
+            setNumAsk(resultado[startPos].id);
+            setTypee(resultado[startPos].tipo)
+            setActiveSegment(segmento)
+            setStartPos(startPos+1)
+          } else {
+            setStartPos(0)
+          }
+    }
   };
 
   const dataScene = {
@@ -45,134 +55,74 @@ export default function MexScene() {
       sceneFadeDuration: 10,
       hotSpots: [
         {
-          text: "Neveras",
+          text: "Enfriadores",
           type: "custom",
-          pitch: 5,
-          yaw: -68,
+          pitch: -9,
+          yaw: -23,
           cssClass: "spot",
           clickHandlerFunc: () => {
-            resABCD("cocacola");
+            resABCD("enfriadores");
           },
         },
         {
-          text: "Canastas",
+          text: "Enfriadores",
           type: "custom",
-          pitch: -17,
+          pitch: 0.65,
+          yaw: 0.15,
+          cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("enfriador_a");
+          },
+        },
+        {
+          text: "Producto",
+          type: "custom",
+          pitch: 3,
+          yaw: -73,
+          cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("producto");
+          },
+          
+        },
+        {
+          text: "Producto",
+          type: "custom",
+          pitch: 8,
           yaw: 120,
           cssClass: "spot",
           clickHandlerFunc: () => {
-            resABCD("miscelaneos");
+            resABCD("producto");
           },
         },
         {
-          text: "Canastas",
+          text: "Detergentes",
           type: "custom",
           pitch: 6,
-          yaw: 177,
+          yaw: -28,
           cssClass: "spot",
           clickHandlerFunc: () => {
-            resABCD("mascotas");
-          },
-        },
-        {
-          text: "Canastas",
-          type: "custom",
-          pitch: -24,
-          yaw: 30,
-          cssClass: "spot",
-          clickHandlerFunc: () => {
-            resABCD("medicinal");
-          },
-        },
-        {
-          text: "Canastas",
-          type: "custom",
-          pitch: 37,
-          yaw: 54,
-          cssClass: "spot",
-          clickHandlerFunc: () => {
-            resABCD("alcohol");
-          },
-        },
-        {
-          text: "Canastas",
-          type: "custom",
-          pitch: -32,
-          yaw: 65,
-          cssClass: "spot",
-          clickHandlerFunc: () => {
-            resABCD("alcohol");
-          },
-        },
-        {
-          text: "Canastas",
-          type: "custom",
-          pitch: 8,
-          yaw: 128,
-          cssClass: "spot",
-          clickHandlerFunc: () => {
-            resABCD("cofiteria");
-          },
-        },
-        {
-          text: "Canastas",
-          type: "custom",
-          pitch: 7,
-          yaw: -151,
-          cssClass: "spot",
-          clickHandlerFunc: () => {
-            resABCD("cofiteria");
-          },
-        },
-        {
-          text: "Canastas",
-          type: "custom",
-          pitch: -5,
-          yaw: -45,
-          cssClass: "spot",
-          clickHandlerFunc: () => {
-            resABCD("no alcohol");
-          },
-        },
-        {
-          text: "Canastas",
-          type: "custom",
-          pitch: 9,
-          yaw: 103,
-          cssClass: "spot",
-          clickHandlerFunc: () => {
-            resABCD("personal");
-          },
-        },
-        {
-          text: "Canastas",
-          type: "custom",
-          pitch: -15,
-          yaw: 132,
-          cssClass: "spot",
-          clickHandlerFunc: () => {
-            resABCD("personal");
-          },
-        },
-        {
-          text: "Foto",
-          type: "custom",
-          pitch: -8,
-          yaw: -76,
-          cssClass: "foto",
-          clickHandlerFunc: () => {
-            console.log('hola')
-            resABCD("Img_Coca_Cola");
+            resABCD("detergentes");
           },
         },
         {
           text: "Siguiente",
           type: "custom",
-          pitch: -13.52,
-          yaw: -166.85,
+          pitch: -38,
+          yaw: -22,
           cssClass: "m-spot",
           clickHandlerFunc: () => {
             changeScene("salida");
+          },
+        },
+        {
+          text: "Foto",
+          type: "custom",
+          pitch: 7,
+          yaw: -16,
+          cssClass: "foto",
+          clickHandlerFunc: () => {
+            resABCD("imgDetergente");
           },
         },
       ],
@@ -185,43 +135,73 @@ export default function MexScene() {
       hfov: 120,
       hotSpots: [
         {
-          text: "Canastas",
+          text: "Enfriadores",
           type: "custom",
-          pitch: -9,
-          yaw: 20,
+          pitch: 0.30,
+          yaw: -96,
           cssClass: "spot",
           clickHandlerFunc: () => {
-            resABCD("hogar");
+            resABCD("enfriador_b");
           },
         },
         {
-          text: "Canastas",
+          text: "Enfriadores",
           type: "custom",
-          pitch: -6,
-          yaw: -76,
+          pitch: 6,
+          yaw: 91,
           cssClass: "spot",
           clickHandlerFunc: () => {
-            resABCD("personal");
+            resABCD("enfriadores");
           },
         },
         {
-          text: "Pasillo 2",
+          text: "Enfriadores",
           type: "custom",
-          pitch: -46,
-          yaw: 95,
-          cssClass: "m-spot",
+          pitch: -29,
+          yaw: -10,
+          cssClass: "spot",
           clickHandlerFunc: () => {
-            changeScene("pasillo_2_c");
+            resABCD("enfriadores");
+          },
+        },
+        {
+          text: "Producto",
+          type: "custom",
+          pitch: -2,
+          yaw: -150,
+          cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("producto");
+          },
+        },
+        {
+          text: "Foto",
+          type: "custom",
+          pitch: 12,
+          yaw: -11,
+          cssClass: "foto",
+          clickHandlerFunc: () => {
+            resABCD("imgDetergente");
+          },
+        },
+        {
+          text: "Foto",
+          type: "custom",
+          pitch: 11,
+          yaw: -95,
+          cssClass: "foto",
+          clickHandlerFunc: () => {
+            resABCD("imgPepsi");
           },
         },
         {
           text: "Pasillo 3",
           type: "custom",
-          pitch: -33,
-          yaw: -163,
+          pitch: -43,
+          yaw: 179,
           cssClass: "m-spot",
           clickHandlerFunc: () => {
-            changeScene("pasillo_3_c");
+            changeScene("entrada");
           },
         },
       ],
@@ -247,12 +227,13 @@ export default function MexScene() {
   };
   let alertPreload = true
   useEffect(() => {
+    resABCD('punto')
     createPannellum(scene);
   }, [scene]);
   return (
-    <div className="box-scene">
+    <div className="box-scene" name={numAsk}>
       <Preload funct={alertPreload} />
-      <Phone ask={ask} answers={answers} numAsk={numAsk} type={typee} resetPhone={resetPhone}/>
+      <Phone ask={ask} answers={answers} numAsk={numAsk} type={typee} resetPhone={resetPhone} changeAsk={resABCD} activeSegment={activeSegment}/>
       <div id="panorama" className="panorama"></div>
     </div>
   );

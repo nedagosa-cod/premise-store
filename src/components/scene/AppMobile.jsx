@@ -2,7 +2,7 @@ export const formData = [
   {
     id: 1,
     titulo: "!!ATENCION!! Observe con detenimiento las categorías de la CANASTA ALIMENTOS en el establecimiento y selecciónelas de la lista:",
-    respuesta_correcta: ["ACEITES LIQUIDOS", "AREPAS LISTAS", "ARROZ"],
+    respuesta_correcta: ["ACEITES LIQUIDOS", "AREPAS LISTAS"],
     arrayRespuestas: ["ACEITES LIQUIDOS", "AREPAS LISTAS", "ARROZ", "GRANOS CRUDOS", "ATUN", "AVENAS LIQUIDAS", "AZUCAR", "BEBIDAS LACTEAS", "CAFE", "CALDOS CONCENTRADOS", "CARNE FRESCA", "CARNES FRIAS", "CERALES LISTOS", "CERALES PROCESADOS", "CHOCOLATE DE MESA", "COMPOTAS", "CONDIMENTOS", "CREMA DE LECHE", "GRANOLAS", "HARINAS MAIZ PRECOCIDAS", "HARINAS TRIGO", "HUEVOS", "INFUSIONES", "LECHE EN POLVO", "LECHE LIQUIDA", "LECHE SABORIZADA", "MARGARINAS INDUSTRIALES", "MANTEQUILLAS", "MAYONESA", "MODIFICADORES DE LECHE"],
     tipo: "multiseleccion",
     segmento: "alimentos",
@@ -18,7 +18,7 @@ export const formData = [
   {
     id: 3,
     titulo: "Por favor selecciona las marcas de café molido y/o soluble que encuentre en el establecimiento",
-    respuesta_correcta: ["AMBIENTADORES", "BLANQUEADORES"],
+    respuesta_correcta: ["Aguila Roja (Molido)", "Aguila Roja (Soluble)"],
     arrayRespuestas: ["Aguila Roja (Molido)", "Aguila Roja (Soluble)", "Amor Perfecto (Molido)", "Aroma (Molido)", "Aroma (Soluble)", "Bary (Molido)", "Buendia (Molido)", "Buen dia (Soluble)", "Colcafe (Soluble)", "Colcafe Bastiya (Soluble)", "Juan Valdez (Molido)", "Juan Valdez (Soluble)", "La bastilla (Molido)", "Lukafe (Molido)", "Matiz (Molid)", "Matiz (Soluble)", "Mi Dia (Molido)", "Nescafe (Soluble)", "Nescafe Dolca (Soluble)", "Nescafe Gold (Soluble)", "New Colony (Molido)", "Oma (Molido)", "Oma (Soluble)", "Quindio (Molido)", "Sello Rojo (Molido)", "Tostao (Molido)", "Totado (Soluble)", "Otras Marcas (Molido)", "Otras Marcas (Soluble)", "No hay"],
     tipo: "multiseleccion",
     segmento: "alimentos",
@@ -26,7 +26,7 @@ export const formData = [
   {
     id: 4,
     titulo: "!!ATENCION!! Observe con detenimiento las categorías de la CANASTA ASEO PERSONAL en el establecimiento y selecciónelas de la lista:",
-    respuesta_correcta: "BLOQUEADOR",
+    respuesta_correcta: ["ACONDICIONADOR BALSAMOS", "BLOQUEADOR"],
     arrayRespuestas: ["ACONDICIONADOR BALSAMOS", "BLOQUEADOR", "BRONCEADOR", "CEPILLOS DENTALES", "CREMA DE AFEITAR", "CREMA DENTRAL", "CREMA PARA MANOS Y CUERPO", "CREMA PARA PEINAR", "DESODORANTE PARA PIE", "DESODORANTES CORPORALES", "ENJUAGUE BUCAL", "JABON DE TOCADOR", "MAQUINAS REPUESTOS Y CUCHILLAS", "PANALES PARA ADULTOS", "PANALES PARA BEBE", "PANITOS HUMEDOS", "PAPEL HIGIENICO", "PANUELOS DESECHABLES", "PROTECCION FEMENINA", "SHAMPOO", "TRATAMIENTO CAPILAR"],
     tipo: "multiseleccion",
     segmento: "personal",
@@ -42,7 +42,7 @@ export const formData = [
   {
     id: 6,
     titulo: "!!ATENCION!! Observe con detenimiento las categorías de la CANASTA DE COFITERIA en el establecimiento y selecciónelas de la lista:",
-    respuesta_correcta: "AREQUIPE",
+    respuesta_correcta: ["AREQUIPE", "CEREALES EN BARRA"],
     arrayRespuestas: ["AREQUIPE", "CEREALES EN BARRA", "CHICLES", "DULCE DE CHOCOLATE", "DULCES", "FRUTOS SECOS", "GALLETAS", "GELATINAS EN POLVO", "HELADOS CON MARCA", "LECHE CONDENSADA", "PASABOCAS", "PONQUES Y BROWNIES", "POSTRES LISTOS"],
     tipo: "multiseleccion",
     segmento: "cofiteria",
@@ -58,7 +58,7 @@ export const formData = [
   {
     id: 8,
     titulo: "!!ATENCION!! Observe con detenimiento las categorías de la CANASTA MASCOTAS en el establecimiento y selecciónelas de la lista:",
-    respuesta_correcta: "ALIMENTOS PARA GATOS",
+    respuesta_correcta: ["ACCESORIOS PARA MASCOTAS", "ALIMENTO PARA ANIMALES DE CAMPO"],
     arrayRespuestas: ["ACCESORIOS PARA MASCOTAS", "ALIMENTO PARA ANIMALES DE CAMPO", "ALIMENTOS PARA GATOS", "ALIMENTOS PARA OTRAS MASCOTAS", "ALIMENTOS PARA PERROS", "ARENA PARA GATOS", "BANO SECO PARA ANIMALES"],
     tipo: "multiseleccion",
     segmento: "mascotas",
@@ -66,7 +66,7 @@ export const formData = [
   {
     id: 9,
     titulo: "!!ATENCION!! Observe con detenimiento las categorías de la CANASTA MISCELANEOS en el establecimiento y selecciónelas de la lista:",
-    respuesta_correcta: "BOMBILLOS",
+    respuesta_correcta: ["BOMBILLOS", "CONDONES", "PRODUCTOS DESECHABLES"],
     arrayRespuestas: ["BOMBILLOS", "CONDONES", "PRODUCTOS DESECHABLES", "EMPAQUES DE CONSEVACION", "ENCEDEDORES", "PILAS"],
     tipo: "multiseleccion",
     segmento: "miscelaneos",
@@ -74,7 +74,7 @@ export const formData = [
   {
     id: 10,
     titulo: "!!ATENCION!! Observe con detenimiento las categorías de la CANASTA MEDICINAL en el establecimiento y selecciónelas de la lista:",
-    respuesta_correcta: "ALCOHOL",
+    respuesta_correcta: ["ADHESIVOS DE PROTESIS", "ALCOHOL"],
     arrayRespuestas: ["ADHESIVOS DE PROTESIS", "ALCOHOL", "ALGODON", "ANALGESICOS", "ANTIACIDOS", "ANTIGRIPALES", "ANTIMICOTICO", "COMPLEMENTOS ALIMENTICIOS", "COPITOS", "CURAS", "FORMULAS INFANTILES", "GASA", "LAXANTES", "LOCION MENTOLADA", "MICROPORE", "REPELENTE", "SUEROS DE HIDRATACION"],
     tipo: "multiseleccion",
     segmento: "medicinal",
@@ -82,7 +82,7 @@ export const formData = [
   {
     id: 11,
     titulo: "¿Hay equipo de enfriamientio?",
-    respuesta_correcta: "SI",
+    respuesta_correcta: ["SI"],
     arrayRespuestas: ["SI", "NO"],
     tipo: "multiseleccion",
     segmento: "Neveras",
@@ -90,7 +90,7 @@ export const formData = [
   {
     id: 12,
     titulo: "¿Hay equipos de enfriamientio patrocinados en el establecimiento?",
-    respuesta_correcta: "SI",
+    respuesta_correcta: ["SI"],
     arrayRespuestas: ["SI", "NO"],
     tipo: "multiseleccion",
     segmento: "Neveras",
@@ -98,7 +98,7 @@ export const formData = [
   {
     id: 13,
     titulo: "Seleccione el número de NEVERAS que se encuentran PATROCINADAS por las siguientes marcas:",
-    respuesta_correcta: "Postobón",
+    respuesta_correcta: ["Postobón", "Coca Cola"],
     arrayRespuestas: ["Postobón", "Coca Cola", "Aje", "Quala(Vive100,Saviloe)", "Alpina", "Bavaria", "Pony Malta"],
     tipo: "multiseleccion",
     segmento: "Neveras",
@@ -106,7 +106,7 @@ export const formData = [
   {
     id: 14,
     titulo: "Coca Cola Nevera (*Está conectada?)",
-    respuesta_correcta: "SI",
+    respuesta_correcta: ["SI"],
     arrayRespuestas: ["SI", "NO"],
     tipo: "multiseleccion",
     segmento: "cocacola",
@@ -114,7 +114,7 @@ export const formData = [
   {
     id: 16,
     titulo: "Coca Cola Nevera (*La Nevera Coca Cola)",
-    respuesta_correcta: "Sirve",
+    respuesta_correcta: ["Sirve"],
     arrayRespuestas: ["Sirve", "No Sirve"],
     tipo: "multiseleccion",
     segmento: "cocacola",
@@ -122,7 +122,7 @@ export const formData = [
   {
     id: 17,
     titulo: "Coca Cola Nevera (*Se respeta el bloque de Colas Negras)",
-    respuesta_correcta: "Si",
+    respuesta_correcta: ["Si"],
     arrayRespuestas: ["Si", "No"],
     tipo: "multiseleccion",
     segmento: "cocacola",
@@ -130,7 +130,7 @@ export const formData = [
   {
     id: 18,
     titulo: "Coca Cola Nevera (*Se respeta el bloque de resto de bloque de sabores?)",
-    respuesta_correcta: "Si",
+    respuesta_correcta: ["Si"],
     arrayRespuestas: ["Si", "No"],
     tipo: "multiseleccion",
     segmento: "cocacola",
@@ -138,7 +138,7 @@ export const formData = [
   {
     id: 19,
     titulo: "Coca Cola Nevera (*Invadida x Competencia)",
-    respuesta_correcta: "Si",
+    respuesta_correcta: ["Si"],
     arrayRespuestas: ["Si", "No"],
     tipo: "multiseleccion",
     segmento: "cocacola",
@@ -146,7 +146,7 @@ export const formData = [
   {
     id: 20,
     titulo: "Coca Cola Nevera (*Invadida x otros Productos)",
-    respuesta_correcta: "Si",
+    respuesta_correcta: ["Si"],
     arrayRespuestas: ["Si", "No"],
     tipo: "multiseleccion",
     segmento: "cocacola",
@@ -154,7 +154,7 @@ export const formData = [
   {
     id: 21,
     titulo: "Coca Cola Nevera ( *Indique el porcentaje de llenado de Nevera Coca Cola)",
-    respuesta_correcta: "Si",
+    respuesta_correcta: ["0-25%"],
     arrayRespuestas: ["0-25%", "26-50%", "51-75%", "mas del 75%", "Vacia"],
     tipo: "multiseleccion",
     segmento: "cocacola",
@@ -162,7 +162,7 @@ export const formData = [
   {
     id: 22,
     titulo: "Coca Cola Nevera ( *Numero de Puertas)",
-    respuesta_correcta: "1",
+    respuesta_correcta: ["1", "2"],
     arrayRespuestas: ["1", "2", "3", "4"],
     tipo: "multiseleccion",
     segmento: "cocacola",
@@ -170,7 +170,7 @@ export const formData = [
   {
     id: 23,
     titulo: "Que tipos de Equipos de Enfriamiento PATROCINADOS:",
-    respuesta_correcta: "Nevera",
+    respuesta_correcta: ["Nevera", "Botellero"],
     arrayRespuestas: ["Nevera", "Botellero", "Mostrador", "Congelador"],
     tipo: "multiseleccion",
     segmento: "Neveras",
@@ -178,7 +178,7 @@ export const formData = [
   {
     id: 24,
     titulo: "Fotos Equipos (* Foto Nevera Patrocinada Coca Cola)",
-    respuesta_correcta: "imgCoca",
+    respuesta_correcta: ["imgCoca"],
     arrayRespuestas: ["imgCoca"],
     tipo: "foto",
     segmento: "Img_Coca_Cola",
@@ -186,7 +186,7 @@ export const formData = [
   {
     id: 25,
     titulo: "Capturar fotografia General del Punto de venta 1",
-    respuesta_correcta: "imgCigarrillos",
+    respuesta_correcta: ["imgCigarrillos"],
     arrayRespuestas: ["imgCigarrillos"],
     tipo: "foto",
     segmento: "img_cigarrillos",
@@ -194,7 +194,7 @@ export const formData = [
   {
     id: 26,
     titulo: "Capture foto de la exhibicion de analgesicos, si no hay exhibicion pida al tendero que le deje tomar foto a donde almacena los analgesicos Tomar la foto al lado de la caja del establecimiento",
-    respuesta_correcta: "imgMedicamento",
+    respuesta_correcta: ["imgMedicamento"],
     arrayRespuestas: ["imgMedicamento"],
     tipo: "foto",
     segmento: "img_medicamentos",
@@ -202,7 +202,7 @@ export const formData = [
   {
     id: 27,
     titulo: "Capturar una foto donde se visualice la seccion de aseo hogar en el establecimiento",
-    respuesta_correcta: "imgPapel",
+    respuesta_correcta: ["imgPapel"],
     arrayRespuestas: ["imgPapel"],
     tipo: "foto",
     segmento: "Img_aseo_personal",
@@ -210,7 +210,7 @@ export const formData = [
   {
     id: 28,
     titulo: "Fotos Equipos (* Foto Nevera Patrocinada Postobon)",
-    respuesta_correcta: "imgPostobon",
+    respuesta_correcta: ["imgPostobon"],
     arrayRespuestas: ["imgPostobon"],
     tipo: "foto",
     segmento: "Img_postobon",
@@ -218,7 +218,7 @@ export const formData = [
   {
     id: 29,
     titulo: "Marque la presencia de las siguientes Marcas de Aguas (FEMSA)",
-    respuesta_correcta: "Brisa",
+    respuesta_correcta: ["Brisa", "Manantial"],
     arrayRespuestas: ["Brisa", "Manantial", "Tai", "No hay"],
     tipo: "multiseleccion",
     segmento: "Neveras",
@@ -226,7 +226,7 @@ export const formData = [
   {
     id: 30,
     titulo: "Marque la presencia de las siguientes Marcas de Aguas (POSTOBON)",
-    respuesta_correcta: "Acqua",
+    respuesta_correcta: ["Acqua", "Cristal"],
     arrayRespuestas: ["Acqua", "Cristal", "Cristalina", "H2Oh", "Hatsu", "No hay"],
     tipo: "multiseleccion",
     segmento: "postobon",
@@ -234,7 +234,7 @@ export const formData = [
   {
     id: 31,
     titulo: "Marque la presencia de las siguientes Marcas de Aguas (POSTOBON)",
-    respuesta_correcta: "Acqua",
+    respuesta_correcta: ["Acqua", "Cristal"],
     arrayRespuestas: ["Acqua", "Cristal", "Cristalina", "H2Oh", "Hatsu", "No hay"],
     tipo: "multiseleccion",
     segmento: "postobon",
@@ -242,7 +242,7 @@ export const formData = [
   {
     id: 32,
     titulo: "Marque la presencia de las siguientes Marcas de Energizante (FEMSA)",
-    respuesta_correcta: "Monster",
+    respuesta_correcta: ["Monster"],
     arrayRespuestas: ["Monster", "No hay",],
     tipo: "multiseleccion",
     segmento: "Neveras",
@@ -250,7 +250,7 @@ export const formData = [
   {
     id: 33,
     titulo: "Marque la presencia de las siguientes Marcas de Energizante (POSTOBON)",
-    respuesta_correcta: "Peak",
+    respuesta_correcta:["Peak", "Red Bull"],
     arrayRespuestas: ["Peak", "Red Bull", "Speed Max", "No hay"],
     tipo: "multiseleccion",
     segmento: "postobon",
@@ -258,7 +258,7 @@ export const formData = [
   {
     id: 34,
     titulo: "Marque la presencia de las siguientes Marcas de Gaseosas (FEMSA)",
-    respuesta_correcta: "Quatro",
+    respuesta_correcta: ["Coca Cola", "Coca Cola Con Cafe"],
     arrayRespuestas: ["Coca Cola", "Coca Cola Con Cafe", "Fanta", "Kola Roman", "Premio", "Quatro", "Schweppes", "Sprite", "No Hay"],
     tipo: "multiseleccion",
     segmento: "Neveras",
@@ -266,7 +266,7 @@ export const formData = [
   {
     id: 35,
     titulo: "Marque la presencia de las siguientes Marcas de Gaseosas (POSTOBON)",
-    respuesta_correcta: "7Up",
+    respuesta_correcta: ["7Up", "Bretana"],
     arrayRespuestas: ["7Up", "Bretana", "Canada Dry", "Colombiana", "Freskola", "Hipinto", "Kola", "Limonada Postobon", "Manzana Postobon", "Naranja Postobon"],
     tipo: "multiseleccion",
     segmento: "postobon",
@@ -274,7 +274,7 @@ export const formData = [
   {
     id: 36,
     titulo: "Marque la presencia de las siguientes Marcas de Hidratante (FEMSA)",
-    respuesta_correcta: "Powerade",
+    respuesta_correcta: ["Powerade"],
     arrayRespuestas: ["Powerade", "No Hay"],
     tipo: "multiseleccion",
     segmento: "Neveras",
@@ -282,7 +282,7 @@ export const formData = [
   {
     id: 37,
     titulo: "Marque la presencia de las siguientes Marcas de Hidratante (POSTOBON)",
-    respuesta_correcta: "Gatorade",
+    respuesta_correcta: ["Gatorade", "Squash"],
     arrayRespuestas: ["Gatorade", "Squash", "No Hay"],
     tipo: "multiseleccion",
     segmento: "postobon",
@@ -290,7 +290,7 @@ export const formData = [
   {
     id: 38,
     titulo: "Marque la presencia de las siguientes Marcas de Jugos (FEMSA)",
-    respuesta_correcta: "Ades",
+    respuesta_correcta: ["Ades", "Del Valle Frutal"],
     arrayRespuestas: ["Ades", "Del Valle Frutal", "Del Valle Fresh"],
     tipo: "multiseleccion",
     segmento: "Neveras",
@@ -298,7 +298,7 @@ export const formData = [
   {
     id: 39,
     titulo: "Marque la presencia de las siguientes Marcas de Jugos (POSTOBON)",
-    respuesta_correcta: "Hit",
+    respuesta_correcta: ["Hit", "Tutti Frutti"],
     arrayRespuestas: ["Hit", "Tutti Frutti", "Tutti Frutti Citrico/Salpicon", "No Hay"],
     tipo: "multiseleccion",
     segmento: "postobon",
@@ -306,7 +306,7 @@ export const formData = [
   {
     id: 40,
     titulo: "Marque la presencia de las siguientes Marcas de Maltas",
-    respuesta_correcta: "Hit",
+    respuesta_correcta: ["Malta Leona", "Natu Malta"],
     arrayRespuestas: ["Malta Leona", "Natu Malta", "Pony Malta", "Pony Malta Vital", "Otras Marcas Maltas", "No Hay"],
     tipo: "multiseleccion",
     segmento: "Neveras",
@@ -314,7 +314,7 @@ export const formData = [
   {
     id: 41,
     titulo: "Marque la presencia de las siguientes Marcas de Agua: (OTRAS MARCAS)",
-    respuesta_correcta: "Cielo",
+    respuesta_correcta: ["Agua de Oro", "Cielo"],
     arrayRespuestas: ["Agua de Oro", "Cielo", "Condor", "Glacial", "Pool", "Saviloe", "Disfruta Aloe", "Nevada", "Vida", "Zen"],
     tipo: "multiseleccion",
     segmento: "Neveras",
@@ -322,7 +322,7 @@ export const formData = [
   {
     id: 42,
     titulo: "Marque la presencia de las siguientes Marcas de Energizante (OTRAS MARCAS)",
-    respuesta_correcta: "Cielo",
+    respuesta_correcta: ["Amper", "Vive 100%"],
     arrayRespuestas: ["Amper", "Vive 100%", "Spartan", "Energy Pool", "Full Energy Plus", "Volt", "Otras Marcas", "No hay"],
     tipo: "multiseleccion",
     segmento: "Neveras",
@@ -330,7 +330,7 @@ export const formData = [
   {
     id: 43,
     titulo: "Marque la presencia de las siguientes Marcas de Hidratante (OTRAS MARCAS)",
-    respuesta_correcta: "Sporade",
+    respuesta_correcta: ["Sporade", "Sport Mas"],
     arrayRespuestas: ["Sporade", "Sport Mas", "Fullpower", "Hydratade Pool", "Otras Marcas", "No Hay"],
     tipo: "multiseleccion",
     segmento: "Neveras",
@@ -338,7 +338,7 @@ export const formData = [
   {
     id: 44,
     titulo: "Marque la presencia de las siguientes Marcas de Jugos (OTRAS MARCAS)",
-    respuesta_correcta: "Cifrut",
+    respuesta_correcta: ["Cifrut", "Pulp", "Fruper"],
     arrayRespuestas: ["Cifrut", "Pulp", "Fruper", "Frutto", "Sip", "Soka", "Noectar Petit", "Fruttsi", "California", "California Fesky"],
     tipo: "multiseleccion",
     segmento: "Neveras",
@@ -346,7 +346,7 @@ export const formData = [
   {
     id: 45,
     titulo: "Marque la presencia de las siguientes Marcas de Te Liquido (FEMSA)",
-    respuesta_correcta: "Fuze Tea",
+    respuesta_correcta: ["Fuze Tea"],
     arrayRespuestas: ["Fuze Tea", "No Hay"],
     tipo: "multiseleccion",
     segmento: "Neveras",
@@ -354,7 +354,7 @@ export const formData = [
   {
     id: 46,
     titulo: "Marque la presencia de las siguientes Marcas de Te Liquido",
-    respuesta_correcta: "Cool Tea",
+    respuesta_correcta: ["Cool Tea"],
     arrayRespuestas: ["Cool Tea", "Otras Marcas", "No Hay"],
     tipo: "multiseleccion",
     segmento: "Neveras",
@@ -362,7 +362,7 @@ export const formData = [
   {
     id: 47,
     titulo: "Marque la presencia de las siguientes Marcas de Te Liquido (Postobon)",
-    respuesta_correcta: "Hatsu",
+    respuesta_correcta: ["Hatsu"],
     arrayRespuestas: ["Hatsu", "Lipton", "Mr Tea", "No Hay"],
     tipo: "multiseleccion",
     segmento: "postobon",
@@ -370,7 +370,7 @@ export const formData = [
   {
     id: 48,
     titulo: "Marque la presencia de las siguientes Marcas de Gaseosas: (OTRAS MARCAS)",
-    respuesta_correcta: "Pool",
+    respuesta_correcta: ["Pool"],
     arrayRespuestas: ["Big Cola", "Big Festival", "Big otros Sabores", "Glacial", "Frizz", "Pool", "Otras Marcas", "No Hay"],
     tipo: "multiseleccion",
     segmento: "Neveras",
@@ -378,7 +378,7 @@ export const formData = [
   {
     id: 49,
     titulo: "Postobon Nevera (Está conectada?)",
-    respuesta_correcta: "SI",
+    respuesta_correcta: ["SI"],
     arrayRespuestas: ["SI", "NO"],
     tipo: "multiseleccion",
     segmento: "postobon",
@@ -386,7 +386,7 @@ export const formData = [
   {
     id: 50,
     titulo: "Postobon Nevera (* La nevera de Postobon es..?)",
-    respuesta_correcta: "Pool",
+    respuesta_correcta: ["Pool"],
     arrayRespuestas: ["Propia del fabricante", "Propia del tendero pero está brandeada con marcas Postobon"],
     tipo: "multiseleccion",
     segmento: "postobon",
@@ -394,7 +394,7 @@ export const formData = [
   {
     id: 51,
     titulo: "Postobon Nevera (Invadida x competencia)",
-    respuesta_correcta: "Pool",
+    respuesta_correcta: ["Pool"],
     arrayRespuestas: ["SI", "NO"],
     tipo: "multiseleccion",
     segmento: "postobon",
@@ -402,7 +402,7 @@ export const formData = [
   {
     id: 52,
     titulo: "Postobon Nevera (Invadida x otros productos)",
-    respuesta_correcta: "SI",
+    respuesta_correcta: ["SI"],
     arrayRespuestas: ["SI", "NO"],
     tipo: "multiseleccion",
     segmento: "postobon",
@@ -410,7 +410,7 @@ export const formData = [
   {
     id: 53,
     titulo: "Postobon Nevera (Invadida x Licores)",
-    respuesta_correcta: "SI",
+    respuesta_correcta: ["SI"],
     arrayRespuestas: ["SI", "NO"],
     tipo: "multiseleccion",
     segmento: "postobon",
@@ -418,7 +418,7 @@ export const formData = [
   {
     id: 54,
     titulo: "Postobon Nevera ( *Indique el porcentaje de llenado de Nevera Postobon)",
-    respuesta_correcta: "0-25%",
+    respuesta_correcta: ["0-25%"],
     arrayRespuestas: ["0-25%", "26-50%", "51-75%", "mas del 75%", "Vacia"],
     tipo: "multiseleccion",
     segmento: "postobon",
@@ -426,7 +426,7 @@ export const formData = [
   {
     id: 55,
     titulo: "Marque la presencia de las siguientes bebidas lacteas del fabricante Alpina (Yogurt Kumis)",
-    respuesta_correcta: "0-25%",
+    respuesta_correcta: ["Alpina Deslactosado Yogurt Botella Familiar", "Alpina Deslactosado Yogurt Bolsa Familiar"],
     arrayRespuestas: ["Alpina Deslactosado Yogurt Botella Familiar", "Alpina Deslactosado Yogurt Bolsa Familiar","Alpina Deslactosado Yogurt Vaso", "Alpina kumis Bolsa Familiar", "Alpina Kumis Bolsa Personal", "Alpina Kumis Botella Familiar", "Alpina Kumis Vaso", "Alpina Yogurt Vaso", "Alpina Yogurt Botella Familiar", "Alpina Griego Yogurt Vaso", "Finesse Griego Yogurt Vaso", "Finesse Yogurt Botella Familiar", "Regeneris Yogurt (Vaso) Personal", "Regeneris Yogurt Botella Familiar", "Yogo Yogo (Vaso)", "Yogo Yogo Cuchareable Yogurt (Vaso)", "Yogo Yogo (Vaso)", "Yogo Yogo Premio Yogurt Botella Personal", "Yogo Yogo Premio Bolsa Familia", "Yogo Yogo Yogurt Bolsa Personal", "Yogo Yogo Yogurt Tetrapack", "Yox Defensis Yogurt Botella Personal", "Yogo Yogo Fresh Yogurt Botella Personal", "Yogurt Original Fresa Vaso"],
     tipo: "multiseleccion",
     segmento: "Neveras",
@@ -434,7 +434,7 @@ export const formData = [
   {
     id: 56,
     titulo: "Presencia (* Marque la presencia de las siguientes marcas de Papel Higienico)",
-    respuesta_correcta: "Elite",
+    respuesta_correcta: ["Elite", "Familia"],
     arrayRespuestas: ["Elite", "Familia", "Joya", "Kleenex", "Nube", "Rendy", "Rosal", "Scott", "Sedamax"],
     tipo: "multiseleccion",
     segmento: "personal",
@@ -442,7 +442,7 @@ export const formData = [
   {
     id: 57,
     titulo: "Ingresa las marcas que encuentra de protección femenina",
-    respuesta_correcta: "Elite",
+    respuesta_correcta: ["Carefree", "Kotex"],
     arrayRespuestas: ["Carefree", "Kotex", "Nosotras", "Fresh & Free", "Otras Marcas", "No hay"],
     tipo: "multiseleccion",
     segmento: "personal",
@@ -450,7 +450,7 @@ export const formData = [
   {
     id: 58,
     titulo: "Pregunte al tendero que marcas maneja de la categoria cigarrillos",
-    respuesta_correcta: "Elite",
+    respuesta_correcta: ["Blends", "Camel"],
     arrayRespuestas: ["Blends", "Camel", "Caribe", "Chesterfield", "Heets", "L&M", "Lucky Strike (Kool)", "Malboro", "Piel roja", "President", "Rothmans (Mustang)", "Starlite", "Winston", "Otras marcas", "No hay"],
     tipo: "multiseleccion",
     segmento: "alcohol",
@@ -458,7 +458,7 @@ export const formData = [
   {
     id: 59,
     titulo: "Presencias Cerveza(*Marque la presencia de las siguientes marcas de Cervezas",
-    respuesta_correcta: "Elite",
+    respuesta_correcta: ["Costeña", "Costeñita"],
     arrayRespuestas: ["Costeña", "Costeñita", "Costeña Bacana", "Aguila Cero", "Aguila Original", "Aguila Light", "Budweiser", "Buckler", "Becks", "Club Colombia Dorada", "Club Colombia Negra", "Club Colombia Roja", "Club Colombia Trigo", "Corona Extra", "Coronita", "Heiniken", "Heiniken 0.0", "Miller Lite", "Michelob ultra"],
     tipo: "multiseleccion",
     segmento: "cervezas",
@@ -466,7 +466,7 @@ export const formData = [
   {
     id: 60,
     titulo: "Marque la presencia observadas de las siguientes marcas de aguardiente",
-    respuesta_correcta: "Elite",
+    respuesta_correcta: ["Amarillo de manzanares", "Antioqueño"],
     arrayRespuestas: ["Amarillo de manzanares", "Antioqueño", "Cristal", "Nectar", "Otras Marcas", "No hay"],
     tipo: "multiseleccion",
     segmento: "alcohol",
@@ -474,7 +474,7 @@ export const formData = [
   {
     id: 61,
     titulo: "Marque la presencia observadas de las siguientes marcas de Ron",
-    respuesta_correcta: "Elite",
+    respuesta_correcta: ["Appleton State", "Bardi"],
     arrayRespuestas: ["Appleton State", "Bardi", "Havana Club", "Malibu", "Ron Medellin", "Ron viejo Caldas", "Ron Santa Fe", "Ron Barcelo", "Ron Zacapa", "Sailo Jerry"],
     tipo: "multiseleccion",
     segmento: "alcohol",
@@ -482,7 +482,7 @@ export const formData = [
   {
     id: 62,
     titulo: "Marque la presencia de las siguientes marcas de Whiskey",
-    respuesta_correcta: "Elite",
+    respuesta_correcta: ["Ballantines", "Black & White"],
     arrayRespuestas: ["Ballantines", "Black & White", "Buchanas", "Chivas Regal", "Dewars", "Glenfiddich", "Glenlivet", "Glenmorangie", "Grants", "Jack Daniels", "Jameson", "Jhonnie Walker", "Old Parr", "Passport Scotch", "Sigleton", "Something Special", "The famous grouse", "Tullamore Dew", "Vat 69", "William Lausons", "Otras Marcas"],
     tipo: "multiseleccion",
     segmento: "alcohol",
@@ -490,7 +490,7 @@ export const formData = [
   {
     id: 63,
     titulo: "Por favor seleccione los productos analgesicos que observa en el punto de venta:",
-    respuesta_correcta: "Elite",
+    respuesta_correcta: ["Sevedol (Extra Fuerte)", "Sevedol (Regular)"],
     arrayRespuestas: ["Sevedol (Extra Fuerte)", "Sevedol (Regular)", "Lumbal (Forte)", "Colik Forte (Tableta)", "Movidol (Muscular)", "Movidol (Regular)", "Advil (Max)", "Advil (Ultra)", "Dolex (Forte)", "Advil (Noche)", "Advil (Capsula Liquida)", "Advil (Tableta)", "Dolex (Activgel)", "Dolex (Avanzado)", "Dolex (Regular)", "Distrandol (Tableta)", "Xray Dol (Tableta)"],
     tipo: "multiseleccion",
     segmento: "medicinal",
@@ -498,7 +498,7 @@ export const formData = [
   {
     id: 64,
     titulo: "Indique las marcas que encuentra de la categoria de Mascarilla de Tratamiento",
-    respuesta_correcta: "Elite",
+    respuesta_correcta: ["Elvive", "Pantene"],
     arrayRespuestas: ["Elvive", "Pantene", "Nutribela", "Konzil", "Otras Marcas (Unilever)", "Otras Marcas", "No hay"],
     tipo: "multiseleccion",
     segmento: "personal",
@@ -506,7 +506,7 @@ export const formData = [
   {
     id: 65,
     titulo: "Presencias Cerveza (* Por favor verifique si el establecimiento tiene presencia de Cerveza (Importada y/o Nacional))",
-    respuesta_correcta: "SI",
+    respuesta_correcta: ["SI"],
     arrayRespuestas: ["SI", "NO"],
     tipo: "multiseleccion",
     segmento: "personal",

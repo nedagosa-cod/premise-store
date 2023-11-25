@@ -50,21 +50,43 @@ export default function Phone(props) {
     
   }
 
-  const popCorrectAnswers = (data) => {
+  const popCorrectAnswers = (dataLocal) => {
 
-    // let objCorrect = formData.filter(el=>el.id == 4)
-    console.log(data)
-    console.log(formData)
-    // let html = `${
-    //   data
-    // }`
+
+    const createPop = () => {
+      let html = '';
+      for (let index = 0; index < dataLocal.length; index++) {
+        const element = dataLocal[index];
+        const sameAsk = formData.filter(elemento=> elemento.id == element.id)
+        console.log(element)
+        if (sameAsk) {
+          html += `
+          <div class="popContent">
+            <span>${element.pregunta}</span>
+            <div class="popContent-res">
+            ${
+              element.resp.map(dat => {
+                return (
+                  `<span>${dat}</span>`
+                )
+              }).join('')
+            }
+            </div>
+
+          </div>
+          `; 
+        }
+      }
+      return html
+    }
+
+
 
     Swal.fire({
       title: "The Internet?",
-      html: `<div>
-        <p>Titulo</p>
-      </div>`,
-      icon: "question"
+      html: createPop(),
+      icon: "question",
+      width: '80%'
     });
   }
 
@@ -82,7 +104,7 @@ export default function Phone(props) {
 
     manejarRespuesta(props.ask, answers, props.numAsk)
 
-    if (contador > 60) {
+    if (contador > 3) {
       let dataSaved = JSON.parse(localStorage.getItem('data'))
       popCorrectAnswers(dataSaved)
     }
