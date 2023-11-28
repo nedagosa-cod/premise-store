@@ -19,6 +19,11 @@ export default function Phone(props) {
 
   const changeAskOn = () => {
     props.changeAsk(segmento);
+    // document.querySelectorAll('input[type="checkbox"]').forEach((el) => {
+    //   if (el.checked) {
+    //     el.click()
+    //   }
+    // });
   };
 
   const manejarRespuesta = (pregunta, resp, id) => {
@@ -172,7 +177,7 @@ export default function Phone(props) {
     setAttrs(props);
     setSegmento(props.activeSegment);
     document.querySelectorAll('input[type="checkbox"]').forEach((el) => {
-      el.checked = false;
+      el.checked ? el.click() : '';
     });
 
     props.ask ? setHide("hide") : setHide("");
@@ -204,17 +209,17 @@ export default function Phone(props) {
                     switch (props.type) {
                       case "multiseleccion": {
                         return (
-                          <div key={i}>
-                            <label htmlFor={dataId} className="multisel">
+                          <React.Fragment key={i}>
+                            <label htmlFor={'input'+dataId} className="multisel">
                               <input
                                 type="checkbox"
                                 name={res}
-                                id={dataId}
+                                id={'input'+dataId}
                                 onChange={activeCheckbox}
                               />
                               {res}
                             </label>
-                          </div>
+                          </React.Fragment>
                         );
                       }
                       case "foto": {
