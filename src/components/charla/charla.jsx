@@ -86,6 +86,23 @@ export default function Charla() {
                         }
                       });
                       break;
+                case 'reset_b':
+                      Swal.fire({
+                        icon: "error",
+                        title: "Respuesta Incorrecta",
+                        text: "Le has brindado información incorrecta a la tendera",
+                        showConfirmButton: true,
+                        confirmButtonText: "Reiniciar",
+                        customClass: {
+                          title: 'myswal-title',
+                          text: "myswal-text"
+                        }
+                      }).then((res)=>{
+                        if (res.isConfirmed) {
+                          window.location.reload()
+                        }
+                      });
+                      break;
                 case 'nextScene':
                   Swal.fire({
                     icon: 'question',

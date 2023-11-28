@@ -21,14 +21,12 @@ export default function Phone(props) {
     props.changeAsk(segmento);
   };
 
-
   const manejarRespuesta = (pregunta, resp, id) => {
     let local = JSON.parse(localStorage.getItem("data"));
     setRespuestas([...local, { id, pregunta, resp }]);
   };
 
   const takePhoto = (photo) => {
-      
     const imgs = {
       imgDetergente,
       imgPepsi,
@@ -54,17 +52,36 @@ export default function Phone(props) {
           (elemento) => elemento.id == element.id
         );
         if (sameAsk) {
+          let arrRespUser = element.resp;
+          let arrRespOk = sameAsk[0].respuesta_correcta;
+
+          let resCorrect = arrRespUser.filter((resUser) =>
+            arrRespOk.includes(resUser)
+          );
+
           html += `
                   <div class="popContent">
-                    <span>${element.pregunta}</span>
-                    <div class="popContent-res">
-                    ${element.resp
-                      .map((dat) => {
-                        return `<span>${dat}</span>`;
-                      })
-                      .join("")}
-                    </div>
-        
+                        <div class="askQuestions">
+                                    <div class="popContent-data">
+                                          <span>${element.pregunta}</span>
+                                    </div>
+                              
+                                    <div class="popContent-res">
+                                    ${element.resp
+                                    .map((dat) => {
+                                    return `<span class="respuesta ${
+                                          sameAsk[0].respuesta_correcta.includes(dat)
+                                          ? "correct"
+                                          : "incorrect"
+                                    }">${dat}</span>`;
+                                    })
+                                    .join("")}
+                                    </div>
+                        </div>
+                        <div class="results">
+                              <span>${resCorrect.length + "/" + arrRespOk.length}</span>
+                              <p>Pts.${((resCorrect.length / arrRespOk.length) * 10).toFixed(2)}</p>
+                        </div>
                   </div>
                   `;
         }
@@ -72,43 +89,84 @@ export default function Phone(props) {
       return html;
     };
 
+    const createFooter = () => {
+      let footer = "";
+      let sumaRes = 0
+      for (let index = 0; index < dataLocal.length; index++) {
+            const element = dataLocal[index];
+            const sameAsk = formData.filter((elemento) => elemento.id == element.id);
+            if (sameAsk) {
+              let arrRespUser = element.resp;
+              let arrRespOk = sameAsk[0].respuesta_correcta;
+    
+              let resCorrect = arrRespUser.filter((resUser) =>arrRespOk.includes(resUser));
+
+              sumaRes += Number(((resCorrect.length / arrRespOk.length) * 10).toFixed(2))
+            }
+      }
+      footer += `
+            <div>
+                  <h2>Nota</h2>
+                  <span>${(sumaRes/4).toFixed(1)}/10</span>
+            </div>
+      `
+          return footer;
+    }
+
     Swal.fire({
-      title: "The Internet?",
+      title: "Resultados",
       html: createPop(),
+      footer: createFooter(),
       icon: "question",
       width: "80%",
+      confirmButtonText: "Aceptar",
+      allowEscapeKey: false,
+      allowOutsideClick: false,
+      customClass: {
+        htmlContainer: "myswal-html",
+      },
     });
   };
 
   const saveAnswer = (e) => {
-        e.preventDefault();
-        
-    setContador(contador + 1);
+    e.preventDefault();
     let controlers = Array.from(e.target.elements);
-    let answers = [];
-    controlers.forEach((element) => {
-      let answer = element.name;
-      if (element.checked) {
-        answers.push(answer);
+    let checkboxMarcado = false;
+
+    for (let i = 0; i < controlers.length; i++) {
+      if (controlers[i].type == "checkbox" && controlers[i].checked) {
+        checkboxMarcado = true;
+        break;
       }
-    });
-
-    manejarRespuesta(props.ask, answers, props.numAsk);
-
-    if (contador > 3) {
-      let dataSaved = JSON.parse(localStorage.getItem("data"));
-      popCorrectAnswers(dataSaved);
     }
-    props.resetPhone();
-    localStorage.clear();
-    setAttrs([]);
-    setHide("");
-    console.log('hola')
+
+    if (checkboxMarcado) {
+      setContador(contador + 1);
+      let answers = [];
+      controlers.forEach((element) => {
+        let answer = element.name;
+        if (element.checked) {
+          answers.push(answer);
+        }
+      });
+
+      manejarRespuesta(props.ask, answers, props.numAsk);
+
+      if (contador > 23) {
+        let dataSaved = JSON.parse(localStorage.getItem("data"));
+        popCorrectAnswers(dataSaved);
+      }
+
+      props.resetPhone();
+      localStorage.clear();
+      setAttrs([]);
+      setHide("");
+    }
   };
 
   const activeCheckbox = (e) => {
-      e.target.parentNode.classList.toggle('active')
-  }
+    e.target.parentNode.classList.toggle("active");
+  };
 
   useEffect(() => {
     setAttrs(props);
@@ -148,7 +206,12 @@ export default function Phone(props) {
                         return (
                           <div key={i}>
                             <label htmlFor={dataId} className="multisel">
-                              <input type="checkbox" name={res} id={dataId} onChange={activeCheckbox}/>
+                              <input
+                                type="checkbox"
+                                name={res}
+                                id={dataId}
+                                onChange={activeCheckbox}
+                              />
                               {res}
                             </label>
                           </div>

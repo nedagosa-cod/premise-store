@@ -128,7 +128,6 @@
                         & .rescontainer {
                               max-height: 225px;
                               overflow-y: auto;
-                              min-height: 300px;
                               & .multisel{
                                     display: flex;
                                     align-items: center;
@@ -193,6 +192,66 @@
       }
 }
 
+
+.swal2-popup {
+      & .myswal-html {
+            max-height: 420px;
+            & .popContent {
+                  display: flex;
+                  border: 1px solid #023047;
+                  border-radius: 18px;
+                  -webkit-border-radius: 18px;
+                  -moz-border-radius: 18px;
+                  -ms-border-radius: 18px;
+                  -o-border-radius: 18px;
+                  margin: 16px auto;
+                  & .askQuestions{
+                        width: 80%;
+                        & .popContent-data {
+                              & span {
+                                    font-size: 1.8rem;
+                                    width: 80%;
+                                    padding: 4px 12px;
+                              }
+                        }
+                  }
+                  & .results {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        flex-direction: column;
+                        width: 20%;
+                  }
+                  & .popContent-res {
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: center;
+                        gap: 12px;
+                        margin: 6px auto 12px auto;
+                        & .respuesta {
+                              display: flex;
+                              align-items: center;
+                              text-align: center;
+                              justify-content: center;
+                              border: 1px solid #afafaf;
+                              width: 200px;
+                              padding: 4px;
+                              font-size: 1.4rem;
+                              &.correct {
+                                    background: #9aff8c;
+                                    border: 1px solid #0cb500;
+                                    color: #000;
+                              }
+                              &.incorrect {
+                                    border: 1px solid #b5000f;
+                                    background: #ff8c8c;
+                                    color: #b5000f;
+                              }
+                        }
+                  }
+            }
+      }
+}
 
 @media only screen and (max-width: 600px) {
       .phone-mex {

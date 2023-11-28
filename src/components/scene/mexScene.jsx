@@ -4,6 +4,7 @@ import { formData } from "./mexDataPhone";
 
 import entrada from "../../assets/img/mexScene1.jpg";
 import salida from "../../assets/img/mexScene2.jpg";
+import puerta from "../../assets/img/mexScene0.jpg";
 
 import Preload from "../../components/preload/preload";
 import Phone from "../phone/mexPhone";
@@ -25,8 +26,8 @@ export default function MexScene() {
     setNumAsk(0);
     setTypee('')
   }
-
   const resABCD = (segmento) => {
+
     if (segmento != '') {
       let res = formData.filter((el) => el.segmento == segmento);
       const dataLocal = JSON.parse(localStorage.getItem('data'))
@@ -113,6 +114,16 @@ export default function MexScene() {
           cssClass: "m-spot",
           clickHandlerFunc: () => {
             changeScene("salida");
+          },
+        },
+        {
+          text: "Punto",
+          type: "custom",
+          pitch: -26,
+          yaw: -121,
+          cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("punto");
           },
         },
         {
@@ -206,9 +217,70 @@ export default function MexScene() {
         },
       ],
     },
+    puerta: {
+      title: "Entrada",
+      image: puerta,
+      pitch: -26,
+      yaw: 80,
+      hfov: 120,
+      sceneFadeDuration: 10,
+      hotSpots: [
+        {
+          text: "Enfriadores",
+          type: "custom",
+          pitch: 7,
+          yaw: -37,
+          cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("enfriador_b");
+          },
+        },
+        {
+          text: "Producto",
+          type: "custom",
+          pitch: 5,
+          yaw: 71,
+          cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("producto");
+          },
+          
+        },
+        {
+          text: "Producto",
+          type: "custom",
+          pitch: -3,
+          yaw: 20,
+          cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("producto");
+          },
+        },
+        {
+          text: "Siguiente",
+          type: "custom",
+          pitch: -46,
+          yaw: 103,
+          cssClass: "m-spot",
+          clickHandlerFunc: () => {
+            changeScene("entrada");
+          },
+        },
+        {
+          text: "Punto",
+          type: "custom",
+          pitch: -40,
+          yaw: -177,
+          cssClass: "spot",
+          clickHandlerFunc: () => {
+            resABCD("punto");
+          },
+        },
+      ],
+    },
   };
 
-  const [scene, setScene] = useState(dataScene.entrada);
+  const [scene, setScene] = useState(dataScene.puerta);
 
   const createPannellum = (nameScene) => {
     document.querySelector("#panorama").innerHTML = "";

@@ -72,7 +72,7 @@ export const formData = [
       tipo: "multiseleccion"
     },            
     {
-      id: 13,
+      id: 10,
       titulo: "Hay enfriadores en este punto de venta",
       respuesta_correcta: ["Si"],
       arrayRespuestas: ["Si", "No"],
@@ -80,7 +80,7 @@ export const formData = [
       tipo: "multiseleccion"
     },      
     {
-      id: 14,
+      id: 11,
       titulo: "¿Cuantos enfriadores hay en este punto de venta?",
       respuesta_correcta: ["2"],
       arrayRespuestas: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
@@ -88,7 +88,7 @@ export const formData = [
       tipo: "multiseleccion"
     },      
     {
-      id: 15,
+      id: 12,
       titulo: "Enfriador #1 ¿El enfriador que reportas está patrocinado?",
       respuesta_correcta: ["Si"],
       arrayRespuestas: ["Si", "No"],
@@ -96,15 +96,15 @@ export const formData = [
       tipo: "multiseleccion"
     },      
     {
-      id: 16,
+      id: 13,
       titulo: "¿Enfriador #1 ¿Cuantas puertas tiene este enfriador?",
-      respuesta_correcta: [""],
+      respuesta_correcta: ["1"],
       arrayRespuestas: ["1", "2", "3", "4", "Más de 5"],
       segmento: "enfriador_a",
       tipo: "multiseleccion"
     },      
     {
-      id: 17,
+      id: 14,
       titulo: "Enfriador #1 ¿Que marca aparece en el enfriador?",
       respuesta_correcta: ["Pepsi"],
       arrayRespuestas: ["Coca Cola", "Jarritos", "Pepsi", "Red Cola", "Bonafont", "Peñafiel", "Boing", "Del Valle", "Powerade", "Lala"],
@@ -112,7 +112,7 @@ export const formData = [
       tipo: "multiseleccion"
     },      
     {
-      id: 18,
+      id: 15,
       titulo: "Enfriador #1¿El enfriador que estás reportando está conectado a la electricidad?",
       respuesta_correcta: ["Si"],
       arrayRespuestas: ["Si", "No"],
@@ -120,7 +120,7 @@ export const formData = [
       tipo: "multiseleccion"
     },      
     {
-      id: 19,
+      id: 16,
       titulo: "Enfriador #1 ¿En este enfriador patrocinado hay algún producto de la competencia o otros productos que no corresponden?",
       respuesta_correcta: ["Si"],
       arrayRespuestas: ["Si", "No"],
@@ -128,7 +128,7 @@ export const formData = [
       tipo: "multiseleccion"
     },      
     {
-      id: 20,
+      id: 17,
       titulo: "Enfriador #1 ¿Cuantas caras de otros productos de la competencia y/u otros productos que no pertenecen hay en este refrigerador?",
       respuesta_correcta: ["5 o menos"],
       arrayRespuestas: ["5 o menos", "6 - 12", "12 - 24", "Más de 24"],
@@ -136,7 +136,7 @@ export const formData = [
       tipo: "multiseleccion"
     },      
     {
-      id: 21,
+      id: 18,
       titulo: "Enfriador #1: Toma una foto del enfriador que estas reportando",
       respuesta_correcta: ["imgEnfriador"],
       arrayRespuestas: ["imgEnfriador"],
@@ -144,7 +144,7 @@ export const formData = [
       tipo: "foto"
     },            
     {
-      id: 22,
+      id: 19,
       titulo: "Enfriador #2 ¿El enfriador que reportas está patrocinado?",
       respuesta_correcta: ["Si"],
       arrayRespuestas: ["Si", "No"],
@@ -152,15 +152,15 @@ export const formData = [
       tipo: "multiseleccion"
     },      
     {
-      id: 23,
+      id: 20,
       titulo: "Enfriador #2 ¿Cuantas puertas tiene este enfriador?",
-      respuesta_correcta: [""],
-      arrayRespuestas: [],
+      respuesta_correcta: ["2"],
+      arrayRespuestas: ["1", "2", "3", "4", "Más de 5"],
       segmento: "enfriador_b",
       tipo: "multiseleccion"
     },      
     {
-      id: 24,
+      id: 21,
       titulo: "Enfriador #2 ¿Que marca aparece en el enfriador?",
       respuesta_correcta: ["Pepsi"],
       arrayRespuestas: ["Coca Cola", "Jarritos", "Pepsi", "Red Cola", "Bonafont", "Peñafiel", "Boing", "Del Valle", "Powerade", "Lala"],
@@ -168,7 +168,7 @@ export const formData = [
       tipo: "multiseleccion"
     },      
     {
-      id: 25,
+      id: 22,
       titulo: "Enfriador #2 ¿El enfriador que estás reportando está conectado a la electricidad?",
       respuesta_correcta: ["Si"],
       arrayRespuestas: ["Si", "No"],
@@ -176,7 +176,7 @@ export const formData = [
       tipo:"multiseleccion"
     },      
     {
-      id: 26,
+      id: 23,
       titulo: "Enfriador #2 ¿En este enfriador patrocinado hay algún producto de la competencia o otros productos que no corresponden?",
       respuesta_correcta: ["Si"],
       arrayRespuestas: ["Si", "No"],
@@ -184,7 +184,7 @@ export const formData = [
       tipo: "multiseleccion"
     },      
     {
-      id: 27,
+      id: 24,
       titulo: "Enfriador #2 ¿Cuantas caras de otros productos de la competencia y/u otros productos que no pertenecen hay en este refrigerador?",
       respuesta_correcta: ["5 o menos"],
       arrayRespuestas: ["5 o menos", "6 - 12", "12 - 24", "Más de 24"],
@@ -192,7 +192,7 @@ export const formData = [
       tipo: "multiseleccion"
     },      
     {
-      id: 28,
+      id: 25,
       titulo: "Enfriador #2: Toma una foto del enfriador que estas reportando",
       respuesta_correcta: ["imgPepsi"],
       arrayRespuestas: ["imgPepsi"],
@@ -200,7 +200,7 @@ export const formData = [
       tipo: "foto"
     },            
     {
-      id: 29,
+      id: 26,
       titulo: "Este punto de venta vende Detergente para Ropa en los estantes?",
       respuesta_correcta: ["No"],
       arrayRespuestas: ["Si", "No"],
@@ -208,7 +208,7 @@ export const formData = [
       tipo: "multiseleccion"
     },
     {
-      id: 30,
+      id: 27,
       titulo: "Pregunta al encargado del establecimiento: ¿Vende detergente para la ropa?",
       respuesta_correcta: ["Si"],
       arrayRespuestas: ["Si", "No"],
@@ -216,7 +216,7 @@ export const formData = [
       tipo: "multiseleccion"
     },            
     {
-      id: 31,
+      id: 28,
       titulo: "¿Que marcas de detergente para ropa se venden en este punto de venta?",
       respuesta_correcta: ["Roma", "Ariel", "Ace", "Salvo Multisos"],
       arrayRespuestas: ["Vide", "Arm & Hammer", "Vel Rosita", "Blanca Nieves", "Carisma", "Persil", "Viva", "Pinol", "Xpress", "Ace", "Ariel", "Salvo Multisos", "Doña Blanca", "Foca", "Puro Sol", "Roma", "Tepeyac", "1.2.3", "Mas"],
@@ -224,7 +224,7 @@ export const formData = [
       tipo: "multiseleccion"
     },
     {
-      id: 40,
+      id: 29,
       titulo: "Toma una foto de la secciòn de productos de limpieza.",
       respuesta_correcta: ["imgDetergente"],
       arrayRespuestas: ["imgDetergente"],

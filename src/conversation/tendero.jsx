@@ -100,7 +100,7 @@ const conversation = {
         },
         a_optC: {
           text: "Buenos días, tenga usted un excelente día. ¿Me permite ingresar? vengo de Premise, venimos realizando un estudio de mercado para todas las tiendas del sector, con el fin de que usted sea más visible ante las empresas o marcas, para que puedan tomar decisiones a favor de usted y sus clientes",
-          emote: 'standar',
+          emote: 'surprised',
           pointer: 'finalidad_b'
         },
         b_optA: {
@@ -188,7 +188,7 @@ const conversation = {
         },
         despedirse: {
           text: "Vale muchas gracias.",
-          event: 'reset'
+          event: 'reset_b'
         },
         TERMINAR: {
             text: '***REINICIAR CONVERSACION VOLVER A INTENTARLO***',
