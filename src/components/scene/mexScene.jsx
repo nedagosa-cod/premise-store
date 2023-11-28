@@ -117,6 +117,16 @@ export default function MexScene() {
           },
         },
         {
+          text: "Siguiente",
+          type: "custom",
+          pitch: -48,
+          yaw: -131,
+          cssClass: "m-spot",
+          clickHandlerFunc: () => {
+            changeScene("puerta");
+          },
+        },
+        {
           text: "Punto",
           type: "custom",
           pitch: -26,
