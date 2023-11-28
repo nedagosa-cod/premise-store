@@ -79,6 +79,16 @@
                         width: 100%;
                         height: 40px;
                         padding: 6px;
+                        & .button {
+                              font-size: 2rem;
+                              padding: 0 18px;
+                              background: #219ebc;
+                              color: #f0f0f0;
+                              &:nth-child(2) {
+                                    background: #f0f0f0;
+                                    color: #219ebc;
+                              }
+                        }
                         & button {
                               font-size: 2rem;
                               padding: 0 18px;

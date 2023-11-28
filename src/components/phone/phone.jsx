@@ -13,6 +13,7 @@ import imgCigarrillos from '../../assets/iconScenes/cigarrillos.jpeg'
 import imgMeiko from '../../assets/iconScenes/meiko.jpg' 
 import logoPhone from '../../assets/img/360phone.png' 
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 
 export default function Phone(props) {
 
@@ -139,7 +140,7 @@ export default function Phone(props) {
               <h1>NUEVO - Premise</h1>
             </div>
             <div className='topButtons'>
-              <button>╠</button>
+              <Link to="/" className='button'>╠</Link>
               <button>🔍︎</button>
               <button onClick={changeAskOn}>←</button>
               <button onClick={changeAskOn}>→</button>
