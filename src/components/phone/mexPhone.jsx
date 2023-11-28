@@ -9,6 +9,7 @@ import imgDetergente from "../../assets/iconScenes/mexImgDetergentes.jpg";
 import imgPepsi from "../../assets/iconScenes/mexImgPepsi.jpg";
 import logoPhone from "../../assets/img/360phone.png";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Phone(props) {
   const [hide, setHide] = useState("");
@@ -19,11 +20,6 @@ export default function Phone(props) {
 
   const changeAskOn = () => {
     props.changeAsk(segmento);
-    // document.querySelectorAll('input[type="checkbox"]').forEach((el) => {
-    //   if (el.checked) {
-    //     el.click()
-    //   }
-    // });
   };
 
   const manejarRespuesta = (pregunta, resp, id) => {
@@ -188,12 +184,14 @@ export default function Phone(props) {
       <article className="phone-mex">
         <div className="questions">
           <div className="questions__inner">
+            <div className="backhome">
+                <Link to="/store" className="button">⌂</Link>
+              </div>
             <div className="header">
               <button onClick={changeAskOn}>←</button>
               <p>Outlet environment and operat...</p>
               <button onClick={changeAskOn}>→</button>
             </div>
-
             <div className="mid">
               <p id="elPregunta" className="pregunta">
                 {attrs.ask ? attrs.ask : ""}
