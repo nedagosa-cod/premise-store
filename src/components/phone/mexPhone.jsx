@@ -185,7 +185,7 @@ export default function Phone(props) {
         <div className="questions">
           <div className="questions__inner">
             <div className="backhome">
-                <Link to="/store" className="button">⌂</Link>
+                <Link to="/" className="button">⌂</Link>
               </div>
             <div className="header">
               <button onClick={changeAskOn}>←</button>
@@ -222,8 +222,9 @@ export default function Phone(props) {
                       }
                       case "foto": {
                         return (
-                          <div key={i}>
+                          <div key={i} className="foto">
                             <button
+                              className="cam-button"
                               type="button"
                               onClick={() => {
                                 takePhoto(res);
@@ -242,6 +243,7 @@ export default function Phone(props) {
                               </svg>
                               <p>Tomar Foto</p>
                             </button>
+                            <input type="checkbox" name={res} checked onChange={activeCheckbox}/>
                           </div>
                         );
                       }
