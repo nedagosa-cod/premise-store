@@ -27,22 +27,38 @@ export default function MexScene() {
     setTypee('')
   }
   const resABCD = (segmento) => {
-
     if (segmento != '') {
       let res = formData.filter((el) => el.segmento == segmento);
-      const dataLocal = JSON.parse(localStorage.getItem('data'))
+      const dataLocal = () => JSON.parse(localStorage.getItem('data')) ? JSON.parse(localStorage.getItem('data')) : []
+      let resultado = res.filter(objeto1 => !dataLocal().some(objeto2 => objeto2.id === objeto1.id));
+        if (resultado[startPos] !== undefined) {
+          setStartPos(startPos+1)
+          setAks(resultado[startPos].titulo);
+          setAnswers(resultado[startPos].arrayRespuestas);
+          setNumAsk(resultado[startPos].id);
+          setTypee(resultado[startPos].tipo)
+          setActiveSegment(segmento)
+        }
+    }
+  };
+
+  const resABCD_Back = (segmento) => {
+    if (segmento != '') {
+      let res = formData.filter((el) => el.segmento == segmento);
+      const dataLocal = () => JSON.parse(localStorage.getItem('data')) ? JSON.parse(localStorage.getItem('data')) : []
+      let resultado = res.filter(objeto1 => !dataLocal().some(objeto2 => objeto2.id === objeto1.id));
+
+        if (resultado[startPos] !== undefined) {
+          setStartPos(startPos-1)
+          setAks(resultado[startPos].titulo);
+          setAnswers(resultado[startPos].arrayRespuestas);
+          setNumAsk(resultado[startPos].id);
+          setTypee(resultado[startPos].tipo)
+          setActiveSegment(segmento)
+        } else {
+          setStartPos(0)
+        }
       
-      let resultado = res.filter(objeto1 => !dataLocal.some(objeto2 => objeto2.id === objeto1.id));
-          if (resultado[startPos] !== undefined) {
-            setAks(resultado[startPos].titulo);
-            setAnswers(resultado[startPos].arrayRespuestas);
-            setNumAsk(resultado[startPos].id);
-            setTypee(resultado[startPos].tipo)
-            setActiveSegment(segmento)
-            setStartPos(startPos+1)
-          } else {
-            setStartPos(0)
-          }
     }
   };
 
@@ -315,7 +331,7 @@ export default function MexScene() {
   return (
     <div className="box-scene" name={numAsk}>
       <Preload funct={alertPreload} />
-      <Phone ask={ask} answers={answers} numAsk={numAsk} type={typee} resetPhone={resetPhone} changeAsk={resABCD} activeSegment={activeSegment}/>
+      <Phone ask={ask} answers={answers} numAsk={numAsk} type={typee} resetPhone={resetPhone} changeAsk={resABCD} changeAskBack={resABCD_Back} activeSegment={activeSegment}/>
       <div id="panorama" className="panorama"></div>
     </div>
   );

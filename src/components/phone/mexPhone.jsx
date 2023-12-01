@@ -21,6 +21,9 @@ export default function Phone(props) {
   const changeAskOn = () => {
     props.changeAsk(segmento);
   };
+  const changeAskOnBack = () => {
+    props.changeAskBack(segmento);
+  };
 
   const manejarRespuesta = (pregunta, resp, id) => {
     let local = JSON.parse(localStorage.getItem("data"));
@@ -157,12 +160,12 @@ export default function Phone(props) {
         let dataSaved = JSON.parse(localStorage.getItem("data"));
         popCorrectAnswers(dataSaved);
       }
-
       props.resetPhone();
       localStorage.clear();
       setAttrs([]);
       setHide("");
     }
+    changeAskOn()
   };
 
   const activeCheckbox = (e) => {
@@ -175,31 +178,33 @@ export default function Phone(props) {
     document.querySelectorAll('input[type="checkbox"]').forEach((el) => {
       el.checked ? el.click() : '';
     });
-
+    
     props.ask ? setHide("hide") : setHide("");
     localStorage.setItem("data", JSON.stringify(respuestas));
+    console.log('saved')
   }, [props.ask, respuestas]);
   return (
     <>
       <article className="phone-mex">
         <div className="questions">
-          <div className="questions__inner">
+          <form className="questions__inner"
+              onSubmit={saveAnswer}
+              id={"form" + attrs.numAsk}
+          >
             <div className="backhome">
                 <Link to="/" className="button">⌂</Link>
               </div>
             <div className="header">
-              <button onClick={changeAskOn}>←</button>
+              <button onClick={changeAskOnBack}>←</button>
               <p>Outlet environment and operat...</p>
-              <button onClick={changeAskOn}>→</button>
+              <button type="submit">→</button>
             </div>
             <div className="mid">
               <p id="elPregunta" className="pregunta">
                 {attrs.ask ? attrs.ask : ""}
               </p>
-              <form
+              <div
                 className="respuestas"
-                onSubmit={saveAnswer}
-                id={"form" + attrs.numAsk}
               >
                 <div className="rescontainer">
                   {attrs.answers?.map((res, i) => {
@@ -250,10 +255,10 @@ export default function Phone(props) {
                     }
                   })}
                 </div>
-                <button className={"send " + hide} type="submit">
+                {/* <button className={"send " + hide} type="submit">
                   Enviar
-                </button>
-              </form>
+                </button> */}
+              </div>
               <div className={"phone-home " + hide}>
                 <figure>
                   <img src={logoPhone} alt="Logo 360" />
@@ -261,7 +266,7 @@ export default function Phone(props) {
                 <p>Seleccionar puntero para generar pregunta!</p>
               </div>
             </div>
-          </div>
+          </form>
         </div>
         <figure className="imgPhone">
           <img src={imgPhone} alt="phone" />
