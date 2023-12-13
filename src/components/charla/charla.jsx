@@ -60,7 +60,7 @@ export default function Charla() {
                               ...prevOwnerChat,
                               <div className="globo animate__animated animate__backInRight" key={prevOwnerChat.length}>
                                 <p>{conversation.NPC_options[pointer].text}</p>
-                                <span>Rosita</span>
+                                <span>Cecilia</span>
                               </div>
                         ]);
                         setActiveChat(pointer)
@@ -126,6 +126,11 @@ export default function Charla() {
                       <div class="show-tienda__right">
                         <button type="button" name="mexTienda" class="buttonStorage">Tienda</button>
                       </div>
+                      <div class="show-tienda__code">
+                        <label> Código de acceso
+                          <input type="text" id="inputCode">
+                        </label>
+                      </div>
                     </form>
                   </section>`,
                   customClass: {
@@ -135,20 +140,34 @@ export default function Charla() {
                   },
                   didOpen : ()=>{
                     const tiendas = document.querySelectorAll('.buttonStorage')
+                    const inputCode = document.querySelector('#inputCode')
+                    const codesStore = ["c57otl", "c57oal", "m52etx"]
+                    const temblar = () => {
+                      inputCode.classList.add('temblor');
+                      setTimeout(() => {
+                        inputCode.classList.remove('temblor');
+                      }, 500)
+                    }
                     tiendas.forEach(tienda => {
                       tienda.addEventListener('click', ()=>{
-                        switch (tienda.name) {
-                          case 'colAutoServ':
-                            navigate('/store');
-                            break;
-                          case 'mexTienda':
-                            navigate('/mexstore');
-                            break;
-                          case 'colTienda':
-                            navigate('/coltstore');
-                            break;
+                        if (codesStore.includes(inputCode.value)) {
+                          switch (tienda.name) {
+                            case 'colAutoServ':
+                              inputCode.value == "c57oal" ? navigate('/store') : '';
+                              inputCode.value == "c57oal" ? Swal.close() : temblar();
+                              break;
+                            case 'mexTienda':
+                              inputCode.value == "m52etx" ? navigate('/mexstore'): '';
+                              inputCode.value == "m52etx" ? Swal.close() : temblar();
+                              break;
+                            case 'colTienda':
+                              inputCode.value == "c57otl" ? navigate('/coltstore') : '';
+                              inputCode.value == "c57otl" ? Swal.close() : temblar();
+                              break;
+                          }
+                        } else {
+                          temblar()
                         }
-                        Swal.close()
                       })
                     });
 
@@ -168,7 +187,7 @@ useEffect(()=>{
                   ...prevOwnerChat,
                   <div className="globo animate__animated animate__backInRight" key={prevOwnerChat.length}>
                     <p>{conversation.NPC_options[activeChat].text}</p>
-                    <span>Rosita</span>
+                    <span>Cecilia</span>
                   </div>
                 ]);
       },3000)

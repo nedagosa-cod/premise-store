@@ -50,10 +50,10 @@ $s2-color: #7E38FF;
                         width: 90%;
                         margin: 16px auto;
                         font-size: 1.6rem;
-                        background: $s-color;
+                        background: #f4b795;
+                        color: $b-color;
                         border-radius: 25px;
                         padding: 10px 18px;
-                        color: $w-color;
                         -webkit-border-radius: 25px;
                         -moz-border-radius: 25px;
                         -ms-border-radius: 25px;
@@ -66,7 +66,7 @@ $s2-color: #7E38FF;
                               background: transparent;
                               width: 0px;
                               height: 0px;
-                              border-bottom: 50px solid $s-color;
+                              border-bottom: 50px solid #f4b795;
                               border-right: 20px solid transparent;
                               border-left: 20px solid transparent;
                               transform: translateY(-50%) rotate(90deg);
@@ -81,7 +81,11 @@ $s2-color: #7E38FF;
                         & span {
                               align-self: center;
                               text-align: center;
-                              background: #0056f5;
+                              background: rgb(244,183,149);
+                              background: -moz-linear-gradient(90deg, rgba(244,183,149,1) 55%, rgba(199,135,100,1) 100%);
+                              background: -webkit-linear-gradient(90deg, rgba(244,183,149,1) 55%, rgba(199,135,100,1) 100%);
+                              background: linear-gradient(90deg, rgba(244,183,149,1) 55%, rgba(199,135,100,1) 100%);
+                              filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f4b795",endColorstr="#c78764",GradientType=1);
                               border-radius: 16px;
                               -webkit-border-radius: 16px;
                               -moz-border-radius: 16px;
@@ -99,7 +103,7 @@ $s2-color: #7E38FF;
                         width: 90%;
                         margin: 16px auto;
                         font-size: 1.6rem;
-                        background: $p-color;
+                        background: $s-color;
                         border-radius: 25px;
                         padding: 10px 18px;
                         color: $w-color;
@@ -111,7 +115,7 @@ $s2-color: #7E38FF;
                               background: transparent;
                               width: 0px;
                               height: 0px;
-                              border-bottom: 20px solid $p-color;
+                              border-bottom: 20px solid $s-color;
                               border-right: 20px solid transparent;
                               border-left: 20px solid transparent;
                               transform: rotate(270deg);
@@ -121,8 +125,14 @@ $s2-color: #7E38FF;
                               -o-transform: rotate(270deg);
                         }
                         & span {
+                              display: flex;
+                              align-items: center;
                               text-align: center;
-                              background: #ff4935;
+                              background: rgb(22,105,255);
+                              background: -moz-linear-gradient(90deg, rgba(22,105,255,1) 0%, rgba(5,67,179,1) 100%);
+                              background: -webkit-linear-gradient(90deg, rgba(22,105,255,1) 0%, rgba(5,67,179,1) 100%);
+                              background: linear-gradient(90deg, rgba(22,105,255,1) 0%, rgba(5,67,179,1) 100%);
+                              filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1669ff",endColorstr="#0543b3",GradientType=1);
                               border-radius: 16px;
                               -webkit-border-radius: 16px;
                               -moz-border-radius: 16px;
@@ -191,7 +201,7 @@ $s2-color: #7E38FF;
                         align-items: center;
                         width: 90%;
                         margin: 4px auto;
-                        background: $p-color;
+                        background: $s-color;
                         color: $w-color;
                         padding: 6px 6px 6px 12px;
                         border-radius: 16px;
@@ -314,6 +324,7 @@ $s2-color: #7E38FF;
                   }
                   &__bot {
                         display: flex;
+                        flex-wrap: wrap;
                         justify-content: space-around;
                         text-align: center;
                   }
@@ -359,6 +370,35 @@ $s2-color: #7E38FF;
                               color: $w-color;
                         }
                   }
+                  &__code {
+                        display: flex;
+                        justify-content: center;
+                        width: 100%;
+                        margin: 18px auto;
+                        color: $p-color;
+                        font-size: 2rem;
+                        & input {
+                              padding-left: 8px;
+                              margin-top: 4px;
+                              font-size: 2rem;
+                              outline: none;
+                              border: 2px solid #FF5B4A;
+                              transition: transform 0.2s ease-in-out;
+                              border-radius: 9px;
+                              -webkit-border-radius: 9px;
+                              -moz-border-radius: 9px;
+                              -ms-border-radius: 9px;
+                              -o-border-radius: 9px;
+                              -webkit-transition: transform 0.2s ease-in-out;
+                              -moz-transition: transform 0.2s ease-in-out;
+                              -ms-transition: transform 0.2s ease-in-out;
+                              -o-transition: transform 0.2s ease-in-out;
+                              &.temblor {
+                                    transform: translateX(-5px);
+                                    animation: shake 0.5s ease-in-out infinite;
+                                }
+                        }
+                  }
             }
       }
       & .myswal-title {
@@ -401,3 +441,15 @@ $s2-color: #7E38FF;
       }
 
 }
+
+@keyframes shake {
+      0%, 100% {
+          transform: translateX(0);
+      }
+      25%, 75% {
+          transform: translateX(-5px);
+      }
+      50% {
+          transform: translateX(5px);
+      }
+  }

@@ -17,9 +17,10 @@ export default function Phone(props) {
   const [respuestas, setRespuestas] = useState([]);
   const [contador, setContador] = useState(0);
   const [segmento, setSegmento] = useState(props.activeSegment);
+  const [dataAsk, SetDataAsk] = useState(formData);
 
-  const changeAskOn = () => {
-    props.changeAsk(segmento);
+  const changeAskOn = (id, check) => {
+    props.changeAsk(segmento, id, check);
   };
   const changeAskOnBack = () => {
     props.changeAskBack(segmento);
@@ -66,21 +67,21 @@ export default function Phone(props) {
           html += `
                   <div class="popContent">
                         <div class="askQuestions">
-                                    <div class="popContent-data">
-                                          <span>${element.pregunta}</span>
-                                    </div>
-                              
-                                    <div class="popContent-res">
-                                    ${element.resp
-                                    .map((dat) => {
-                                    return `<span class="respuesta ${
-                                          sameAsk[0].respuesta_correcta.includes(dat)
-                                          ? "correct"
-                                          : "incorrect"
-                                    }">${dat}</span>`;
-                                    })
-                                    .join("")}
-                                    </div>
+                            <div class="popContent-data">
+                                  <span>${element.pregunta}</span>
+                            </div>
+                      
+                            <div class="popContent-res">
+                            ${element.resp
+                            .map((dat) => {
+                            return `<span class="respuesta ${
+                                  sameAsk[0].respuesta_correcta.includes(dat)
+                                  ? "correct"
+                                  : "incorrect"
+                            }">${dat}</span>`;
+                            })
+                            .join("")}
+                            </div>
                         </div>
                         <div class="results">
                               <span>${resCorrect.length + "/" + arrRespOk.length}</span>
@@ -111,7 +112,7 @@ export default function Phone(props) {
       footer += `
             <div>
                   <h2>Nota</h2>
-                  <span>${(sumaRes/4).toFixed(1)}/10</span>
+                  <span>${(sumaRes/23).toFixed(1)}/10</span>
             </div>
       `
           return footer;
@@ -137,6 +138,7 @@ export default function Phone(props) {
     let controlers = Array.from(e.target.elements);
     let checkboxMarcado = false;
 
+    // reinicia los checkbox
     for (let i = 0; i < controlers.length; i++) {
       if (controlers[i].type == "checkbox" && controlers[i].checked) {
         checkboxMarcado = true;
@@ -165,7 +167,22 @@ export default function Phone(props) {
       setAttrs([]);
       setHide("");
     }
-    changeAskOn()
+    // changeAskOn(props.numAsk, checkboxMarcado)
+
+    if (segmento != '') {
+      let res = dataAsk.filter((el) => el.segmento == segmento);
+      const dataLocal = () => JSON.parse(localStorage.getItem('data')) ? JSON.parse(localStorage.getItem('data')) : []
+      let resultado = res.filter(objeto1 => !dataLocal().some(objeto2 => objeto2.id === objeto1.id));
+      if (resultado[startPos] !== undefined) {
+        setStartPos(startPos+1)
+        setAks(resultado[startPos].titulo);
+        setAnswers(resultado[startPos].arrayRespuestas);
+        setNumAsk(resultado[startPos].id);
+        setTypee(resultado[startPos].tipo)
+        setActiveSegment(segmento)
+        check ? SetDataAsk(dataAsk.filter(objeto => objeto.id !== id)) : ''
+    }
+  }
   };
 
   const activeCheckbox = (e) => {
@@ -181,7 +198,6 @@ export default function Phone(props) {
     
     props.ask ? setHide("hide") : setHide("");
     localStorage.setItem("data", JSON.stringify(respuestas));
-    console.log('saved')
   }, [props.ask, respuestas]);
   return (
     <>
