@@ -13,11 +13,19 @@ import { Link } from "react-router-dom";
 
 export default function Phone(props) {
   const [hide, setHide] = useState("");
-  const [attrs, setAttrs] = useState(props);
+  // const [attrs, setAttrs] = useState(props);
   const [respuestas, setRespuestas] = useState([]);
   const [contador, setContador] = useState(0);
   const [segmento, setSegmento] = useState(props.activeSegment);
   const [dataAsk, SetDataAsk] = useState(formData);
+
+
+  const [ask, setAks] = useState("");
+  const [answers, setAnswers] = useState([]);
+  const [numAsk, setNumAsk] = useState(0);
+  const [typee, setTypee] = useState('');
+  const [activeSegment, setActiveSegment] = useState('');
+  const [startPos, setStartPos] = useState(0);
 
   const changeAskOn = (id, check) => {
     props.changeAsk(segmento, id, check);
@@ -164,7 +172,7 @@ export default function Phone(props) {
       }
       props.resetPhone();
       localStorage.clear();
-      setAttrs([]);
+      // setAttrs([]);
       setHide("");
     }
     // changeAskOn(props.numAsk, checkboxMarcado)
@@ -180,7 +188,7 @@ export default function Phone(props) {
         setNumAsk(resultado[startPos].id);
         setTypee(resultado[startPos].tipo)
         setActiveSegment(segmento)
-        check ? SetDataAsk(dataAsk.filter(objeto => objeto.id !== id)) : ''
+        checkboxMarcado ? SetDataAsk(dataAsk.filter(objeto => objeto.id !== id)) : ''
     }
   }
   };
@@ -190,7 +198,7 @@ export default function Phone(props) {
   };
 
   useEffect(() => {
-    setAttrs(props);
+    // setAttrs(props);
     setSegmento(props.activeSegment);
     document.querySelectorAll('input[type="checkbox"]').forEach((el) => {
       el.checked ? el.click() : '';
@@ -205,7 +213,7 @@ export default function Phone(props) {
         <div className="questions">
           <form className="questions__inner"
               onSubmit={saveAnswer}
-              id={"form" + attrs.numAsk}
+              id={"form" + numAsk}
           >
             <div className="backhome">
                 <Link to="/" className="button">⌂</Link>
@@ -217,15 +225,15 @@ export default function Phone(props) {
             </div>
             <div className="mid">
               <p id="elPregunta" className="pregunta">
-                {attrs.ask ? attrs.ask : ""}
+                {ask ? ask : ""}
               </p>
               <div
                 className="respuestas"
               >
                 <div className="rescontainer">
-                  {attrs.answers?.map((res, i) => {
-                    let dataId = props.numAsk + "_" + i;
-                    switch (props.type) {
+                  {answers?.map((res, i) => {
+                    let dataId = numAsk + "_" + i;
+                    switch (typee) {
                       case "multiseleccion": {
                         return (
                           <React.Fragment key={i}>

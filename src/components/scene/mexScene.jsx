@@ -369,7 +369,7 @@ export default function MexScene() {
   };
   let alertPreload = true
   useEffect(() => {
-    resABCD('punto', 2)
+    // resABCD('punto', 2, false)
     createPannellum(scene);
   }, [scene]);
   return (
