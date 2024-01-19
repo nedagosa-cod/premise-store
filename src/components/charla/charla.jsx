@@ -16,6 +16,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import conversation from '../../conversation/tendero.jsx'
 import TenderoImg from '../tendero/TenderoImg'
+import { Link } from "react-router-dom";
 
 import Preload from "../preload/preload";
 
@@ -251,6 +252,7 @@ useEffect(()=>{
                               )
                         })}
                   </div>
+                  <Link to="/mexstore" className='button'>testeo</Link>
             </div>
           </div>
         </div>
