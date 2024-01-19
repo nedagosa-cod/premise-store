@@ -252,8 +252,6 @@ useEffect(()=>{
                               )
                         })}
                   </div>
-                  <Link to="/mexstore" className='button'>testeo</Link>
-                  <a href="/mexstore">SEGUNDO TEST</a>
             </div>
           </div>
         </div>

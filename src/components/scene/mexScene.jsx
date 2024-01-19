@@ -30,12 +30,12 @@ export default function MexScene() {
     setTypee('')
   }
   const resABCD = (segmento, id, check) => {
-    
     if (segmento != '') {
-        let res = data.filter((el) => el.segmento == segmento);
-        const dataLocal = () => JSON.parse(localStorage.getItem('data')) ? JSON.parse(localStorage.getItem('data')) : []
-        let resultado = res.filter(objeto1 => !dataLocal().some(objeto2 => objeto2.id === objeto1.id));
-        if (resultado[startPos] !== undefined) {
+      let res = data.filter((el) => el.segmento == segmento);
+      const dataLocal = () => JSON.parse(localStorage.getItem('data')) ? JSON.parse(localStorage.getItem('data')) : []
+      let resultado = res.filter(objeto1 => !dataLocal().some(objeto2 => objeto2.id === objeto1.id));
+      if (resultado[startPos] !== undefined) {
+          console.log(res)
           setStartPos(startPos+1)
           setAks(resultado[startPos].titulo);
           setAnswers(resultado[startPos].arrayRespuestas);
@@ -369,7 +369,7 @@ export default function MexScene() {
   };
   let alertPreload = true
   useEffect(() => {
-    // resABCD('punto', 2, false)
+    resABCD('punto', 1, false)
     createPannellum(scene);
   }, [scene]);
   return (
