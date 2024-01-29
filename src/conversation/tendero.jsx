@@ -7,7 +7,7 @@ const conversation = {
           pointers: ["a_optA", "a_optB" ,"a_optC"],
         },
         no_entrevista: {
-            text: "No me gustan las preguntas y me cuentro ocupada. Vuelva otro día",
+            text: "No me gustan las preguntas y me ecuentro ocupada. Vuelva otro día",
             pointers: ["b_optA", "b_optB", "b_optC"],
         },
         no_insista: {
@@ -91,32 +91,38 @@ const conversation = {
         a_optA: {
           text: "Buenos días, espero se encuentre bien. Vengo de Premise a realizar unas encuesta y validar su punto de venta para un estudio de mercado que estamos realizando, ¿me permite ingresar?",
           emote: 'mad',
-          pointer: 'no_entrevista'
+          pointer: 'no_entrevista',
+          correct: false,
         },
         a_optB: {
             text: "Buenos días, espero tenga un excelente día y buenas ventas hoy, vengo de Premise. Anteriormente puede que lo hayamos visitado, nuestra empresa se dedica a realizar estudios de mercado para las diferentes marcas y empresas, el día de hoy nos encontramos en el sector realizando esta labor ¿me permite ingresar?",
             emote: 'surprised',
-            pointer: 'finalidad_a'
+            pointer: 'finalidad_a',
+            correct: true,
         },
         a_optC: {
           text: "Buenos días, tenga usted un excelente día. ¿Me permite ingresar? vengo de Premise, venimos realizando un estudio de mercado para todas las tiendas del sector, con el fin de que usted sea más visible ante las empresas o marcas, para que puedan tomar decisiones a favor de usted y sus clientes",
           emote: 'surprised',
-          pointer: 'finalidad_b'
+          pointer: 'finalidad_b',
+          correct: true,
         },
         b_optA: {
           text: "Le agradezco su apoyo y me pueda comprender que no me voy a demorar mucho, mis actividades van a ser 80% visual sin ninguna molestia a usted y sus clientes",
           emote: 'mad',
-          pointer: 'no_insista'
+          pointer: 'no_insista',
+          correct: false,
         },
         b_optB: {
             text: "Permítame le explico, mi trabajo es 90% visual y no me tardaré mucho en el establecimiento. Este estudio de mercado le permite a las grandes empresas a que su punto de venta sea más visible y pueda conseguir más ventas.",
             emote: 'mad',
-            pointer: 'me_indico'
+            pointer: 'me_indico',
+            correct: false,
         },
         b_optC: {
           text: "Si me permite ingresas Premise puede hacer visible  su establecimiento ante Coca-Cola - Femsa, con el fin de que pueda brindarle beneficios como promociones o neveras si su negocio lo requiere.",
           emote: 'standarB',
-          pointer: 'nevera'
+          pointer: 'nevera',
+          correct: true,
         },
         entendido: {
           text: "Entiendo disculpe la molestia.",
@@ -131,7 +137,9 @@ const conversation = {
         para_optA: {
           text: "Premise se dedica a hacer visible el canal tradicional ante las grandes empresas, esto le ayuda a que las diferentes empresas puedan llegar a lugares donde no tienen presencia, lanzar productos o incluso lanzar beneficios para usted y sus clientes si así lo deciden ellos. Nos encargamos de hacer visible su PDV",
           emote: "standar",
-          pointer: "demora"
+          pointer: "demora",
+          correct: true,
+          
         },
         para_optB: {
           text: "Premise le permite llegar a más clientes con ayuda de las grandes empresas, por medio de promociones, descuentos o beneficios, lo que resultaría para ustedes una mayor cantidad de venta y más clientes felices.",
@@ -156,7 +164,8 @@ const conversation = {
         para_optF: {
           text: "Premise se dedica a hacer visible el canal tradicional ante las grandes empresas, esto le ayuda a que las diferentes empresas puedan llegar a lugares donde no tienen presencia, lanzar productos o incluso lanzar beneficios para usted y sus clientes si así lo deciden ellos. Nos encargamos de hacer visible su PDV",
           pointer: "de_acuerdoF",
-          emote: "standar"
+          emote: "standar",
+          correct: true
         },
         cuanto_demoraA: {
           text: "Mi trabajo es 90% visual, lo que hago es validar las referencias de las diferentes marcas y registrarlas en la aplicación, al finalizar tomaré unas fotografías para asegurar la calidad de mi trabajo.",
@@ -166,12 +175,14 @@ const conversation = {
         cuanto_demoraB: {
           text: "Mi trabajo es 80% visual, lo que realizo es validar las referencias de las diferentes marcas y registrarlas en la aplicación, al finalizar le haré unas pequeñas preguntas y tomaré unas fotografías para asegurar la calidad de mi trabajo",
           pointer: "no_fotos",
-          emote: "standarB"
+          emote: "standarB",
+          correct: true
         },
         si_fotos: {
           text: "Las fotografías son necesarias ya que con ellas garantizamos la calidad de nuestro trabajo y la veracidad de la información que registramos",
           pointer: "bueno_siga",
-          emote: "positive"
+          emote: "positive",
+          correct: true
         },
         sin_fotos: {
           text: "No se preocupe, no realizaré ninguna pregunta y las fotografías son opcionales, por lo cual espero no demorarme mucho tiempo. Muchas gracias",
@@ -185,6 +196,7 @@ const conversation = {
         continuar: {
             text: 'Gracias!, permiso.',
             event: 'nextScene',
+            correct: true
         },
         despedirse: {
           text: "Vale muchas gracias.",

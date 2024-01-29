@@ -140,6 +140,15 @@ $s2-color: #7E38FF;
                               -o-border-radius: 16px;
                               padding: 4px;
                         }
+                        &.incorrect {
+                              background: #ff3b3b;
+                              &::before {
+                                    border-bottom: #ff3b3b;
+                              }
+                              & span {
+                                    background: red;
+                              }
+                        }
                   }
             }
             & .box-buttons {

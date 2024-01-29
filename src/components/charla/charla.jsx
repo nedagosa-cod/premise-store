@@ -29,9 +29,11 @@ export default function Charla() {
 
 
       const chatSelected = ({dataConver}) => {
-        const { textOption, pointer, event, emote } = dataConver;
+        const { textOption, pointer, event, emote, correct } = dataConver;
             // show the chat conversation selected
-            setOwnerChat([...ownerChat,<div className="myglobo animate__animated animate__fadeInUp" key={Math.random()}><p>{textOption}</p><span>Gestor Preimse</span></div>]);
+            console.log(correct)
+            let varAtribute = correct ? '' : 'incorrect'
+            setOwnerChat([...ownerChat,<div className={'myglobo animate__animated animate__fadeInUp ' + varAtribute} key={Math.random()}><p>{textOption}</p><span>{varAtribute ? '   X    ' : 'Gestor Preimse'}</span></div>]);
 
             // cambia emocion del tendero "imagen"
             if (emote) {
@@ -68,6 +70,7 @@ export default function Charla() {
             }
             // ejecuta un funcion si existe evento
             if (event) {
+              console.log(event)
               switch (event) {
                 case 'reset':
                       Swal.fire({
@@ -242,7 +245,8 @@ useEffect(()=>{
                                             textOption:conversation.user_options[puntero].text,
                                             pointer: conversation.user_options[puntero].pointer,
                                             event: conversation.user_options[puntero].event,
-                                            emote: conversation.user_options[puntero].emote
+                                            emote: conversation.user_options[puntero].emote,
+                                            correct: conversation.user_options[puntero].correct
                                           }})
                                     }}>
                                           <span>{i+1}</span>
