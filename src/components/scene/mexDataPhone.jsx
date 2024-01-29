@@ -44,8 +44,8 @@ export const formData = [
       titulo: "Este establecimiento vende aguas?",
       respuesta_correcta: ["Si"],
       arrayRespuestas: ["Si", "No"],
-      segmento: "enfriadores",
-      tipo: "multiseleccion"
+      tipo: "multiseleccion",
+      segmento: "enfriadores"
     },      
     {
       id: 7,
