@@ -13,22 +13,13 @@ import { Link } from "react-router-dom";
 
 export default function Phone(props) {
   const [hide, setHide] = useState("");
-  // const [attrs, setAttrs] = useState(props);
+  const [attrs, setAttrs] = useState(props);
   const [respuestas, setRespuestas] = useState([]);
   const [contador, setContador] = useState(0);
   const [segmento, setSegmento] = useState(props.activeSegment);
-  const [dataAsk, SetDataAsk] = useState(formData);
 
-
-  const [ask, setAks] = useState("");
-  const [answers, setAnswers] = useState([]);
-  const [numAsk, setNumAsk] = useState(0);
-  const [typee, setTypee] = useState('');
-  const [activeSegment, setActiveSegment] = useState('');
-  const [startPos, setStartPos] = useState(0);
-
-  const changeAskOn = (id, check) => {
-    props.changeAsk(segmento, id, check);
+  const changeAskOn = () => {
+    props.changeAsk(segmento);
   };
   const changeAskOnBack = () => {
     props.changeAskBack(segmento);
@@ -75,21 +66,21 @@ export default function Phone(props) {
           html += `
                   <div class="popContent">
                         <div class="askQuestions">
-                            <div class="popContent-data">
-                                  <span>${element.pregunta}</span>
-                            </div>
-                      
-                            <div class="popContent-res">
-                            ${element.resp
-                            .map((dat) => {
-                            return `<span class="respuesta ${
-                                  sameAsk[0].respuesta_correcta.includes(dat)
-                                  ? "correct"
-                                  : "incorrect"
-                            }">${dat}</span>`;
-                            })
-                            .join("")}
-                            </div>
+                                    <div class="popContent-data">
+                                          <span>${element.pregunta}</span>
+                                    </div>
+                              
+                                    <div class="popContent-res">
+                                    ${element.resp
+                                    .map((dat) => {
+                                    return `<span class="respuesta ${
+                                          sameAsk[0].respuesta_correcta.includes(dat)
+                                          ? "correct"
+                                          : "incorrect"
+                                    }">${dat}</span>`;
+                                    })
+                                    .join("")}
+                                    </div>
                         </div>
                         <div class="results">
                               <span>${resCorrect.length + "/" + arrRespOk.length}</span>
@@ -120,7 +111,7 @@ export default function Phone(props) {
       footer += `
             <div>
                   <h2>Nota</h2>
-                  <span>${(sumaRes/23).toFixed(1)}/10</span>
+                  <span>${(sumaRes/4).toFixed(1)}/10</span>
             </div>
       `
           return footer;
@@ -146,7 +137,6 @@ export default function Phone(props) {
     let controlers = Array.from(e.target.elements);
     let checkboxMarcado = false;
 
-    // reinicia los checkbox
     for (let i = 0; i < controlers.length; i++) {
       if (controlers[i].type == "checkbox" && controlers[i].checked) {
         checkboxMarcado = true;
@@ -172,25 +162,10 @@ export default function Phone(props) {
       }
       props.resetPhone();
       localStorage.clear();
-      // setAttrs([]);
+      setAttrs([]);
       setHide("");
     }
-    // changeAskOn(props.numAsk, checkboxMarcado)
-
-    if (segmento != '') {
-      let res = dataAsk.filter((el) => el.segmento == segmento);
-      const dataLocal = () => JSON.parse(localStorage.getItem('data')) ? JSON.parse(localStorage.getItem('data')) : []
-      let resultado = res.filter(objeto1 => !dataLocal().some(objeto2 => objeto2.id === objeto1.id));
-      if (resultado[startPos] !== undefined) {
-        setStartPos(startPos+1)
-        setAks(resultado[startPos].titulo);
-        setAnswers(resultado[startPos].arrayRespuestas);
-        setNumAsk(resultado[startPos].id);
-        setTypee(resultado[startPos].tipo)
-        setActiveSegment(segmento)
-        checkboxMarcado ? SetDataAsk(dataAsk.filter(objeto => objeto.id !== id)) : ''
-    }
-  }
+    changeAskOn()
   };
 
   const activeCheckbox = (e) => {
@@ -198,7 +173,7 @@ export default function Phone(props) {
   };
 
   useEffect(() => {
-    // setAttrs(props);
+    setAttrs(props);
     setSegmento(props.activeSegment);
     document.querySelectorAll('input[type="checkbox"]').forEach((el) => {
       el.checked ? el.click() : '';
@@ -206,6 +181,7 @@ export default function Phone(props) {
     
     props.ask ? setHide("hide") : setHide("");
     localStorage.setItem("data", JSON.stringify(respuestas));
+    console.log('saved')
   }, [props.ask, respuestas]);
   return (
     <>
@@ -213,7 +189,7 @@ export default function Phone(props) {
         <div className="questions">
           <form className="questions__inner"
               onSubmit={saveAnswer}
-              id={"form" + numAsk}
+              id={"form" + attrs.numAsk}
           >
             <div className="backhome">
                 <Link to="/" className="button">⌂</Link>
@@ -225,15 +201,15 @@ export default function Phone(props) {
             </div>
             <div className="mid">
               <p id="elPregunta" className="pregunta">
-                {ask ? ask : ""}
+                {attrs.ask ? attrs.ask : ""}
               </p>
               <div
                 className="respuestas"
               >
                 <div className="rescontainer">
-                  {answers?.map((res, i) => {
-                    let dataId = numAsk + "_" + i;
-                    switch (typee) {
+                  {attrs.answers?.map((res, i) => {
+                    let dataId = props.numAsk + "_" + i;
+                    switch (props.type) {
                       case "multiseleccion": {
                         return (
                           <React.Fragment key={i}>

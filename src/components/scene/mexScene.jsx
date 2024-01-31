@@ -5,7 +5,6 @@ import { formData } from "./mexDataPhone";
 import entrada from "../../assets/img/mexScene1.jpg";
 import salida from "../../assets/img/mexScene2.jpg";
 import puerta from "../../assets/img/mexScene0.jpg";
-import main from "../../assets/img/mexScene3.jpg";
 
 import Preload from "../../components/preload/preload";
 import Phone from "../phone/mexPhone";
@@ -17,8 +16,6 @@ export default function MexScene() {
   const [typee, setTypee] = useState('');
   const [activeSegment, setActiveSegment] = useState('');
   const [startPos, setStartPos] = useState(0);
-  const [data, setData] = useState(formData);
-
 
   const changeScene = (nameScene) => {
     setScene(dataScene[nameScene]);
@@ -29,29 +26,28 @@ export default function MexScene() {
     setNumAsk(0);
     setTypee('')
   }
-  const resABCD = (segmento, id, check) => {
-
+  const resABCD = (segmento) => {
     if (segmento != '') {
-      let res = data.filter((el) => el.segmento == segmento);
+      let res = formData.filter((el) => el.segmento == segmento);
       const dataLocal = () => JSON.parse(localStorage.getItem('data')) ? JSON.parse(localStorage.getItem('data')) : []
       let resultado = res.filter(objeto1 => !dataLocal().some(objeto2 => objeto2.id === objeto1.id));
-      if (resultado[startPos] !== undefined) {
+        if (resultado[startPos] !== undefined) {
           setStartPos(startPos+1)
           setAks(resultado[startPos].titulo);
           setAnswers(resultado[startPos].arrayRespuestas);
           setNumAsk(resultado[startPos].id);
           setTypee(resultado[startPos].tipo)
           setActiveSegment(segmento)
-          check ? setData(data.filter(objeto => objeto.id !== id)) : ''
-      }
+        }
     }
   };
 
-  const resABCD_Back = (segmento, id, check) => {
+  const resABCD_Back = (segmento) => {
     if (segmento != '') {
-        let res = data.filter((el) => el.segmento == segmento);
-        const dataLocal = () => JSON.parse(localStorage.getItem('data')) ? JSON.parse(localStorage.getItem('data')) : []
-        let resultado = res.filter(objeto1 => !dataLocal().some(objeto2 => objeto2.id === objeto1.id));
+      let res = formData.filter((el) => el.segmento == segmento);
+      const dataLocal = () => JSON.parse(localStorage.getItem('data')) ? JSON.parse(localStorage.getItem('data')) : []
+      let resultado = res.filter(objeto1 => !dataLocal().some(objeto2 => objeto2.id === objeto1.id));
+
         if (resultado[startPos] !== undefined) {
           setStartPos(startPos-1)
           setAks(resultado[startPos].titulo);
@@ -59,44 +55,14 @@ export default function MexScene() {
           setNumAsk(resultado[startPos].id);
           setTypee(resultado[startPos].tipo)
           setActiveSegment(segmento)
-          check ? setData(data.filter(objeto => objeto.id !== id)) : ''
         } else {
           setStartPos(0)
         }
+      
     }
   };
 
   const dataScene = {
-    main: {
-      title: "Principal",
-      image: main,
-      pitch: -12,
-      yaw: 5,
-      hfov: 120,
-      sceneFadeDuration: 10,
-      hotSpots: [
-        {
-          text: "Siguiente",
-          type: "custom",
-          pitch: -47,
-          yaw: 3,
-          cssClass: "m-spot",
-          clickHandlerFunc: () => {
-            changeScene("puerta");
-          },
-        },
-        {
-          text: "Punto",
-          type: "custom",
-          pitch: -34,
-          yaw: 1,
-          cssClass: "spot",
-          clickHandlerFunc: () => {
-            resABCD("punto", 0, true);
-          },
-        },
-      ],
-    },
     entrada: {
       title: "Entrada",
       image: entrada,
@@ -327,16 +293,6 @@ export default function MexScene() {
           },
         },
         {
-          text: "Volver",
-          type: "custom",
-          pitch: -53,
-          yaw: 170,
-          cssClass: "m-spot",
-          clickHandlerFunc: () => {
-            changeScene("main");
-          },
-        },
-        {
           text: "Punto",
           type: "custom",
           pitch: -40,
@@ -350,7 +306,7 @@ export default function MexScene() {
     },
   };
 
-  const [scene, setScene] = useState(dataScene.main);
+  const [scene, setScene] = useState(dataScene.puerta);
 
   const createPannellum = (nameScene) => {
     document.querySelector("#panorama").innerHTML = "";
@@ -369,7 +325,7 @@ export default function MexScene() {
   };
   let alertPreload = true
   useEffect(() => {
-    // resABCD('punto', 0, false)
+    resABCD('punto')
     createPannellum(scene);
   }, [scene]);
   return (
