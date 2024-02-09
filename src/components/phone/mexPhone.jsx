@@ -47,52 +47,8 @@ export default function Phone(props) {
     });
   };
 
+  // retorna el html del pop de resultados
   const popCorrectAnswers = (dataLocal) => {
-    const createPop = () => {
-      let html = "";
-      for (let index = 0; index < dataLocal.length; index++) {
-        const element = dataLocal[index];
-        const sameAsk = formData.filter(
-          (elemento) => elemento.id == element.id
-        );
-        if (sameAsk) {
-          let arrRespUser = element.resp;
-          let arrRespOk = sameAsk[0].respuesta_correcta;
-
-          let resCorrect = arrRespUser.filter((resUser) =>
-            arrRespOk.includes(resUser)
-          );
-
-          html += `
-                  <div class="popContent">
-                        <div class="askQuestions">
-                                    <div class="popContent-data">
-                                          <span>${element.pregunta}</span>
-                                    </div>
-                              
-                                    <div class="popContent-res">
-                                    ${element.resp
-                                    .map((dat) => {
-                                    return `<span class="respuesta ${
-                                          sameAsk[0].respuesta_correcta.includes(dat)
-                                          ? "correct"
-                                          : "incorrect"
-                                    }">${dat}</span>`;
-                                    })
-                                    .join("")}
-                                    </div>
-                        </div>
-                        <div class="results">
-                              <span>${resCorrect.length + "/" + arrRespOk.length}</span>
-                              <p>Pts.${((resCorrect.length / arrRespOk.length) * 10).toFixed(2)}</p>
-                        </div>
-                  </div>
-                  `;
-        }
-      }
-      return html;
-    };
-
     const createFooter = () => {
       let footer = "";
       let sumaRes = 0
@@ -109,25 +65,100 @@ export default function Phone(props) {
             }
       }
       footer += `
-            <div>
+            <div class="fullResults">
                   <h2>Nota</h2>
                   <span>${(sumaRes/4).toFixed(1)}/10</span>
             </div>
       `
           return footer;
     }
+    const createPop = () => {
+      let html = "";
+
+      for (let index = 0; index < dataLocal.length; index++) {
+        const element = dataLocal[index];
+        const sameAsk = formData.filter((elemento) => elemento.id == element.id);
+
+        if (sameAsk) {
+          let arrRespUser = element.resp;
+          let arrRespOk = sameAsk[0].respuesta_correcta;
+
+          let resCorrect = arrRespUser.filter((resUser) =>arrRespOk.includes(resUser));
+
+          html += `
+                  <div class="popContent">
+                        <div class="askQuestions">
+                                    <div class="popContent-data">
+                                          <span>${element.pregunta}</span>
+                                    </div>
+                              
+
+
+
+                                    <div class="popContent-res">
+                                      ${arrRespUser.map((dat) => {
+                                      return `<span class="respuesta ${
+                                            sameAsk[0].respuesta_correcta.includes(dat)
+                                            ? "correct"
+                                            : "incorrect"
+                                      }">${dat}</span>`
+                                      }).join("")}
+
+                                      ${sameAsk[0].respuesta_correcta.map((data) => {
+
+                                          let respuesta = arrRespUser.filter(equal =>data.includes(equal))
+                                          if (respuesta.length == 0) {
+                                            console.log(data)
+                                              return `<span class="respuesta falta">${data}</span>`
+                                          }
+                                        }).join("")}
+                                    </div>
+
+
+
+
+                        </div>
+                        <div class="results">
+                        <table>
+                          <tbody>
+                          <tr>
+                          <td class="tb-title">&nbsp;Correctas</td>
+                          <td class="tb-title">Cantidad&nbsp;</td>
+                          </tr>
+                          <tr>
+                          <td>&nbsp;${resCorrect.length}</td>
+                          <td>&nbsp;${arrRespOk.length}</td>
+                          </tr>
+                          </tbody>
+                        </table>
+
+                              <p>Pts.${((resCorrect.length / arrRespOk.length) * 10).toFixed(2)}</p>
+                        </div>
+                  </div>
+                  `;
+        }
+
+      }
+      return createFooter() + html;
+    };
+
+
+
+
 
     Swal.fire({
-      title: "Resultados",
+      title: '<h1 class="swalTitle">Resultados del recorrido</h1>',
+      color: '#FF5B4A',
       html: createPop(),
-      footer: createFooter(),
-      icon: "question",
       width: "80%",
-      confirmButtonText: "Aceptar",
+      background: '#000',
+      backdrop: "rgba(0,0,123,0.6)",
+      confirmButtonText: "Volver",
       allowEscapeKey: false,
       allowOutsideClick: false,
       customClass: {
         htmlContainer: "myswal-html",
+        confirmButton: "myswal-confirmButton"
       },
     });
   };
@@ -155,8 +186,8 @@ export default function Phone(props) {
       });
 
       manejarRespuesta(props.ask, answers, props.numAsk);
-
-      if (contador > 23) {
+      // cantidad necesaria de respuestas para mostar resultado
+      if (contador > 2) {
         let dataSaved = JSON.parse(localStorage.getItem("data"));
         popCorrectAnswers(dataSaved);
       }
@@ -181,7 +212,7 @@ export default function Phone(props) {
     
     props.ask ? setHide("hide") : setHide("");
     localStorage.setItem("data", JSON.stringify(respuestas));
-    console.log('saved')
+
   }, [props.ask, respuestas]);
   return (
     <>

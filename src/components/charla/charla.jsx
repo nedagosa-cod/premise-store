@@ -124,15 +124,9 @@ export default function Charla() {
                     <form class="show-tienda__bot">
                       <div class="show-tienda__left">
                         <button type="button" name="colAutoServ" class="buttonStorage">Auto Servicio</button>
-                        <button type="button" name="colTienda" class="buttonStorage">Tienda</button>
                       </div>
                       <div class="show-tienda__right">
                         <button type="button" name="mexTienda" class="buttonStorage">Tienda</button>
-                      </div>
-                      <div class="show-tienda__code">
-                        <label> Código de acceso
-                          <input type="text" id="inputCode">
-                        </label>
                       </div>
                     </form>
                   </section>`,
@@ -143,34 +137,20 @@ export default function Charla() {
                   },
                   didOpen : ()=>{
                     const tiendas = document.querySelectorAll('.buttonStorage')
-                    const inputCode = document.querySelector('#inputCode')
-                    const codesStore = ["c57otl", "c57oal", "m52etx"]
-                    const temblar = () => {
-                      inputCode.classList.add('temblor');
-                      setTimeout(() => {
-                        inputCode.classList.remove('temblor');
-                      }, 500)
-                    }
                     tiendas.forEach(tienda => {
                       tienda.addEventListener('click', ()=>{
-                        if (codesStore.includes(inputCode.value)) {
-                          switch (tienda.name) {
-                            case 'colAutoServ':
-                              inputCode.value == "c57oal" ? navigate('/store') : '';
-                              inputCode.value == "c57oal" ? Swal.close() : temblar();
-                              break;
-                            case 'mexTienda':
-                              inputCode.value == "m52etx" ? navigate('/mexstore'): '';
-                              inputCode.value == "m52etx" ? Swal.close() : temblar();
-                              break;
-                            case 'colTienda':
-                              inputCode.value == "c57otl" ? navigate('/coltstore') : '';
-                              inputCode.value == "c57otl" ? Swal.close() : temblar();
-                              break;
-                          }
-                        } else {
-                          temblar()
+                        switch (tienda.name) {
+                          case 'colAutoServ':
+                            navigate('/store');
+                            break;
+                          case 'mexTienda':
+                            navigate('/mexstore');
+                            break;
+                          case 'colTienda':
+                            navigate('/coltstore');
+                            break;
                         }
+                        Swal.close()
                       })
                     });
 

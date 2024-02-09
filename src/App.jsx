@@ -1,7 +1,7 @@
 import './App.css'
 
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import Scene from './components/scene/scene'
 import TiendaCol from './components/scene/colTScene'
