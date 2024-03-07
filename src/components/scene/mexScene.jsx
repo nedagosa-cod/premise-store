@@ -1,65 +1,17 @@
 import { useEffect, useState } from "react";
 import "./styles.scss";
-import { formData } from "./mexDataPhone";
 
 import entrada from "../../assets/img/mexScene1.jpg";
 import salida from "../../assets/img/mexScene2.jpg";
 import puerta from "../../assets/img/mexScene0.jpg";
 
 import Preload from "../../components/preload/preload";
-import Phone from "../phone/mexPhone";
+import MexPhone from "../phone/mexPhone";
+import { MexProvider } from "../../context/MexContext";
 
 export default function MexScene() {
-  const [ask, setAks] = useState("");
-  const [answers, setAnswers] = useState([]);
-  const [numAsk, setNumAsk] = useState(0);
-  const [typee, setTypee] = useState('');
-  const [activeSegment, setActiveSegment] = useState('');
-  const [startPos, setStartPos] = useState(0);
-
   const changeScene = (nameScene) => {
     setScene(dataScene[nameScene]);
-  };
-  const resetPhone = () =>{
-    setAks("");
-    setAnswers([]);
-    setNumAsk(0);
-    setTypee('')
-  }
-  const resABCD = (segmento) => {
-    if (segmento != '') {
-      let res = formData.filter((el) => el.segmento == segmento);
-      const dataLocal = () => JSON.parse(localStorage.getItem('data')) ? JSON.parse(localStorage.getItem('data')) : []
-      let resultado = res.filter(objeto1 => !dataLocal().some(objeto2 => objeto2.id === objeto1.id));
-        if (resultado[startPos] !== undefined) {
-          setStartPos(startPos+1)
-          setAks(resultado[startPos].titulo);
-          setAnswers(resultado[startPos].arrayRespuestas);
-          setNumAsk(resultado[startPos].id);
-          setTypee(resultado[startPos].tipo)
-          setActiveSegment(segmento)
-        }
-    }
-  };
-
-  const resABCD_Back = (segmento) => {
-    if (segmento != '') {
-      let res = formData.filter((el) => el.segmento == segmento);
-      const dataLocal = () => JSON.parse(localStorage.getItem('data')) ? JSON.parse(localStorage.getItem('data')) : []
-      let resultado = res.filter(objeto1 => !dataLocal().some(objeto2 => objeto2.id === objeto1.id));
-
-        if (resultado[startPos] !== undefined) {
-          setStartPos(startPos-1)
-          setAks(resultado[startPos].titulo);
-          setAnswers(resultado[startPos].arrayRespuestas);
-          setNumAsk(resultado[startPos].id);
-          setTypee(resultado[startPos].tipo)
-          setActiveSegment(segmento)
-        } else {
-          setStartPos(0)
-        }
-      
-    }
   };
 
   const dataScene = {
@@ -100,7 +52,6 @@ export default function MexScene() {
           clickHandlerFunc: () => {
             resABCD("producto");
           },
-          
         },
         {
           text: "Producto",
@@ -174,7 +125,7 @@ export default function MexScene() {
         {
           text: "Enfriadores",
           type: "custom",
-          pitch: 0.30,
+          pitch: 0.3,
           yaw: -96,
           cssClass: "spot",
           clickHandlerFunc: () => {
@@ -270,7 +221,6 @@ export default function MexScene() {
           clickHandlerFunc: () => {
             resABCD("producto");
           },
-          
         },
         {
           text: "Producto",
@@ -323,16 +273,18 @@ export default function MexScene() {
       hotSpots: nameScene.hotSpots.map((element) => element),
     });
   };
-  let alertPreload = true
+  let alertPreload = true;
   useEffect(() => {
-    resABCD('punto')
     createPannellum(scene);
   }, [scene]);
+
   return (
-    <div className="box-scene" name={numAsk}>
-      <Preload funct={alertPreload} />
-      <Phone ask={ask} answers={answers} numAsk={numAsk} type={typee} resetPhone={resetPhone} changeAsk={resABCD} changeAskBack={resABCD_Back} activeSegment={activeSegment}/>
-      <div id="panorama" className="panorama"></div>
+    <div className="box-scene">
+      <MexProvider>
+        <Preload funct={alertPreload} />
+        <MexPhone />
+        <div id="panorama" className="panorama"></div>
+      </MexProvider>
     </div>
   );
 }

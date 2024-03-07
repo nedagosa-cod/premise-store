@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;600;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Geologica:wght@300;400;600;800&display=swap");
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -24,19 +24,19 @@ html {
   font-size: 62.5%;
 }
 body {
-  font-family: 'Geologica', sans-serif;
+  font-family: "Geologica", sans-serif;
 }
 img,
 picture,
 video,
 iframe,
 figure {
-    width: 100%;
-    display: block;
-    -o-object-fit: cover;
-    object-fit: cover;
-    -o-object-position: center center;
-    object-position: center center;
+  width: 100%;
+  display: block;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center center;
+  object-position: center center;
 }
 a {
   font-weight: 500;
@@ -47,8 +47,6 @@ a:hover {
   color: #535bf2;
 }
 
-
-
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
@@ -57,7 +55,6 @@ h1 {
 button {
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
@@ -73,24 +70,23 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-
 form,
 input,
 textarea,
 select,
 button,
 label {
-        hyphens: none;
-        font-family: inherit;
-        font-size: inherit;
-        background-color: transparent;
-        color: inherit;
-        border: none;
-        display: block;
-        
-        -webkit-hyphens: none;
-        -moz-hyphens: none;
-        -ms-hyphens: none;
+  hyphens: none;
+  font-family: inherit;
+  font-size: inherit;
+  background-color: transparent;
+  color: inherit;
+  border: none;
+  display: block;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
 }
 
 @media (prefers-color-scheme: light) {
