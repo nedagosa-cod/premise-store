@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 
 import imgPhone from "../../assets/img/phone.png";
 
@@ -8,83 +8,162 @@ import logoPhone from "../../assets/img/360phone.png";
 
 import { Link } from "react-router-dom";
 import MexContext from "../../context/MexContext";
+import { createPortal } from "react-dom";
+import PanelResults from "../PanelResults/PanelResults";
 
 export default function MexPhone() {
-  const { dataPhone } = useContext(MexContext);
-
-  const [activeSegment, setActiveSegment] = useState("punto");
+  const { dataPhone, activeSegment, updateDataPhone } = useContext(MexContext);
   const [segments, setSegments] = useState([]);
   const [posQuestion, setPosQuestion] = useState(0);
-  const [savedAnswers, setSavedAnswers] = useState([]);
+  const [answsSaved, setAnswsSaved] = useState(0);
+  const [panelResults, setPanelResults] = useState(false);
 
-  const saveAnswer = (event) => {
-    console.log("respuesta guarda");
-  };
-  const prevAnswer = () => {
-    posQuestion < segments.length - 1
-      ? setPosQuestion((preveData) => preveData + 1)
-      : setPosQuestion(0);
+  const nextAnswer = (e) => {
+    //EXTRAE LOS INPUTS RESPUESTA DEL FORMULARIO
+    let inputAnswers = Array.from(
+      e.target.parentNode.parentNode.elements
+    ).filter((nodo) => {
+      return nodo.nodeName == "INPUT";
+    });
+
+    // GUARDA LA RESPUESTA DEL USUARIO
+    let arrAnswers = [];
+    inputAnswers.forEach((checkbox) => {
+      if (checkbox.checked) {
+        arrAnswers.push(checkbox.name);
+      }
+    });
+
+    // ELIMINA EL FOCUS NARANJA Y EL CHECKED DE CADA INPUT
+    Array.from(e.target.parentNode.parentNode.elements).forEach((input) => {
+      input.checked = false;
+      input.parentNode.classList.remove("active");
+    });
+    // SI HAY RESPUESTAS ACTUALIZO LAS MISMAS
+    if (arrAnswers.length != 0) {
+      // console.log(dataPhone.length - 26);
+      if (answsSaved == dataPhone.length - 26) {
+        // muestra LAS NOTAS
+        setPanelResults(true);
+      }
+      updateDataPhone(segments[posQuestion].id, arrAnswers);
+      setAnswsSaved((prevPos) => prevPos + 1);
+    } else {
+      posQuestion < segments.length - 1
+        ? setPosQuestion((preveData) => preveData + 1)
+        : setPosQuestion(0);
+    }
   };
 
   const createSegment = () => {
     let segmentosDecteados = dataPhone.filter(
-      (segment) => segment.segmento === activeSegment
+      (segment) =>
+        segment.segmento === activeSegment && segment.status == undefined
     );
+    setPosQuestion(0);
     setSegments(segmentosDecteados);
+  };
+
+  const activeAnswer = (event) => {
+    if (event.target.nodeName == "LABEL") {
+      event.target.classList.add("active");
+    }
   };
 
   useEffect(() => {
     createSegment();
-  }, []);
+  }, [dataPhone, activeSegment]);
   return (
-    <>
-      <article className="phone-mex">
-        <div className="questions">
-          <form
-            className="questions__inner"
-            onSubmit={(e) => {
-              saveAnswer(e);
-            }}
-          >
-            <div className="header">
-              <button onClick={prevAnswer}>←</button>
-              <p>Outlet environment and operat...</p>
-              <button onClick={prevAnswer}>→</button>
-            </div>
+    <article className="phone-mex">
+      <div className="questions">
+        <form className="questions__inner">
+          <div className="header">
+            <button
+              name="prev"
+              type="button"
+              onClick={(e) => {
+                nextAnswer(e);
+              }}
+            >
+              ←
+            </button>
+            <p>Outlet environment and operat...</p>
+            <button
+              name="next"
+              onClick={(e) => {
+                nextAnswer(e);
+              }}
+              type="button"
+            >
+              →
+            </button>
+          </div>
 
-            <div className="mid">
-              {activeSegment && (
-                <div>
-                  {segments[posQuestion] && (
+          <div className="mid">
+            {segments && (
+              <div>
+                {segments[posQuestion] && (
+                  <>
                     <p className="pregunta">{segments[posQuestion].titulo}</p>
-                  )}
-                  <div className="respuestas">
-                    <div className="rescontainer">LUGAR DE RESPUESTAS</div>
+                  </>
+                )}
+                <div className="respuestas">
+                  <div className="rescontainer">
+                    {segments[posQuestion] &&
+                      segments[posQuestion].posibles_respuestas.map(
+                        (mapRespuesta, i) => {
+                          return (
+                            <React.Fragment key={i}>
+                              <label
+                                className={"multisel"}
+                                onClick={(e) => {
+                                  activeAnswer(e);
+                                }}
+                              >
+                                <input type="checkbox" name={mapRespuesta} />
+                                {mapRespuesta}
+                              </label>
+                            </React.Fragment>
+                          );
+                        }
+                      )}
                   </div>
                 </div>
-              )}
-              {!activeSegment && (
-                <div className={"phone-home "}>
-                  <figure>
-                    <img src={logoPhone} alt="Logo 360" />
-                  </figure>
-                  <p>Seleccionar puntero para generar pregunta!</p>
-                </div>
-              )}
-            </div>
+              </div>
+            )}
+            {segments.length == 0 && (
+              <div className={"phone-home "}>
+                <figure>
+                  <img src={logoPhone} alt="Logo 360" />
+                </figure>
+                <p>Seleccionar puntero para generar pregunta!</p>
+              </div>
+            )}
+          </div>
 
-            <div className="backhome">
-              <Link to="/" className="button">
+          <div className="backhome">
+            <button
+              onClick={() => {
+                console.log(
+                  dataPhone.filter((el) => el.segmento == activeSegment)
+                );
+                console.log(dataPhone);
+              }}
+              type="button"
+            >
+              TEst
+            </button>
+            {/* <Link to="/" className="button">
                 ⌂
-              </Link>
-            </div>
-          </form>
-        </div>
+              </Link> */}
+          </div>
+        </form>
+      </div>
 
-        <figure className="imgPhone">
-          <img src={imgPhone} alt="phone" />
-        </figure>
-      </article>
-    </>
+      <figure className="imgPhone">
+        <img src={imgPhone} alt="phone" />
+      </figure>
+      {panelResults && createPortal(<PanelResults />, document.body)}
+    </article>
   );
 }

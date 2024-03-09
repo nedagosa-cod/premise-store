@@ -1,0 +1,99 @@
+@use "../../index.scss" as *;
+
+.panel-results {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 500;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  /* From https://css.glass */
+  background: rgba(255, 91, 74, 0.5);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 91, 74, 0.3);
+  &__form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 80rem;
+    height: 60rem;
+    background: $g3-color;
+    border: 1px solid $w-color;
+    overflow-y: auto;
+    & h3 {
+      text-align: center;
+      width: 100%;
+      font-size: 3rem;
+    }
+    border-radius: 0.4rem;
+    -webkit-border-radius: 0.4rem;
+    -moz-border-radius: 0.4rem;
+    -ms-border-radius: 0.4rem;
+    -o-border-radius: 0.4rem;
+  }
+  &__data {
+    height: 100%;
+    width: 70%;
+
+    & .data {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      &__box {
+        background: $w-color;
+        border: 1px solid $g2-color;
+        padding: 0.8rem;
+        width: 90%;
+        margin: auto;
+        border-radius: 0.4rem;
+        -webkit-border-radius: 0.4rem;
+        -moz-border-radius: 0.4rem;
+        -ms-border-radius: 0.4rem;
+        -o-border-radius: 0.4rem;
+      }
+      &__question {
+        width: 100%;
+        font-size: 1.6rem;
+        padding-bottom: 0.4rem;
+        margin-bottom: 0.4rem;
+        border-bottom: 1px inset $g2-color;
+      }
+      &__respuestas {
+        display: flex;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+        &--respuesta {
+          font-size: 1.4rem;
+          border: 1px solid $g2-color;
+          background: $g3-color;
+          color: $g-color;
+          padding: 0.4rem 0.8rem;
+          border-radius: 0.4rem;
+          -webkit-border-radius: 0.4rem;
+          -moz-border-radius: 0.4rem;
+          -ms-border-radius: 0.4rem;
+          -o-border-radius: 0.4rem;
+          &.correct {
+            border: 1px solid $s-color;
+            background: #97bbff;
+            color: $s-color;
+          }
+          &.error {
+            border: 1px solid $p-color;
+            background: #ffa398;
+            color: $p-color;
+          }
+        }
+      }
+    }
+  }
+  &__results {
+    height: 100%;
+    width: 30%;
+  }
+}

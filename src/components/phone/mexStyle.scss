@@ -150,14 +150,15 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        width: 90%;
+        width: 100%;
         gap: 12px;
-        margin: auto;
         font-size: 1.6rem;
+        padding: 0 11px;
         height: 439px;
         & .rescontainer {
           max-height: 330px;
           overflow-y: auto;
+          scrollbar-width: thin;
           & .foto {
             & input {
               display: none;

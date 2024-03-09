@@ -11,6 +11,7 @@ export const mexDataPhone = [
       "Viñatería",
     ],
     tipo: "multiseleccion",
+    respuestas_usuario: [],
     segmento: "punto",
   },
   {
@@ -25,6 +26,7 @@ export const mexDataPhone = [
       "Ninguno",
     ],
     tipo: "multiseleccion",
+    respuestas_usuario: [],
     segmento: "punto",
   },
   {
@@ -32,9 +34,9 @@ export const mexDataPhone = [
     titulo:
       "¿Cuáles de las siguientes categorías de productos se venden en este punto de venta?",
     respuesta_correcta: [
-      "Cerveza",
       "Sopas",
       "Cigarrillos",
+      "Cerveza",
       "Servilletas",
       "Pedialites",
       "Analgésicos",
@@ -43,7 +45,7 @@ export const mexDataPhone = [
     posibles_respuestas: [
       "Alimentos para bebés",
       "Bebidas sin alcohol listas para beber",
-      " Cerveza",
+      "Cerveza",
       "Sopas",
       "Papel higienico",
       "Protección femenina",
@@ -58,6 +60,7 @@ export const mexDataPhone = [
       "Ninguna de las anteriores",
     ],
     tipo: "multiseleccion",
+    respuestas_usuario: [],
     segmento: "producto",
   },
   {
@@ -94,6 +97,7 @@ export const mexDataPhone = [
       "Condimentos",
     ],
     tipo: "multiseleccion",
+    respuestas_usuario: [],
     segmento: "producto",
   },
   {
@@ -138,8 +142,9 @@ export const mexDataPhone = [
       "Aguas Saborizadas",
       "Jugos",
     ],
-    segmento: "segmento",
-    tipo: "producto",
+    segmento: "producto",
+    tipo: "multiseleccion",
+    respuestas_usuario: [],
   },
   {
     id: 6,
@@ -147,6 +152,7 @@ export const mexDataPhone = [
     respuesta_correcta: ["Si"],
     posibles_respuestas: ["Si", "No"],
     tipo: "multiseleccion",
+    respuestas_usuario: [],
     segmento: "enfriadores",
   },
   {
@@ -163,6 +169,7 @@ export const mexDataPhone = [
     ],
     segmento: "enfriadores",
     tipo: "multiseleccion",
+    respuestas_usuario: [],
   },
   {
     id: 8,
@@ -171,6 +178,7 @@ export const mexDataPhone = [
     posibles_respuestas: ["Si", "No"],
     segmento: "enfriadores",
     tipo: "multiseleccion",
+    respuestas_usuario: [],
   },
   {
     id: 9,
@@ -200,6 +208,7 @@ export const mexDataPhone = [
     ],
     segmento: "enfriadores",
     tipo: "multiseleccion",
+    respuestas_usuario: [],
   },
   {
     id: 10,
@@ -208,6 +217,7 @@ export const mexDataPhone = [
     posibles_respuestas: ["Si", "No"],
     segmento: "enfriadores",
     tipo: "multiseleccion",
+    respuestas_usuario: [],
   },
   {
     id: 11,
@@ -216,6 +226,7 @@ export const mexDataPhone = [
     posibles_respuestas: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
     segmento: "enfriadores",
     tipo: "multiseleccion",
+    respuestas_usuario: [],
   },
   {
     id: 12,
@@ -224,6 +235,7 @@ export const mexDataPhone = [
     posibles_respuestas: ["Si", "No"],
     segmento: "enfriador_a",
     tipo: "multiseleccion",
+    respuestas_usuario: [],
   },
   {
     id: 13,
@@ -232,6 +244,7 @@ export const mexDataPhone = [
     posibles_respuestas: ["1", "2", "3", "4", "Más de 5"],
     segmento: "enfriador_a",
     tipo: "multiseleccion",
+    respuestas_usuario: [],
   },
   {
     id: 14,
@@ -251,6 +264,7 @@ export const mexDataPhone = [
     ],
     segmento: "enfriador_a",
     tipo: "multiseleccion",
+    respuestas_usuario: [],
   },
   {
     id: 15,
@@ -260,6 +274,7 @@ export const mexDataPhone = [
     posibles_respuestas: ["Si", "No"],
     segmento: "enfriador_a",
     tipo: "multiseleccion",
+    respuestas_usuario: [],
   },
   {
     id: 16,
@@ -269,6 +284,7 @@ export const mexDataPhone = [
     posibles_respuestas: ["Si", "No"],
     segmento: "enfriador_a",
     tipo: "multiseleccion",
+    respuestas_usuario: [],
   },
   {
     id: 17,
@@ -278,6 +294,7 @@ export const mexDataPhone = [
     posibles_respuestas: ["5 o menos", "6 - 12", "12 - 24", "Más de 24"],
     segmento: "enfriador_a",
     tipo: "multiseleccion",
+    respuestas_usuario: [],
   },
   {
     id: 18,
@@ -286,6 +303,7 @@ export const mexDataPhone = [
     posibles_respuestas: ["imgEnfriador"],
     segmento: "img_enfriador",
     tipo: "foto",
+    respuestas_usuario: [],
   },
   {
     id: 19,
@@ -294,6 +312,7 @@ export const mexDataPhone = [
     posibles_respuestas: ["Si", "No"],
     segmento: "enfriador_b",
     tipo: "multiseleccion",
+    respuestas_usuario: [],
   },
   {
     id: 20,
@@ -302,6 +321,7 @@ export const mexDataPhone = [
     posibles_respuestas: ["1", "2", "3", "4", "Más de 5"],
     segmento: "enfriador_b",
     tipo: "multiseleccion",
+    respuestas_usuario: [],
   },
   {
     id: 21,
@@ -321,6 +341,7 @@ export const mexDataPhone = [
     ],
     segmento: "enfriador_b",
     tipo: "multiseleccion",
+    respuestas_usuario: [],
   },
   {
     id: 22,
@@ -330,6 +351,7 @@ export const mexDataPhone = [
     posibles_respuestas: ["Si", "No"],
     segmento: "enfriador_b",
     tipo: "multiseleccion",
+    respuestas_usuario: [],
   },
   {
     id: 23,
@@ -339,6 +361,7 @@ export const mexDataPhone = [
     posibles_respuestas: ["Si", "No"],
     segmento: "enfriador_b",
     tipo: "multiseleccion",
+    respuestas_usuario: [],
   },
   {
     id: 24,
@@ -348,6 +371,7 @@ export const mexDataPhone = [
     posibles_respuestas: ["5 o menos", "6 - 12", "12 - 24", "Más de 24"],
     segmento: "enfriador_b",
     tipo: "multiseleccion",
+    respuestas_usuario: [],
   },
   {
     id: 25,
@@ -356,6 +380,7 @@ export const mexDataPhone = [
     posibles_respuestas: ["imgPepsi"],
     segmento: "imgPepsi",
     tipo: "foto",
+    respuestas_usuario: [],
   },
   {
     id: 26,
@@ -364,6 +389,7 @@ export const mexDataPhone = [
     posibles_respuestas: ["Si", "No"],
     segmento: "detergentes",
     tipo: "multiseleccion",
+    respuestas_usuario: [],
   },
   {
     id: 27,
@@ -373,6 +399,7 @@ export const mexDataPhone = [
     posibles_respuestas: ["Si", "No"],
     segmento: "detergentes",
     tipo: "multiseleccion",
+    respuestas_usuario: [],
   },
   {
     id: 28,
@@ -402,6 +429,7 @@ export const mexDataPhone = [
     ],
     segmento: "detergentes",
     tipo: "multiseleccion",
+    respuestas_usuario: [],
   },
   {
     id: 29,
@@ -410,5 +438,6 @@ export const mexDataPhone = [
     posibles_respuestas: ["imgDetergente"],
     segmento: "imgDetergente",
     tipo: "foto",
+    respuestas_usuario: [],
   },
 ];
