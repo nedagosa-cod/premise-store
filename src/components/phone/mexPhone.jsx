@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import MexContext from "../../context/MexContext";
 import { createPortal } from "react-dom";
 import PanelResults from "../PanelResults/PanelResults";
+import { IconHome } from "../icons/IconHome";
 
 export default function MexPhone() {
   const { dataPhone, activeSegment, updateDataPhone } = useContext(MexContext);
@@ -66,7 +67,7 @@ export default function MexPhone() {
 
   const activeAnswer = (event) => {
     if (event.target.nodeName == "LABEL") {
-      event.target.classList.add("active");
+      event.target.classList.toggle("active");
     }
   };
 
@@ -142,20 +143,9 @@ export default function MexPhone() {
           </div>
 
           <div className="backhome">
-            <button
-              onClick={() => {
-                console.log(
-                  dataPhone.filter((el) => el.segmento == activeSegment)
-                );
-                console.log(dataPhone);
-              }}
-              type="button"
-            >
-              TEst
-            </button>
-            {/* <Link to="/" className="button">
-                ⌂
-              </Link> */}
+            <Link to="/" className="button">
+              <IconHome />
+            </Link>
           </div>
         </form>
       </div>
@@ -163,7 +153,11 @@ export default function MexPhone() {
       <figure className="imgPhone">
         <img src={imgPhone} alt="phone" />
       </figure>
-      {panelResults && createPortal(<PanelResults />, document.body)}
+      {panelResults &&
+        createPortal(
+          <PanelResults setPanelResults={setPanelResults} />,
+          document.body
+        )}
     </article>
   );
 }

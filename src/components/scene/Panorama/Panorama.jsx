@@ -1,21 +1,55 @@
 import { useContext, useEffect, useState } from "react";
+import sceneStar from "../../../assets/img/mexSceneStart.jpg";
 import entrada from "../../../assets/img/mexScene1.jpg";
 import salida from "../../../assets/img/mexScene2.jpg";
 import puerta from "../../../assets/img/mexScene0.jpg";
 import MexContext from "../../../context/MexContext";
 
 const Panorama = () => {
-  const { setQuestion } = useContext(MexContext);
+  const { setQuestion, userData } = useContext(MexContext);
   const changeScene = (nameScene) => {
     setScene(dataScene[nameScene]);
   };
 
   const dataScene = {
+    sceneStar: {
+      title: "Ingreso",
+      image: sceneStar,
+      pitch: 0,
+      yaw: -3,
+      hfov: 120,
+      sceneFadeDuration: 10,
+      hotSpots: [
+        {
+          id: 1,
+          text: "Siguiente",
+          type: "custom",
+          pitch: -64,
+          yaw: -9,
+          cssClass: "m-spot",
+          clickHandlerFunc: (e, clickHandlerArgs) => {
+            console.log(clickHandlerArgs);
+            changeScene("puerta");
+          },
+        },
+        {
+          id: 2,
+          text: "Punto",
+          type: "custom",
+          pitch: 1,
+          yaw: 4,
+          cssClass: "spot",
+          clickHandlerFunc: () => {
+            setQuestion("punto");
+          },
+        },
+      ],
+    },
     entrada: {
-      title: "Entrada",
+      title: "Pasillo",
       image: entrada,
-      pitch: 2.22,
-      yaw: -123,
+      pitch: -10,
+      yaw: -71,
       hfov: 120,
       sceneFadeDuration: 10,
       hotSpots: [
@@ -112,7 +146,7 @@ const Panorama = () => {
       ],
     },
     salida: {
-      title: "Final",
+      title: "Pasillo Final",
       image: salida,
       pitch: -1.05,
       yaw: -156.73,
@@ -191,10 +225,10 @@ const Panorama = () => {
       ],
     },
     puerta: {
-      title: "Entrada",
+      title: "Pricipal",
       image: puerta,
-      pitch: -26,
-      yaw: 80,
+      pitch: -12,
+      yaw: 7,
       hfov: 120,
       sceneFadeDuration: 10,
       hotSpots: [
@@ -252,7 +286,7 @@ const Panorama = () => {
     },
   };
 
-  const [scene, setScene] = useState(dataScene.puerta);
+  const [scene, setScene] = useState(dataScene.sceneStar);
 
   const createPannellum = (nameScene) => {
     document.querySelector("#panorama").innerHTML = "";
@@ -272,6 +306,7 @@ const Panorama = () => {
 
   useEffect(() => {
     createPannellum(scene);
+    console.log(userData);
   }, [scene]);
 
   return <div id="panorama" className="panorama"></div>;

@@ -37,14 +37,22 @@
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: $p-color $w-color;
+    &--logo {
+      width: 12rem;
+    }
     & .examples {
       display: flex;
       gap: 2rem;
     }
     & h3 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.2rem;
       text-align: center;
       width: 100%;
       font-size: 3rem;
+      color: $p-color;
     }
     &--example {
       font-size: 1.4rem;
@@ -97,7 +105,6 @@
       gap: 1.2rem;
       &__data-answer {
         display: flex;
-        align-items: center;
         gap: 1.2rem;
         width: 90%;
       }
@@ -155,7 +162,6 @@
         background: $w-color;
         border: 1px solid $g2-color;
         padding: 0.8rem;
-        max-height: 9rem;
         border-radius: 0.4rem;
         -webkit-border-radius: 0.4rem;
         -moz-border-radius: 0.4rem;
@@ -174,8 +180,9 @@
             font-weight: 100;
           }
           & span {
+            width: 6rem;
             font-size: 2.6rem;
-            line-height: 2.6rem;
+            text-align: center;
           }
         }
         &--resume {

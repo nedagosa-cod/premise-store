@@ -7,6 +7,9 @@ const MexProvider = ({ children }) => {
   const [dataPhone, setDataPhone] = useState(mexDataPhone);
   const [activeSegment, setActiveSegment] = useState("punto");
 
+  const [userData, setUserData] = useState({});
+  const [userResults, setUserResults] = useState({});
+
   const updateDataPhone = (id, respuestas) => {
     setDataPhone(
       dataPhone.map((objeto) => {
@@ -30,6 +33,8 @@ const MexProvider = ({ children }) => {
     updateDataPhone,
     deleteDataPhone,
     setQuestion,
+    setUserData,
+    userData,
   };
   return <MexContext.Provider value={data}>{children}</MexContext.Provider>;
 };
