@@ -4,21 +4,8 @@ import MexContext from "../../context/MexContext";
 import premiseLogo from "../../assets/premise-logo.png";
 
 const PanelResults = ({ setPanelResults }) => {
-  const { dataPhone } = useContext(MexContext);
+  const { dataPhone, updateResults } = useContext(MexContext);
   const [score, setScore] = useState(0);
-
-  const [userResults, setUserResults] = useState([]);
-
-  const updateResults = (result) => {
-    // const newResult = {
-    //   id: data.id,
-    //   question: data.title,
-    //   results: {...results, result},
-    //   score: totalScore,
-    // };
-    let nuevasRespuestas = [...userResults, result];
-    setUserResults(nuevasRespuestas);
-  };
 
   const obtenerRepetidos = (array1, array2) => {
     const repetidos = array1.filter((elemento) => array2.includes(elemento));
@@ -29,44 +16,6 @@ const PanelResults = ({ setPanelResults }) => {
     return [...new Set(erroneas)];
   };
 
-  const calcQuestionResult = (answerCorrect, userAnswers, id) => {
-    let correctSelected = obtenerRepetidos(answerCorrect, userAnswers).length;
-    let errorSelected = obtenerErroneas(userAnswers, answerCorrect).length;
-
-    const normalResult = (
-      correctSelected / answerCorrect.length -
-      errorSelected / answerCorrect.length
-    ).toFixed(2);
-
-    let resultWhitoutNegative =
-      normalResult > 0
-        ? (
-            correctSelected / answerCorrect.length -
-            errorSelected / answerCorrect.length
-          ).toFixed(2)
-        : 0;
-    let arrResults = [...userResults, resultWhitoutNegative];
-    console.log(arrResults);
-    return resultWhitoutNegative;
-  };
-
-  const getTotalScore = () => {
-    let result = dataPhone.map((data) => {
-      let dataScore =
-        obtenerRepetidos(data.respuesta_correcta, data.respuestas_usuario)
-          .length /
-          data.respuesta_correcta.length -
-        obtenerErroneas(data.respuestas_usuario, data.respuesta_correcta)
-          .length /
-          data.respuesta_correcta.length;
-      return dataScore > 0 ? dataScore : 0;
-    });
-    let suma = 0;
-    result.forEach((number) => {
-      suma += number;
-    });
-    setScore((suma / 28).toFixed(3) * 10);
-  };
   const clickClosePanel = (e) => {
     if (e.target.getAttribute("name") == "panel") {
       setPanelResults(false);
@@ -74,25 +23,6 @@ const PanelResults = ({ setPanelResults }) => {
   };
 
   const getRenderResults = () => {
-    // let ddd = [
-    //   {
-    //     id: 1,
-    //     titulo: "Titulo de la pregunta",
-    //     numCorrects: 3,
-    //     numMarked: 1,
-    //     respuestas: [
-    //       {
-    //         valor: "Respuesta 1",
-    //         type: "correct",
-    //       },
-    //       {
-    //         valor: "Respuesta 2",
-    //         type: "error",
-    //       },
-    //     ],
-    //   },
-    // ]
-
     let dataByASk = dataPhone.map((data) => {
       let resCorrectMarked = obtenerRepetidos(
         data.respuesta_correcta,
@@ -124,10 +54,35 @@ const PanelResults = ({ setPanelResults }) => {
           type: type,
         };
       });
+      const calcQuestionResult = () => {
+        let correctSelected = obtenerRepetidos(
+          data.respuesta_correcta,
+          data.respuestas_usuario
+        ).length;
+        let errorSelected = obtenerErroneas(
+          data.respuestas_usuario,
+          data.respuesta_correcta
+        ).length;
+
+        const normalResult = (
+          correctSelected / data.respuesta_correcta.length -
+          errorSelected / data.respuesta_correcta.length
+        ).toFixed(2);
+
+        let resultWhitoutNegative =
+          normalResult > 0
+            ? (
+                correctSelected / data.respuesta_correcta.length -
+                errorSelected / data.respuesta_correcta.length
+              ).toFixed(2)
+            : 0;
+        return resultWhitoutNegative;
+      };
 
       return {
         id: data.id,
         titulo: data.titulo,
+        score: calcQuestionResult(),
         numCorrects: data.respuesta_correcta.length,
         numMarked: resCorrectMarked.length,
         respuestas: getTypeResponse,
@@ -136,12 +91,30 @@ const PanelResults = ({ setPanelResults }) => {
     return dataByASk;
   };
 
+  const getTotalScore = () => {
+    let result = dataPhone.map((data) => {
+      let dataScore =
+        obtenerRepetidos(data.respuesta_correcta, data.respuestas_usuario)
+          .length /
+          data.respuesta_correcta.length -
+        obtenerErroneas(data.respuestas_usuario, data.respuesta_correcta)
+          .length /
+          data.respuesta_correcta.length;
+      return dataScore > 0 ? dataScore : 0;
+    });
+    let suma = 0;
+    result.forEach((number) => {
+      suma += number;
+    });
+    setScore((suma / 28).toFixed(3) * 10);
+  };
+
   document.addEventListener("keydown", (e) => {
     setPanelResults(false);
   });
 
   useEffect(() => {
-    console.log(getRenderResults());
+    updateResults(getRenderResults());
     getTotalScore();
   }, []);
 
@@ -157,14 +130,6 @@ const PanelResults = ({ setPanelResults }) => {
       <section className="panel-results__form">
         <h3>
           Resultados del estudio |{" "}
-          <button
-            type="button"
-            onClick={() => {
-              console.log(userResults);
-            }}
-          >
-            test
-          </button>
           <figure className="panel-results__form--logo">
             <img src={premiseLogo} alt="Logo premise" />
           </figure>
@@ -183,14 +148,7 @@ const PanelResults = ({ setPanelResults }) => {
         <div className="panel-results__box-data">
           <div className="panel-results__data">
             <div className="data">
-              {dataPhone.map((data, i) => {
-                let okAndErrResponses = [
-                  ...new Set(
-                    data.respuestas_usuario
-                      .concat(data.respuesta_correcta, data.respuestas_usuario)
-                      .filter((fruta) => fruta && fruta.trim() !== "")
-                  ),
-                ];
+              {getRenderResults().map((data, i) => {
                 return (
                   <div className="data__data-answer" key={data.id}>
                     <div className="data__box">
@@ -199,27 +157,16 @@ const PanelResults = ({ setPanelResults }) => {
                       </p>
 
                       <div className="data__respuestas">
-                        {okAndErrResponses.map((posiblesRes, i) => {
+                        {data.respuestas.map((posiblesRes, index) => {
                           return (
                             <span
                               className={
                                 "data__respuestas--respuesta " +
-                                (obtenerRepetidos(
-                                  data.respuesta_correcta,
-                                  data.respuestas_usuario
-                                ).includes(posiblesRes)
-                                  ? "correct"
-                                  : "") +
-                                (obtenerErroneas(
-                                  data.respuestas_usuario,
-                                  data.respuesta_correcta
-                                ).includes(posiblesRes)
-                                  ? "error"
-                                  : "")
+                                posiblesRes.type
                               }
-                              key={i}
+                              key={index}
                             >
-                              {posiblesRes}
+                              {posiblesRes.valor}
                             </span>
                           );
                         })}
@@ -228,30 +175,16 @@ const PanelResults = ({ setPanelResults }) => {
                     <div className="data__results">
                       <div className="data__results--pts">
                         <p>Pts.</p>
-                        <input
-                          type="text"
-                          defaultValue={calcQuestionResult(
-                            data.respuesta_correcta,
-                            data.respuestas_usuario,
-                            data.id
-                          )}
-                        />
+                        <input type="text" defaultValue={data.score} />
                       </div>
                       <div className="data__results--resume">
                         <div className="resume">
                           <p>Correctas</p>
-                          <span>{data.respuesta_correcta.length}</span>
+                          <span>{data.numCorrects}</span>
                         </div>
                         <div className="resume hr">
                           <p>Marcadas</p>
-                          <span>
-                            {
-                              obtenerRepetidos(
-                                data.respuesta_correcta,
-                                data.respuestas_usuario
-                              ).length
-                            }
-                          </span>
+                          <span>{data.numMarked}</span>
                         </div>
                       </div>
                     </div>

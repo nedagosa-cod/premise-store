@@ -7,27 +7,12 @@ const MexProvider = ({ children }) => {
   const [dataPhone, setDataPhone] = useState(mexDataPhone);
   const [activeSegment, setActiveSegment] = useState("punto");
 
+  // VARIABLES PARA BASES DE DATOS
   const [userData, setUserData] = useState({});
-  const [userResults, setUserResults] = useState([
-    {
-      id: 9999,
-      question: "question?",
-      results: [],
-      score: 0,
-    },
-  ]);
-  const updateResults = (data, result, score) => {
-    setUserResults((preveResults) => {
-      return [
-        ...preveResults,
-        {
-          id: data.id,
-          question: data.title,
-          results: [...preveResults, result],
-          score: score,
-        },
-      ];
-    });
+  const [userResults, setUserResults] = useState([]);
+  // VARIABLES PARA BASES DE DATOS ^
+  const updateResults = (results) => {
+    setUserResults(results);
   };
   const updateDataPhone = (id, respuestas) => {
     setDataPhone(
