@@ -8,8 +8,27 @@ const MexProvider = ({ children }) => {
   const [activeSegment, setActiveSegment] = useState("punto");
 
   const [userData, setUserData] = useState({});
-  const [userResults, setUserResults] = useState({});
-
+  const [userResults, setUserResults] = useState([
+    {
+      id: 9999,
+      question: "question?",
+      results: [],
+      score: 0,
+    },
+  ]);
+  const updateResults = (data, result, score) => {
+    setUserResults((preveResults) => {
+      return [
+        ...preveResults,
+        {
+          id: data.id,
+          question: data.title,
+          results: [...preveResults, result],
+          score: score,
+        },
+      ];
+    });
+  };
   const updateDataPhone = (id, respuestas) => {
     setDataPhone(
       dataPhone.map((objeto) => {
@@ -35,6 +54,8 @@ const MexProvider = ({ children }) => {
     setQuestion,
     setUserData,
     userData,
+    updateResults,
+    userResults,
   };
   return <MexContext.Provider value={data}>{children}</MexContext.Provider>;
 };

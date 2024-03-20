@@ -11,6 +11,7 @@ import MexContext from "../../context/MexContext";
 import { createPortal } from "react-dom";
 import PanelResults from "../PanelResults/PanelResults";
 import { IconHome } from "../icons/IconHome";
+import Swal from "sweetalert2";
 
 export default function MexPhone() {
   const { dataPhone, activeSegment, updateDataPhone } = useContext(MexContext);
@@ -45,7 +46,14 @@ export default function MexPhone() {
       // console.log(dataPhone.length - 26);
       if (answsSaved == dataPhone.length - 26) {
         // muestra LAS NOTAS
+        // Swal.fire({
+        //   title: "Calculando resultados...",
+        //   timerProgressBar: true,
+        // });
         setPanelResults(true);
+        // setTimeout(() => {
+        //   Swal.close();
+        // }, 2000);
       }
       updateDataPhone(segments[posQuestion].id, arrAnswers);
       setAnswsSaved((prevPos) => prevPos + 1);

@@ -27,8 +27,7 @@ const Panorama = () => {
           pitch: -64,
           yaw: -9,
           cssClass: "m-spot",
-          clickHandlerFunc: (e, clickHandlerArgs) => {
-            console.log(clickHandlerArgs);
+          clickHandlerFunc: () => {
             changeScene("puerta");
           },
         },
@@ -306,7 +305,6 @@ const Panorama = () => {
 
   useEffect(() => {
     createPannellum(scene);
-    console.log(userData);
   }, [scene]);
 
   return <div id="panorama" className="panorama"></div>;
