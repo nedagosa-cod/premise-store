@@ -33,10 +33,24 @@ export default function Charla() {
     ownerChat,
     imageNpc,
     resetChat,
-    chatEntranceOwner,
   } = useContext(MexContext);
 
   const [startPreScene, setStartPreScene] = useState(false);
+
+  const chatEntranceOwner = () => {
+    setTimeout(() => {
+      setOwnerChat((prevOwnerChat) => [
+        ...prevOwnerChat,
+        <div
+          className="globo animate__animated animate__backInRight"
+          key={prevOwnerChat.length}
+        >
+          <p>{conversation.NPC_options["first"].text}</p>
+          <span>Cecilia</span>
+        </div>,
+      ]);
+    }, 500);
+  };
 
   const chatSelected = ({ dataConver }) => {
     const { textOption, pointer, event, emote, correct } = dataConver;
@@ -108,6 +122,7 @@ export default function Charla() {
             if (res.isConfirmed) {
               navigate("/");
               resetChat();
+              chatEntranceOwner();
               setImageNpc(npcStandar);
               setStartApp(false);
             }
@@ -128,6 +143,7 @@ export default function Charla() {
             if (res.isConfirmed) {
               navigate("/");
               resetChat();
+              chatEntranceOwner();
               setImageNpc(npcStandar);
               setStartApp(false);
             }
