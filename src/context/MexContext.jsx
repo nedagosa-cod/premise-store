@@ -6,7 +6,9 @@ const MexContext = createContext();
 const MexProvider = ({ children }) => {
   const [dataPhone, setDataPhone] = useState(mexDataPhone);
   const [activeSegment, setActiveSegment] = useState("punto");
-
+  const [startApp, setStartApp] = useState(
+    localStorage.getItem("login") == "true" ? false : true
+  );
   // VARIABLES PARA BASES DE DATOS
   const [userData, setUserData] = useState({});
   const [userResults, setUserResults] = useState([]);
@@ -31,6 +33,7 @@ const MexProvider = ({ children }) => {
   const setQuestion = (name) => {
     setActiveSegment(name);
   };
+
   const data = {
     dataPhone,
     activeSegment,
@@ -41,6 +44,8 @@ const MexProvider = ({ children }) => {
     userData,
     updateResults,
     userResults,
+    setStartApp,
+    startApp,
   };
   return <MexContext.Provider value={data}>{children}</MexContext.Provider>;
 };

@@ -6,15 +6,17 @@ import "./mexStyle.scss";
 
 import logoPhone from "../../assets/img/360phone.png";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import MexContext from "../../context/MexContext";
 import { createPortal } from "react-dom";
 import PanelResults from "../PanelResults/PanelResults";
 import { IconHome } from "../icons/IconHome";
-import Swal from "sweetalert2";
 
 export default function MexPhone() {
-  const { dataPhone, activeSegment, updateDataPhone } = useContext(MexContext);
+  const { dataPhone, activeSegment, updateDataPhone, setStartApp } =
+    useContext(MexContext);
+  const navigate = useNavigate();
+
   const [segments, setSegments] = useState([]);
   const [posQuestion, setPosQuestion] = useState(0);
   const [answsSaved, setAnswsSaved] = useState(0);
@@ -151,9 +153,17 @@ export default function MexPhone() {
           </div>
 
           <div className="backhome">
-            <Link to="/" className="button">
+            <button
+              className="button"
+              type="button"
+              onClick={() => {
+                localStorage.setItem("login", false);
+                setStartApp(true);
+                navigate("/");
+              }}
+            >
               <IconHome />
-            </Link>
+            </button>
           </div>
         </form>
       </div>

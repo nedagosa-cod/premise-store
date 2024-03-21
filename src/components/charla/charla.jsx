@@ -12,21 +12,22 @@ import logo360 from "../../assets/img/360g.png";
 import flatColombia from "../../assets/iconScenes/flatColombia.jpg";
 import flatMexico from "../../assets/iconScenes/flatMexico.jpg";
 
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import conversation from "../../conversation/tendero.jsx";
 import TenderoImg from "../tendero/TenderoImg";
 
 import Preload from "../preload/preload";
 import PreScene from "../preload/PreScene.jsx";
-import { MexProvider } from "../../context/MexContext.jsx";
+import MexContext from "../../context/MexContext.jsx";
 
 export default function Charla() {
   const navigate = useNavigate();
+  const { setStartApp, startApp } = useContext(MexContext);
 
   const [activeChat, setActiveChat] = useState("first");
   const [ownerChat, setOwnerChat] = useState([]);
-  const [startApp, setStartApp] = useState(true);
+
   const [startPreScene, setStartPreScene] = useState(false);
   const [imageNpc, setImageNpc] = useState(npcStandar);
 
@@ -99,6 +100,7 @@ export default function Charla() {
           }).then((res) => {
             if (res.isConfirmed) {
               window.location.reload();
+              setStartApp(false);
             }
           });
           break;
@@ -116,59 +118,11 @@ export default function Charla() {
           }).then((res) => {
             if (res.isConfirmed) {
               window.location.reload();
+              setStartApp(false);
             }
           });
           break;
         case "nextScene":
-          // Swal.fire({
-          //   icon: "question",
-          //   title: "Seleccione donde quiere hacer el estudio de mercado.",
-          //   showConfirmButton: false,
-          //   width: 800,
-          //   html: `<section class="show-tienda">
-          //           <div class="show-tienda__top">
-          //             <div>
-          //               <figure><img src=${flatColombia} alt="Bandera Colombia" /></figure>
-          //             </div>
-          //             <div>
-          //               <figure><img src=${flatMexico} alt="Bandera Mexico" /></figure>
-          //             </div>
-          //           </div>
-          //           <form class="show-tienda__bot">
-          //             <div class="show-tienda__left">
-          //               <button type="button" name="colAutoServ" class="buttonStorage">Auto Servicio</button>
-          //             </div>
-          //             <div class="show-tienda__right">
-          //               <button type="button" name="mexTienda" class="buttonStorage">Tienda</button>
-          //             </div>
-          //           </form>
-          //         </section>`,
-          //   customClass: {
-          //     htmlContainer: "myswalhtml",
-          //     title: "myswal-title",
-          //     text: "myswal-text",
-          //   },
-          //   didOpen: () => {
-          //     const tiendas = document.querySelectorAll(".buttonStorage");
-          //     tiendas.forEach((tienda) => {
-          //       tienda.addEventListener("click", () => {
-          //         switch (tienda.name) {
-          //           case "colAutoServ":
-          //             navigate("/store");
-          //             break;
-          //           case "mexTienda":
-          //             navigate("/mexstore");
-          //             break;
-          //           case "colTienda":
-          //             navigate("/coltstore");
-          //             break;
-          //         }
-          //         Swal.close();
-          //       });
-          //     });
-          //   },
-          // });
-
           setStartPreScene(true);
           setTimeout(() => {
             navigate("/mexstore");
@@ -180,6 +134,8 @@ export default function Charla() {
   };
 
   useEffect(() => {
+    console.log(startApp);
+    console.log(Boolean(localStorage.getItem("login")));
     setTimeout(() => {
       setOwnerChat((prevOwnerChat) => [
         ...prevOwnerChat,
@@ -262,7 +218,7 @@ export default function Charla() {
         </div>
       </article>
       <TenderoImg npcImage={imageNpc} />
-      {startApp && <Preload setStartApp={setStartApp} />}
+      {startApp && <Preload />}
       {startPreScene && (
         <PreScene
           setStartPreScene={setStartPreScene}

@@ -23,6 +23,7 @@ export default function Preload() {
   const onSubmitForm = handleSubmit((data, e) => {
     e.preventDefault();
     setUserData(data);
+    localStorage.setItem("login", true);
     setTimeout(() => {
       e.target.parentNode.classList.add("animate__slideOutUp");
     }, 100);
@@ -97,7 +98,13 @@ export default function Preload() {
             </button>
           </div>
           <div className="button-borders">
-            <button className="primary-button" type="button">
+            <button
+              className="primary-button"
+              type="button"
+              onClick={() => {
+                console.log(userData);
+              }}
+            >
               Ver Resultados
             </button>
           </div>
