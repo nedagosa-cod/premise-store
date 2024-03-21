@@ -9,6 +9,9 @@ import Charla from "./components/charla/charla";
 import { MexProvider } from "./context/MexContext";
 
 function App() {
+  window.addEventListener("unload", function (event) {
+    localStorage.clear();
+  });
   return (
     <div className="app">
       <MexProvider>

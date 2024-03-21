@@ -4,6 +4,11 @@ import { mexDataPhone } from "../components/scene/mexDataPhone";
 const MexContext = createContext();
 
 const MexProvider = ({ children }) => {
+  // charla
+  const [activeChat, setActiveChat] = useState("first");
+  const [ownerChat, setOwnerChat] = useState([]);
+  const [imageNpc, setImageNpc] = useState();
+  // scene phone
   const [dataPhone, setDataPhone] = useState(mexDataPhone);
   const [activeSegment, setActiveSegment] = useState("punto");
   const [startApp, setStartApp] = useState(
@@ -33,6 +38,11 @@ const MexProvider = ({ children }) => {
   const setQuestion = (name) => {
     setActiveSegment(name);
   };
+  const resetChat = () => {
+    setActiveChat("first");
+    setOwnerChat([]);
+    // setImageNpc(npcStandar);
+  };
 
   const data = {
     dataPhone,
@@ -46,6 +56,13 @@ const MexProvider = ({ children }) => {
     userResults,
     setStartApp,
     startApp,
+    activeChat,
+    ownerChat,
+    imageNpc,
+    setActiveChat,
+    setOwnerChat,
+    setImageNpc,
+    resetChat,
   };
   return <MexContext.Provider value={data}>{children}</MexContext.Provider>;
 };

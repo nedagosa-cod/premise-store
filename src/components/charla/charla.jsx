@@ -23,13 +23,20 @@ import MexContext from "../../context/MexContext.jsx";
 
 export default function Charla() {
   const navigate = useNavigate();
-  const { setStartApp, startApp } = useContext(MexContext);
-
-  const [activeChat, setActiveChat] = useState("first");
-  const [ownerChat, setOwnerChat] = useState([]);
+  const {
+    setStartApp,
+    startApp,
+    setActiveChat,
+    setOwnerChat,
+    setImageNpc,
+    activeChat,
+    ownerChat,
+    imageNpc,
+    resetChat,
+    chatEntranceOwner,
+  } = useContext(MexContext);
 
   const [startPreScene, setStartPreScene] = useState(false);
-  const [imageNpc, setImageNpc] = useState(npcStandar);
 
   const chatSelected = ({ dataConver }) => {
     const { textOption, pointer, event, emote, correct } = dataConver;
@@ -99,7 +106,9 @@ export default function Charla() {
             },
           }).then((res) => {
             if (res.isConfirmed) {
-              window.location.reload();
+              navigate("/");
+              resetChat();
+              setImageNpc(npcStandar);
               setStartApp(false);
             }
           });
@@ -117,7 +126,9 @@ export default function Charla() {
             },
           }).then((res) => {
             if (res.isConfirmed) {
-              window.location.reload();
+              navigate("/");
+              resetChat();
+              setImageNpc(npcStandar);
               setStartApp(false);
             }
           });
@@ -134,20 +145,8 @@ export default function Charla() {
   };
 
   useEffect(() => {
-    console.log(startApp);
-    console.log(Boolean(localStorage.getItem("login")));
-    setTimeout(() => {
-      setOwnerChat((prevOwnerChat) => [
-        ...prevOwnerChat,
-        <div
-          className="globo animate__animated animate__backInRight"
-          key={prevOwnerChat.length}
-        >
-          <p>{conversation.NPC_options[activeChat].text}</p>
-          <span>Cecilia</span>
-        </div>,
-      ]);
-    }, 3000);
+    chatEntranceOwner();
+    setImageNpc(npcStandar);
   }, []);
 
   return (
