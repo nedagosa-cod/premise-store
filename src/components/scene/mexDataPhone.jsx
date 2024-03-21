@@ -830,6 +830,7 @@ export const mexDataPhone = [
       "▶ Verifique que la foto quede correctamente capturada antes de la siguiente pregunta. `",
     ],
     segmento: "img_enfriador",
+    namePhoto: "mexImgDetergentes",
     tipo: "foto",
     respuestas_usuario: [
       "▶ Tome la foto de acuerdo con el encabezado de la pregunta",
@@ -921,6 +922,7 @@ export const mexDataPhone = [
       "▶ Verifique que la foto quede correctamente capturada antes de la siguiente pregunta. `",
     ],
     segmento: "imgPepsi",
+    namePhoto: "mexImgPepsi",
     tipo: "foto",
     respuestas_usuario: ["imgPepsi"],
   },
@@ -992,6 +994,7 @@ export const mexDataPhone = [
       "▶ Verifique que la foto quede correctamente capturada antes de la siguiente pregunta. `",
     ],
     segmento: "imgDetergente",
+    namePhoto: "mexImgDetergentes",
     tipo: "foto",
     respuestas_usuario: ["imgDetergente"],
   },

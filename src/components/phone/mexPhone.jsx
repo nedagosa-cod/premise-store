@@ -6,11 +6,12 @@ import "./mexStyle.scss";
 
 import logoPhone from "../../assets/img/360phone.png";
 
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import MexContext from "../../context/MexContext";
 import { createPortal } from "react-dom";
 import PanelResults from "../PanelResults/PanelResults";
 import { IconHome } from "../icons/IconHome";
+import imgDetergente from "../../assets/iconScenes/mexImgDetergentes.jpg";
 
 export default function MexPhone() {
   const { dataPhone, activeSegment, updateDataPhone, setStartApp } =
@@ -118,7 +119,24 @@ export default function MexPhone() {
                     <p className="pregunta">{segments[posQuestion].titulo}</p>
                   </>
                 )}
-                <div className="respuestas">
+                <div
+                  className={
+                    "respuestas " +
+                    (segments[posQuestion]?.tipo == "foto" ? "foto" : "")
+                  }
+                >
+                  {segments[posQuestion]?.tipo == "foto" && (
+                    <figure>
+                      <img
+                        src={
+                          "/src/assets/iconScenes/" +
+                          segments[posQuestion]?.namePhoto +
+                          ".jpg"
+                        }
+                        alt="Foto ejemplo"
+                      />
+                    </figure>
+                  )}
                   <div className="rescontainer">
                     {segments[posQuestion] &&
                       segments[posQuestion].posibles_respuestas.map(

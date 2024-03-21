@@ -109,6 +109,7 @@
         width: 100%;
         border-bottom-right-radius: 33px;
         border-bottom-left-radius: 33px;
+        overflow-y: hidden;
         & .phone-home {
           position: absolute;
           top: 20%;
@@ -173,6 +174,15 @@
         font-size: 1.6rem;
         padding: 0 11px;
         height: 439px;
+        &.foto {
+          overflow-y: scroll;
+          height: 200px;
+          min-height: 415px;
+          &,
+          .rescontainer {
+            min-height: 600px;
+          }
+        }
         & .rescontainer {
           max-height: 330px;
           overflow-y: auto;

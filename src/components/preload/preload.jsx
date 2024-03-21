@@ -7,12 +7,24 @@ import { useForm } from "react-hook-form";
 
 export default function Preload() {
   const { setUserData, userData } = useContext(MexContext);
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
   const [formData, setFormData] = useState({
     id: "",
     name: "",
-    email: "",
+    mail: "",
   });
+
+  const validateAtLeastTwoFields = (value, allValues) => {
+    const fields = [allValues.name, allValues.id, allValues.mail];
+    const filledFields = fields.filter((field) => field && field.trim() !== "");
+
+    return filledFields.length >= 2;
+  };
 
   const updateFormData = (e) => {
     setFormData((prevData) => {
@@ -20,17 +32,17 @@ export default function Preload() {
     });
   };
 
-  const onSubmitForm = handleSubmit((data, e) => {
+  const onSubmitForm = (data, e) => {
     e.preventDefault();
     setUserData(data);
     localStorage.setItem("login", true);
     setTimeout(() => {
       e.target.parentNode.classList.add("animate__slideOutUp");
     }, 100);
-  });
+  };
   return (
     <section className="preload animate__animated">
-      <form className="elements" onSubmit={onSubmitForm}>
+      <form className="elements" onSubmit={handleSubmit(onSubmitForm)}>
         <div className="elements__title">
           <span>Store 360° | </span>
           <figure>
@@ -40,10 +52,11 @@ export default function Preload() {
             Para iniciar recorrido porfavor completa los campos.
           </p>
         </div>
+
         <div className="input-container">
           <input
             className="input"
-            {...register("name")}
+            {...register("name", { validate: validateAtLeastTwoFields })}
             type="text"
             autoComplete="off"
             value={formData.name}
@@ -58,7 +71,7 @@ export default function Preload() {
         <div className="input-container">
           <input
             className="input"
-            {...register("id")}
+            {...register("id", { validate: validateAtLeastTwoFields })}
             type="text"
             autoComplete="off"
             value={formData.id}
@@ -73,15 +86,16 @@ export default function Preload() {
         <div className="input-container">
           <input
             className="input"
-            {...register("email", {
-              pattern: {
-                value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-                message: "Correo no valido",
-              },
+            {...register("mail", {
+              // pattern: {
+              //   value: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+              //   message: "Correo no valido",
+              // },
+              validate: validateAtLeastTwoFields,
             })}
-            type="email"
+            type="text"
             autoComplete="off"
-            value={formData.email}
+            value={formData.mail}
             onChange={updateFormData}
           />
           <label className="label" htmlFor="input">
@@ -90,7 +104,7 @@ export default function Preload() {
           <div className="topline"></div>
           <div className="underline"></div>
         </div>
-
+        {errors.name && <p>Debes completar minimo 2 campos.</p>}
         <div className="elements__buttons">
           <div className="button-borders">
             <button className="primary-button" type="submit">
