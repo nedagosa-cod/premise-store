@@ -1,9 +1,8 @@
 import DataTable from "react-data-table-component";
-import "styled-components";
 import "./styles.scss";
 import imgLogoPremise from "../../assets/img/premise.webp";
 import { Link } from "react-router-dom";
-import IconHome from "../icons/IconHome";
+import { IconHome } from "../icons/IconHome";
 
 const TableScores = () => {
   const columns = [
@@ -1159,8 +1158,9 @@ const TableScores = () => {
         </nav>
         <ul className="link-back">
           <li>
-            <IconHome />
-            <Link to="/">Volver</Link>
+            <Link to="/" className="link">
+              <IconHome /> Volver
+            </Link>
           </li>
         </ul>
       </header>

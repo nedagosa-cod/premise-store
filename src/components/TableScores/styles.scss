@@ -45,5 +45,19 @@
     list-style: none;
     font-size: 2rem;
     color: $t-color;
+    & .link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    li {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      & svg {
+        width: 2.4rem;
+        stroke: $t-color;
+      }
+    }
   }
 }
