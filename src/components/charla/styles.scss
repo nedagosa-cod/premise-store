@@ -449,6 +449,8 @@ $s2-color: #7e38ff;
 @media only screen and (max-width: 768px) {
   .charla {
     &__chat {
+      display: flex;
+      flex-direction: column;
       width: 100%;
       height: 100dvh;
       & .letrero {
