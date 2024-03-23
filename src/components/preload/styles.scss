@@ -400,8 +400,9 @@
       width: 100%;
       padding: 0;
       &__title {
+        flex-direction: column;
         & figure {
-          width: 10rem;
+          width: 20rem;
           &:nth-child(1) {
             & img {
               filter: hue-rotate(50deg);
@@ -417,6 +418,9 @@
     }
     & .input-container {
       filter: invert(1);
+      & .input {
+        color: $b-color;
+      }
     }
   }
 }
