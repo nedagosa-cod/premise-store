@@ -453,6 +453,7 @@ $s2-color: #7e38ff;
       flex-direction: column;
       width: 100%;
       height: 100dvh;
+      height: 100vh;
       & .letrero {
         height: 20%;
         & figure {
@@ -488,7 +489,19 @@ $s2-color: #7e38ff;
     }
   }
   .card {
+    height: 100%;
     & .top-section {
+      & .options {
+        margin-top: 0;
+        height: 100%;
+        & .option {
+          width: 98%;
+          & span {
+            margin-right: 0.8rem;
+          }
+        }
+      }
+
       & .border,
       .icons {
         display: none;
