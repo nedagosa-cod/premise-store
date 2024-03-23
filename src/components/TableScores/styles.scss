@@ -61,3 +61,22 @@
     }
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .table-container {
+    &__header {
+      align-items: center;
+      padding: 1rem;
+    }
+    &__navbar {
+      flex-direction: column;
+      & span {
+        display: none;
+      }
+    }
+    &__table {
+      width: 95%;
+      height: 100%;
+    }
+  }
+}
