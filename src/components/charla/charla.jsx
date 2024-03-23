@@ -9,9 +9,6 @@ import npcSurprisedB from "../../assets/img/npcStandar_2.png";
 import letrero from "../../assets/img/letrero.png";
 import logo360 from "../../assets/img/360g.png";
 
-import flatColombia from "../../assets/iconScenes/flatColombia.jpg";
-import flatMexico from "../../assets/iconScenes/flatMexico.jpg";
-
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import conversation from "../../conversation/tendero.jsx";

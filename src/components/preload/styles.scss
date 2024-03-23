@@ -4,7 +4,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -394,18 +394,29 @@
   fill: #0e1822;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
   .preload {
     & .elements {
-      & figure {
-        width: 90%;
-        &:nth-child(1) {
-          & img {
-            filter: hue-rotate(50deg);
-            -webkit-filter: hue-rotate(50deg);
+      width: 100%;
+      padding: 0;
+      &__title {
+        & figure {
+          width: 10rem;
+          &:nth-child(1) {
+            & img {
+              filter: hue-rotate(50deg);
+              -webkit-filter: hue-rotate(50deg);
+            }
           }
         }
       }
+      &__p {
+        color: $w-color;
+      }
+      background-image: none;
+    }
+    & .input-container {
+      filter: invert(1);
     }
   }
 }

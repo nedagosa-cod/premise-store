@@ -10,9 +10,6 @@ import { MexProvider } from "./context/MexContext";
 import TableScores from "./components/TableScores/TableScores";
 
 function App() {
-  window.addEventListener("unload", function (event) {
-    localStorage.clear();
-  });
   return (
     <div className="app">
       <MexProvider>
