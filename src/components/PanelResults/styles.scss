@@ -5,6 +5,7 @@
   justify-content: center;
   align-items: center;
   position: absolute;
+  overflow: hidden;
   z-index: 500;
   top: 0;
   left: 0;
@@ -16,6 +17,35 @@
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 91, 74, 0.3);
+  &__container {
+    position: relative;
+    display: flex;
+    top: 1rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    &--back {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      gap: 1.2rem;
+      background: $p-color;
+      padding: 2rem 2rem 1rem 2rem;
+      font-size: 2rem;
+      outline: none;
+      & svg {
+        width: 3.2rem;
+        height: 3.2rem;
+      }
+      &:focus {
+        outline: none;
+      }
+      &:hover {
+        background: $p2-color;
+      }
+    }
+  }
   &__form {
     --background: #ffeae8;
     --inner-shadow: #ff9f94;
@@ -24,14 +54,14 @@
     --inner-outline-middle: #ffaba1;
     --inner-outline-outer-top: #fefcff;
     --inner-outline-outer-bottom-1: #ff5b4a;
-    padding: 2rem 0;
     position: relative;
     display: flex;
     gap: 2rem;
     flex-wrap: wrap;
     justify-content: center;
     width: 80rem;
-    height: 60rem;
+    height: 75%;
+    max-height: 80rem;
     background: var(--background);
     border: 1px solid $w-color;
     overflow-y: auto;
@@ -229,8 +259,8 @@
     --inner-outline-middle: #ffaba1;
     --inner-outline-outer-top: #fefcff;
     --inner-outline-outer-bottom-1: #ff5b4a;
-    position: fixed;
-    bottom: 81px;
+    position: sticky;
+    bottom: 0;
     background: var(--background);
     cursor: pointer;
     transition: all 0.2s;

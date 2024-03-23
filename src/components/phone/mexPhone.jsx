@@ -11,11 +11,17 @@ import MexContext from "../../context/MexContext";
 import { createPortal } from "react-dom";
 import PanelResults from "../PanelResults/PanelResults";
 import { IconHome } from "../icons/IconHome";
-import imgDetergente from "../../assets/iconScenes/mexImgDetergentes.jpg";
+import { mexDataPhone } from "../scene/mexDataPhone";
 
 export default function MexPhone() {
-  const { dataPhone, activeSegment, updateDataPhone, setStartApp } =
-    useContext(MexContext);
+  const {
+    dataPhone,
+    activeSegment,
+    updateDataPhone,
+    setStartApp,
+    resetChat,
+    setDataPhone,
+  } = useContext(MexContext);
   const navigate = useNavigate();
 
   const [segments, setSegments] = useState([]);
@@ -46,17 +52,8 @@ export default function MexPhone() {
     });
     // SI HAY RESPUESTAS ACTUALIZO LAS MISMAS
     if (arrAnswers.length != 0) {
-      // console.log(dataPhone.length - 26);
       if (answsSaved == dataPhone.length - 26) {
-        // muestra LAS NOTAS
-        // Swal.fire({
-        //   title: "Calculando resultados...",
-        //   timerProgressBar: true,
-        // });
         setPanelResults(true);
-        // setTimeout(() => {
-        //   Swal.close();
-        // }, 2000);
       }
       updateDataPhone(segments[posQuestion].id, arrAnswers);
       setAnswsSaved((prevPos) => prevPos + 1);
@@ -68,10 +65,21 @@ export default function MexPhone() {
   };
 
   const createSegment = () => {
+    console.log(dataPhone);
+    console.log(posQuestion);
+    console.log(activeSegment);
+
     let segmentosDecteados = dataPhone.filter(
       (segment) =>
         segment.segmento === activeSegment && segment.status == undefined
     );
+
+    dataPhone.forEach((segment) => {
+      console.log(segment.segmento);
+      console.log(segment.status);
+    });
+
+    console.log(segmentosDecteados);
     setPosQuestion(0);
     setSegments(segmentosDecteados);
   };
@@ -175,9 +183,9 @@ export default function MexPhone() {
               className="button"
               type="button"
               onClick={() => {
+                setDataPhone(mexDataPhone);
                 localStorage.setItem("login", false);
-                setStartApp(true);
-                navigate("/");
+                resetChat();
               }}
             >
               <IconHome />

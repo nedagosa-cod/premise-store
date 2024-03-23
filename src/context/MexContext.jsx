@@ -1,9 +1,12 @@
 import { createContext, useState } from "react";
 import { mexDataPhone } from "../components/scene/mexDataPhone";
+import { useNavigate } from "react-router-dom";
+import conversation from "../conversation/tendero";
 
 const MexContext = createContext();
 
 const MexProvider = ({ children }) => {
+  const navigate = useNavigate();
   // charla
   const [activeChat, setActiveChat] = useState("first");
   const [ownerChat, setOwnerChat] = useState([]);
@@ -20,6 +23,11 @@ const MexProvider = ({ children }) => {
   // VARIABLES PARA BASES DE DATOS ^
   const updateResults = (results) => {
     setUserResults(results);
+
+    /// ESPACIO PARA ENVIAR RESULTADOS A LA BASE DE DATOS ////
+    // variables de datos de usuario "userData"
+    // variables de datos de resultado "results/userResults"
+    /// ESPACIO PARA ENVIAR RESULTADOS A LA BASE DE DATOS ////
   };
   const updateDataPhone = (id, respuestas) => {
     setDataPhone(
@@ -38,10 +46,28 @@ const MexProvider = ({ children }) => {
   const setQuestion = (name) => {
     setActiveSegment(name);
   };
-  const resetChat = () => {
+  const welcomOwnScript = () => {
+    setTimeout(() => {
+      setOwnerChat((prevOwnerChat) => [
+        ...prevOwnerChat,
+        <div
+          className="globo animate__animated animate__backInRight"
+          key={prevOwnerChat.length}
+        >
+          <p>{conversation.NPC_options["first"].text}</p>
+          <span>Cecilia</span>
+        </div>,
+      ]);
+    }, 500);
+  };
+  const resetChat = (imgNpc) => {
+    navigate("/");
     setActiveChat("first");
     setOwnerChat([]);
-    // setImageNpc(npcStandar);
+    welcomOwnScript();
+    setImageNpc(imgNpc);
+    setStartApp(true);
+    setActiveSegment("punto");
   };
 
   const data = {
@@ -63,6 +89,8 @@ const MexProvider = ({ children }) => {
     setOwnerChat,
     setImageNpc,
     resetChat,
+    welcomOwnScript,
+    setDataPhone,
   };
   return <MexContext.Provider value={data}>{children}</MexContext.Provider>;
 };
