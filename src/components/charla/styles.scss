@@ -450,13 +450,15 @@ $s2-color: #7e38ff;
   .charla {
     &__chat {
       width: 100%;
+      height: 100dvh;
       & .letrero {
+        height: 20%;
         & figure {
           width: 90%;
         }
       }
       & .wall {
-        height: 80%;
+        height: 50%;
         & .globo {
           & p {
             font-size: 1.4rem;
