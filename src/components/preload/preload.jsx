@@ -4,9 +4,11 @@ import logoPremise from "../../assets/img/premise.webp";
 import { useContext, useState } from "react";
 import MexContext from "../../context/MexContext";
 import { useForm } from "react-hook-form";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export default function Preload() {
-  const { setUserData, userData } = useContext(MexContext);
+  const { setUserData } = useContext(MexContext);
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -116,7 +118,7 @@ export default function Preload() {
               className="primary-button"
               type="button"
               onClick={() => {
-                console.log(userData);
+                navigate("/scores");
               }}
             >
               Ver Resultados

@@ -25,6 +25,7 @@ const MexProvider = ({ children }) => {
     setUserResults(results);
 
     /// ESPACIO PARA ENVIAR RESULTADOS A LA BASE DE DATOS ////
+    console.log(results);
     // variables de datos de usuario "userData"
     // variables de datos de resultado "results/userResults"
     /// ESPACIO PARA ENVIAR RESULTADOS A LA BASE DE DATOS ////

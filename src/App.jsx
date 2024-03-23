@@ -7,6 +7,7 @@ import TiendaCol from "./components/scene/colTScene";
 import MexScene from "./components/scene/mexScene";
 import Charla from "./components/charla/charla";
 import { MexProvider } from "./context/MexContext";
+import TableScores from "./components/TableScores/TableScores";
 
 function App() {
   window.addEventListener("unload", function (event) {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/store" element={<Scene />} />
           <Route path="/coltstore" element={<TiendaCol />} />
           <Route path="/mexstore" element={<MexScene />} />
+          <Route path="/scores" element={<TableScores />} />
         </Routes>
       </MexProvider>
     </div>

@@ -1,0 +1,49 @@
+@use "../../index.scss" as *;
+
+.table-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  background: #ebebeb;
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background: $w-color;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid $g2-color;
+    padding: 4rem;
+    height: fit-content;
+    padding: 4rem;
+  }
+  &__navbar {
+    display: flex;
+    align-items: center;
+
+    font-size: 2rem;
+    & figure {
+      width: 14rem;
+    }
+    & span {
+      color: $p-color;
+      margin: 0 2rem;
+    }
+    & p {
+      color: $p-color;
+      font-weight: 600;
+    }
+  }
+  &__table {
+    width: 80%;
+    height: fit-content;
+    border: 1px solid #ff5b4a;
+    box-shadow: 2px 2px 18px 1px rgba(0, 0, 0, 0.3);
+  }
+  & .link-back {
+    list-style: none;
+    font-size: 2rem;
+    color: $t-color;
+  }
+}
