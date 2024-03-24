@@ -138,80 +138,83 @@ export default function Charla() {
   }, []);
 
   return (
-    <section className="charla">
-      <svg
-        className="clip"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1367 189"
-      >
-        <path
-          className="clip-cls"
-          d="m1367,122s-369,78-702-14S251,1,0,0v189h1367v-67Z"
-        />
-      </svg>
-      <article className="charla__chat">
-        <div className="letrero">
-          <figure>
-            <img src={letrero} alt="letrero" />
-          </figure>
-        </div>
-        <div className="wall">{ownerChat}</div>
+    <>
+      {startApp && <Preload />}
+      <section className="charla">
+        <svg
+          className="clip"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1367 189"
+        >
+          <path
+            className="clip-cls"
+            d="m1367,122s-369,78-702-14S251,1,0,0v189h1367v-67Z"
+          />
+        </svg>
+        <article className="charla__chat">
+          <div className="letrero">
+            <figure>
+              <img src={letrero} alt="letrero" />
+            </figure>
+          </div>
+          <div className="wall">{ownerChat}</div>
 
-        <div className="box-buttons">
-          <div className="card">
-            <div className="top-section">
-              <div className="border"></div>
-              <div className="icons">
-                <div className="logo">
-                  <figure>
-                    <img src={logo360} alt="360" />
-                  </figure>
+          <div className="box-buttons">
+            <div className="card">
+              <div className="top-section">
+                <div className="border"></div>
+                <div className="icons">
+                  <div className="logo">
+                    <figure>
+                      <img src={logo360} alt="360" />
+                    </figure>
+                  </div>
+                  <div className="social-media">
+                    <h3>CHAT</h3>
+                  </div>
                 </div>
-                <div className="social-media">
-                  <h3>CHAT</h3>
+                <div className="options">
+                  {conversation.NPC_options[activeChat].pointers.map(
+                    (puntero, i) => {
+                      return (
+                        <div
+                          className="option"
+                          key={i}
+                          onClick={() => {
+                            chatSelected({
+                              dataConver: {
+                                textOption:
+                                  conversation.user_options[puntero].text,
+                                pointer:
+                                  conversation.user_options[puntero].pointer,
+                                event: conversation.user_options[puntero].event,
+                                emote: conversation.user_options[puntero].emote,
+                                correct:
+                                  conversation.user_options[puntero].correct,
+                              },
+                            });
+                          }}
+                        >
+                          <span>{i + 1}</span>
+                          <p>{conversation.user_options[puntero].text}</p>
+                        </div>
+                      );
+                    }
+                  )}
                 </div>
-              </div>
-              <div className="options">
-                {conversation.NPC_options[activeChat].pointers.map(
-                  (puntero, i) => {
-                    return (
-                      <div
-                        className="option"
-                        key={i}
-                        onClick={() => {
-                          chatSelected({
-                            dataConver: {
-                              textOption:
-                                conversation.user_options[puntero].text,
-                              pointer:
-                                conversation.user_options[puntero].pointer,
-                              event: conversation.user_options[puntero].event,
-                              emote: conversation.user_options[puntero].emote,
-                              correct:
-                                conversation.user_options[puntero].correct,
-                            },
-                          });
-                        }}
-                      >
-                        <span>{i + 1}</span>
-                        <p>{conversation.user_options[puntero].text}</p>
-                      </div>
-                    );
-                  }
-                )}
               </div>
             </div>
           </div>
-        </div>
-      </article>
-      <TenderoImg npcImage={imageNpc} />
-      {startApp && <Preload />}
-      {startPreScene && (
-        <PreScene
-          setStartPreScene={setStartPreScene}
-          typeCartel="animate__slideInDown"
-        />
-      )}
-    </section>
+        </article>
+        <TenderoImg npcImage={imageNpc} />
+
+        {startPreScene && (
+          <PreScene
+            setStartPreScene={setStartPreScene}
+            typeCartel="animate__slideInDown"
+          />
+        )}
+      </section>
+    </>
   );
 }
