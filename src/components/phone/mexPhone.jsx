@@ -99,6 +99,17 @@ export default function MexPhone() {
         <form className="questions__inner">
           <div className="header">
             <button
+              className="responsive-button"
+              type="button"
+              onClick={(e) => {
+                console.log("hols");
+                e.target.parentNode.parentNode.classList.toggle("rs");
+              }}
+            >
+              seta
+            </button>
+            <button
+              className="prev-next-button"
               name="prev"
               type="button"
               onClick={(e) => {
@@ -109,6 +120,7 @@ export default function MexPhone() {
             </button>
             <p>Outlet environment and operat...</p>
             <button
+              className="prev-next-button"
               name="next"
               onClick={(e) => {
                 nextAnswer(e);
