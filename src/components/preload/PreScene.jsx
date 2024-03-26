@@ -52,7 +52,7 @@ const PreScene = ({ typeCartel }) => {
         Swal.fire({
           icon: "question",
           title: "Información de uso",
-          width: 600,
+
           html: ReactDOMServer.renderToString(htmlSwal()),
           confirmButtonColor: "#ff5b4a",
           confirmButtonText: "Entendido",

@@ -389,3 +389,47 @@
     }
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .panel-results {
+    &__form {
+      width: 92%;
+      & h3 {
+        display: flex;
+        flex-direction: column;
+        font-size: 2rem;
+        margin-top: 2rem;
+      }
+      & .examples {
+        padding: 0 1rem;
+        gap: 1.2rem;
+      }
+      &--example {
+        text-align: center;
+      }
+    }
+    & &__data {
+      & .data__box {
+        width: 100%;
+      }
+      & .data__results {
+        width: 100%;
+        padding: 0;
+        &--resume {
+          flex-direction: row;
+          & .resume {
+            &.hr {
+              border: none;
+            }
+          }
+        }
+      }
+      & .data {
+        &__data-answer {
+          flex-direction: column;
+          gap: 0;
+        }
+      }
+    }
+  }
+}

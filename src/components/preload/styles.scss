@@ -252,49 +252,6 @@
   }
 }
 
-.swal2-popup {
-  & .myswal-title {
-    color: $p-color;
-    font-size: 3rem;
-  }
-  & .informacion {
-    width: 80%;
-    margin: auto;
-    & div {
-      width: 66%;
-      display: flex;
-      align-items: center;
-      margin: 12px auto;
-      gap: 12px;
-      & span {
-        font-size: 1.8rem;
-      }
-    }
-    & figure {
-      width: 66px;
-    }
-  }
-  & .myswal-button-confirm {
-    font-size: 1.6rem;
-  }
-  & .myswal-icon {
-    width: 6rem;
-    height: 6rem;
-  }
-  & .footer-instruction {
-    & span {
-      text-wrap: balance;
-      & svg {
-        position: relative;
-        top: 5px;
-        fill: $p-color;
-        width: 2rem;
-        height: 2rem;
-      }
-    }
-  }
-}
-
 .primary-button {
   color: white;
   cursor: pointer;
@@ -394,7 +351,62 @@
   fill: #0e1822;
 }
 
+.swal2-popup {
+  width: 600px;
+  & .myswal-title {
+    color: $p-color;
+    font-size: 3rem;
+  }
+  & .informacion {
+    width: 80%;
+    margin: auto;
+    & div {
+      width: 66%;
+      display: flex;
+      align-items: center;
+      margin: 12px auto;
+      gap: 12px;
+      & span {
+        font-size: 1.8rem;
+      }
+    }
+    & figure {
+      width: 66px;
+    }
+  }
+  & .myswal-button-confirm {
+    font-size: 1.6rem;
+  }
+  & .myswal-icon {
+    width: 6rem;
+    height: 6rem;
+  }
+  & .footer-instruction {
+    & span {
+      text-wrap: balance;
+      & svg {
+        position: relative;
+        top: 5px;
+        fill: $p-color;
+        width: 2rem;
+        height: 2rem;
+      }
+    }
+  }
+}
+
 @media only screen and (max-width: 768px) {
+  .swal2-popup {
+    width: 360px;
+    & .informacion {
+      & div {
+        width: 100%;
+        & span {
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
   .preload {
     & .elements {
       width: 100%;

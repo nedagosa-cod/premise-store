@@ -95,7 +95,7 @@ export default function MexPhone() {
   }, [dataPhone, activeSegment]);
   return (
     <article className="phone-mex">
-      <div className="questions">
+      <div className="questions rs">
         <form className="questions__inner">
           <div className="header">
             <button
