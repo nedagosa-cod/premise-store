@@ -66,6 +66,7 @@
           text-align: center;
         }
         & .prev-next-button {
+          color: $b-color;
           font-size: 2rem;
           outline: none;
           &:focus {
@@ -126,6 +127,7 @@
             opacity: 0.7;
           }
           & p {
+            color: $b-color;
             font-size: 2rem;
           }
           &.hide {
