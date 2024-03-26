@@ -229,7 +229,9 @@ $s2-color: #7e38ff;
       flex-direction: column;
       align-items: center;
       width: 100%;
-      height: 144px;
+      height: 98%;
+      scrollbar-width: thin;
+      scrollbar-color: $w-color $s-color;
       margin-top: 10px;
       overflow-y: auto;
       & .option {
@@ -309,7 +311,7 @@ $s2-color: #7e38ff;
   aspect-ratio: 1;
   padding: 7px 0 7px 15px;
   & figure {
-    width: 70px;
+    width: 45px;
     img {
       filter: invert(100%);
       -webkit-filter: invert(100%);
@@ -471,8 +473,7 @@ $s2-color: #7e38ff;
           flex-wrap: wrap;
           font-size: 1.2rem;
           &::before {
-            top: 12rem;
-            right: 33.6rem;
+            display: none;
           }
         }
       }
