@@ -73,4 +73,12 @@ Variable de usuario : userData
 const [userData, setUserData] = useState({});
 ```
 
-Variable de resultados : userData
+Variable de resultados : userResults
+
+```javascript
+const [userResults, setUserResults] = useState([]);
+```
+
+## Funcion para enviar datos
+
+Se deja la funcion "updateResults" para el codigo que almacena la información en la base de datos.

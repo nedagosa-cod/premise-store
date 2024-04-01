@@ -86,7 +86,6 @@ export default function Charla() {
     }
     // ejecuta un funcion si existe evento
     if (event) {
-      console.log(event);
       switch (event) {
         case "reset":
           Swal.fire({

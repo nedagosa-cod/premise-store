@@ -6,7 +6,6 @@ import "./mexStyle.scss";
 
 import logoPhone from "../../assets/img/360phone.png";
 
-import { useNavigate } from "react-router-dom";
 import MexContext from "../../context/MexContext";
 import { createPortal } from "react-dom";
 import PanelResults from "../PanelResults/PanelResults";
@@ -14,15 +13,8 @@ import { IconHome } from "../icons/IconHome";
 import { mexDataPhone } from "../scene/mexDataPhone";
 
 export default function MexPhone() {
-  const {
-    dataPhone,
-    activeSegment,
-    updateDataPhone,
-    setStartApp,
-    resetChat,
-    setDataPhone,
-  } = useContext(MexContext);
-  const navigate = useNavigate();
+  const { dataPhone, activeSegment, updateDataPhone, resetChat, setDataPhone } =
+    useContext(MexContext);
 
   const [segments, setSegments] = useState([]);
   const [posQuestion, setPosQuestion] = useState(0);
@@ -52,7 +44,7 @@ export default function MexPhone() {
     });
     // SI HAY RESPUESTAS ACTUALIZO LAS MISMAS
     if (arrAnswers.length != 0) {
-      if (answsSaved == dataPhone.length - 26) {
+      if (answsSaved == dataPhone.length - 1) {
         setPanelResults(true);
       }
       updateDataPhone(segments[posQuestion].id, arrAnswers);
@@ -65,21 +57,10 @@ export default function MexPhone() {
   };
 
   const createSegment = () => {
-    console.log(dataPhone);
-    console.log(posQuestion);
-    console.log(activeSegment);
-
     let segmentosDecteados = dataPhone.filter(
       (segment) =>
         segment.segmento === activeSegment && segment.status == undefined
     );
-
-    dataPhone.forEach((segment) => {
-      console.log(segment.segmento);
-      console.log(segment.status);
-    });
-
-    console.log(segmentosDecteados);
     setPosQuestion(0);
     setSegments(segmentosDecteados);
   };

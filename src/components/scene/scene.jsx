@@ -21,8 +21,8 @@ export default function Scene() {
   const [ask, setAks] = useState("");
   const [answers, setAnswers] = useState([]);
   const [numAsk, setNumAsk] = useState(0);
-  const [typee, setTypee] = useState('');
-  const [activeSegment, setActiveSegment] = useState('');
+  const [typee, setTypee] = useState("");
+  const [activeSegment, setActiveSegment] = useState("");
 
   const [startPos, setStartPos] = useState(0);
 
@@ -30,29 +30,31 @@ export default function Scene() {
     setScene(dataScene[nameScene]);
   };
 
-  const resetPhone = () =>{
+  const resetPhone = () => {
     setAks("");
     setAnswers([]);
     setNumAsk(0);
-    setTypee('')
-  }
+    setTypee("");
+  };
 
   const resABCD = (segmento) => {
-    if (segmento != '') {
+    if (segmento != "") {
       let res = formData.filter((el) => el.segmento == segmento);
-      const dataLocal = JSON.parse(localStorage.getItem('data'))
-      
-      let resultado = res.filter(objeto1 => !dataLocal.some(objeto2 => objeto2.id === objeto1.id));
-          if (resultado[startPos] !== undefined) {
-            setAks(resultado[startPos].titulo);
-            setAnswers(resultado[startPos].arrayRespuestas);
-            setNumAsk(resultado[startPos].id);
-            setTypee(resultado[startPos].tipo)
-            setActiveSegment(segmento)
-            setStartPos(startPos+1)
-          } else {
-            setStartPos(0)
-          }
+      const dataLocal = JSON.parse(localStorage.getItem("data"));
+
+      let resultado = res.filter(
+        (objeto1) => !dataLocal.some((objeto2) => objeto2.id === objeto1.id)
+      );
+      if (resultado[startPos] !== undefined) {
+        setAks(resultado[startPos].titulo);
+        setAnswers(resultado[startPos].arrayRespuestas);
+        setNumAsk(resultado[startPos].id);
+        setTypee(resultado[startPos].tipo);
+        setActiveSegment(segmento);
+        setStartPos(startPos + 1);
+      } else {
+        setStartPos(0);
+      }
     }
   };
 
@@ -332,7 +334,7 @@ export default function Scene() {
           cssClass: "m-spot",
           clickHandlerFunc: () => {
             changeScene("pasillo_1_b");
-          }
+          },
         },
         {
           text: "Volver a la Entrada",
@@ -342,7 +344,7 @@ export default function Scene() {
           cssClass: "m-spot",
           clickHandlerFunc: () => {
             changeScene("entrada");
-          }
+          },
         },
       ],
     },
@@ -381,7 +383,7 @@ export default function Scene() {
           cssClass: "m-spot",
           clickHandlerFunc: () => {
             changeScene("pasillo_1_c");
-          }
+          },
         },
         {
           text: "volver",
@@ -391,7 +393,7 @@ export default function Scene() {
           cssClass: "m-spot",
           clickHandlerFunc: () => {
             changeScene("pasillo_1_a");
-          }
+          },
         },
       ],
     },
@@ -821,19 +823,27 @@ export default function Scene() {
       pitch: nameScene.pitch,
       hfov: nameScene.hfov,
       autoLoad: true,
-      hotSpotDebug: true,
+      hotSpotDebug: false,
       sceneFadeDuration: nameScene.sceneFadeDuration,
       hotSpots: nameScene.hotSpots.map((element) => element),
     });
   };
-  let alertPreload = true
+  let alertPreload = true;
   useEffect(() => {
     createPannellum(scene);
   }, [scene]);
   return (
     <div className="box-scene" name={numAsk}>
       <Preload funct={alertPreload} />
-      <Phone ask={ask} answers={answers} numAsk={numAsk} type={typee} resetPhone={resetPhone} changeAsk={resABCD} activeSegment={activeSegment}/>
+      <Phone
+        ask={ask}
+        answers={answers}
+        numAsk={numAsk}
+        type={typee}
+        resetPhone={resetPhone}
+        changeAsk={resABCD}
+        activeSegment={activeSegment}
+      />
       <div id="panorama" className="panorama"></div>
     </div>
   );
