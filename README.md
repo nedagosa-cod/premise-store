@@ -81,4 +81,4 @@ const [userResults, setUserResults] = useState([]);
 
 ## Funcion para enviar datos
 
-Se deja la funcion "updateResults" para el codigo que almacena la información en la base de datos.
+Se deja la funcion "updateResults" para el código que almacena la información en la base de datos.

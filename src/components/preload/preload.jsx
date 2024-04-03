@@ -106,7 +106,16 @@ export default function Preload() {
           <div className="topline"></div>
           <div className="underline"></div>
         </div>
-        {errors.name && <p>Debes completar minimo 2 campos.</p>}
+        {errors.name && (
+          <p
+            style={{
+              fontSize: "1.4rem",
+              color: "red",
+            }}
+          >
+            Debes completar minimo 2 campos.
+          </p>
+        )}
         <div className="elements__buttons">
           <div className="button-borders">
             <button className="primary-button" type="submit">

@@ -17,10 +17,11 @@ const MexProvider = ({ children }) => {
   const [startApp, setStartApp] = useState(
     localStorage.getItem("login") == "true" ? false : true
   );
+
   // VARIABLES PARA BASES DE DATOS
   const [userData, setUserData] = useState({});
   const [userResults, setUserResults] = useState([]);
-  // VARIABLES PARA BASES DE DATOS ^
+
   const updateResults = (results) => {
     setUserResults(results);
 
