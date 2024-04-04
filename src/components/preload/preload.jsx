@@ -4,7 +4,7 @@ import logoPremise from "../../assets/img/premise.webp";
 import { useContext, useState } from "react";
 import MexContext from "../../context/MexContext";
 import { useForm } from "react-hook-form";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Preload() {
   const { setUserData } = useContext(MexContext);
