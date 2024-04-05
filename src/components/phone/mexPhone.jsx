@@ -126,15 +126,12 @@ export default function MexPhone() {
                     "respuestas " +
                     (segments[posQuestion]?.tipo == "foto" ? "foto" : "")
                   }
+                  // CODIGO DONDE MUESTRA LA FOTO EN EL TIPO DE PREGUNTA DE FOTO
                 >
                   {segments[posQuestion]?.tipo == "foto" && (
                     <figure>
                       <img
-                        src={
-                          "/src/assets/iconScenes/" +
-                          segments[posQuestion]?.namePhoto +
-                          ".jpg"
-                        }
+                        src={"/" + segments[posQuestion]?.namePhoto + ".jpg"}
                         alt="Foto ejemplo"
                       />
                     </figure>
